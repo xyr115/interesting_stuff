@@ -1,0 +1,1 @@
+../../../../Cellar/rpm/4.14.1_1/share/locale/ar/LC_MESSAGES/rpm.mo

@@ -1,0 +1,1 @@
+../../../../Cellar/ruby/2.5.1/lib/ruby/2.5.0/irb/ws-for-case-2.rb

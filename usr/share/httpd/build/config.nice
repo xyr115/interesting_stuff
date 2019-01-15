@@ -1,0 +1,26 @@
+#! /bin/sh
+#
+# Created by configure
+
+"/BuildRoot/Library/Caches/com.apple.xbs/Sources/apache/apache-837/httpd/configure" \
+"--prefix=/usr" \
+"--enable-layout=Darwin" \
+"--with-apr=/BuildRoot/Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.14.xctoolchain/usr/local/bin/apr-1-config" \
+"--with-apr-util=/BuildRoot/Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.14.xctoolchain/usr/local/bin/apu-1-config" \
+"--with-pcre=/BuildRoot/Library/Caches/com.apple.xbs/Sources/apache/apache-837/httpd/../" \
+"--enable-mods-shared=all" \
+"--enable-ssl" \
+"--with-z=/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.Internal.sdk/usr/include" \
+"--with-libxml2=/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.Internal.sdk/usr/include/libxml2" \
+"--with-ssl=/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.Internal.sdk/usr/local/libressl-2.5" \
+"--enable-cache" \
+"--enable-mem-cache" \
+"--enable-proxy-balancer" \
+"--enable-proxy" \
+"--enable-proxy-http" \
+"--enable-disk-cache" \
+"--with-mpm=prefork" \
+"--enable-imagemap" \
+"--enable-negotiation" \
+"--enable-slotmem-shm" \
+"$@"

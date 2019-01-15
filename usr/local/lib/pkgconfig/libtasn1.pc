@@ -1,0 +1,1 @@
+../../Cellar/libtasn1/4.13/lib/pkgconfig/libtasn1.pc

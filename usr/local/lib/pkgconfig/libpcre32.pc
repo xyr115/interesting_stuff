@@ -1,0 +1,1 @@
+../../Cellar/pcre/8.42/lib/pkgconfig/libpcre32.pc

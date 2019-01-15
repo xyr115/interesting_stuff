@@ -1,0 +1,123 @@
+.\" Created from Texinfo source by yat2m 1.32
+.TH GPG-WKS-CLIENT 1 2018-06-12 "GnuPG 2.2.9" "GNU Privacy Guard 2.2"
+.SH NAME
+.B gpg-wks-client
+\- Client for the Web Key Service
+.SH SYNOPSIS
+.B gpg-wks-client
+.RI [ options ]
+.B \-\-supported
+.I user-id
+.br
+.B gpg-wks-client
+.RI [ options ]
+.B \-\-check
+.I user-id
+.br
+.B gpg-wks-client
+.RI [ options ]
+.B \-\-create
+.I fingerprint
+.I user-id
+.br
+.B gpg-wks-client
+.RI [ options ]
+.B \-\-receive
+.br
+.B gpg-wks-client
+.RI [ options ]
+.B \-\-read
+
+.SH DESCRIPTION
+The \fBgpg-wks-client\fR is used to send requests to a Web Key
+Service provider.  This is usuallay done to upload a key into a Web
+Key Directory.
+
+With the \fB--supported\fR command the caller can test whether a
+site supports the Web Key Service.  The argument is an arbitray
+address in the to be tested domain. For example
+\(oq\fIfoo@example.net\fR\(cq.  The command returns success if the Web Key
+Service is supported.  The operation is silent; to get diagnostic
+output use the option \fB--verbose\fR.
+
+With the \fB--check\fR command the caller can test whether a key
+exists for a supplied mail address.  The command returns success if a
+key is available.
+
+The \fB--create\fR command is used to send a request for
+publication in the Web Key Directory.  The arguments are the
+fingerprint of the key and the user id to publish.  The output from
+the command is a properly formatted mail with all standard headers.
+This mail can be fed to \fBsendmail(8)\fR or any other tool to
+actually send that mail.  If \fBsendmail(8)\fR is installed the
+option \fB--send\fR can be used to directly send the created
+request.  If the provider request a 'mailbox-only' user id and no such
+user id is found, \fBgpg-wks-client\fR will try an additional user
+id.
+
+The \fB--receive\fR and \fB--read\fR commands are used to
+process confirmation mails as send from the service provider.  The
+former expects an encrypted MIME messages, the latter an already
+decrypted MIME message.  The result of these commands are another mail
+which can be send in the same way as the mail created with
+\fB--create\fR.
+
+\fBgpg-wks-client\fR is not commonly invoked directly and thus it
+is not installed in the bin directory.  Here is an example how it can
+be invoked manually to check for a Web Key Directory entry for
+\(oq\fIfoo@example.org\fR\(cq:
+
+.RS 2
+.nf
+$(gpgconf --list-dirs libexecdir)/gpg-wks-client --check foo@example.net
+.fi
+.RE
+
+.SH OPTIONS
+
+\fBgpg-wks-client\fR understands these options:
+
+
+.TP
+.B  --send
+Directly send created mails using the \fBsendmail\fR command.
+Requires installation of that command.
+
+.TP
+.B  --output \fIfile\fR
+.TQ
+.B  -o
+Write the created mail to \fIfile\fR instead of stdout.  Note that the
+value \fB-\fR for \fIfile\fR is the same as writing to stdout.
+
+.TP
+.B  --status-fd \fIn\fR
+Write special status strings to the file descriptor \fIn\fR.
+This program returns only the status messages SUCCESS or FAILURE which
+are helpful when the caller uses a double fork approach and can't
+easily get the return code of the process.
+
+.TP
+.B  --verbose
+Enable extra informational output.
+
+.TP
+.B  --quiet
+Disable almost all informational output.
+
+.TP
+.B  --version
+Print version of the program and exit.
+
+.TP
+.B  --help
+Display a brief help page and exit.
+
+.P
+
+
+.SH SEE ALSO
+\fBgpg-wks-server\fR(1)
+
+
+

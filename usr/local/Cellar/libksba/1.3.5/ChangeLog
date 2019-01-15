@@ -1,0 +1,346 @@
+2016-08-22  Werner Koch  <wk@gnupg.org>
+
+	Release 1.3.5.
+	* configure.ac: Set LT version to C19/A/11/R6.
+
+	Use size_t for the result of fread.
+	* src/reader.c (ksba_reader_read): Make 'n' and size_t.
+
+	Limit allocation in the BER decoder to 16 MiB.
+	* src/ber-decoder.c (MAX_IMAGE_LENGTH): New.
+	(decoder_next): Limit allcoation to MAX_IMAGE_LENGTH.
+	(_ksba_ber_decoder_dump, _ksba_ber_decoder_decode): Ditto.
+
+2016-07-17  Tomáš Trnka  <tomastrnka@gmx.com>
+
+	Encode OCSP nonce value as an octet string (RFC 6960)
+	* src/ocsp.c (ksba_ocsp_set_nonce): Stop removing the sign bit.
+	 (write_request_extensions): Encode nonce as octet string.
+	 (parse_response_extensions): Decode nonce as octet string.
+
+2016-07-13  Werner Koch  <wk@gnupg.org>
+
+	build: Update config.{guess,sub} to {2016-05-15,2016-06-20}.
+	* build-aux/config.guess: Update.
+	* build-aux/config.sub: Update.
+
+2016-06-27  Werner Koch  <wk@gnupg.org>
+
+	tests: Fix a memory leak.
+	* tests/t-oid.c (test_oid_to_str): Free STR.
+
+	Use modern error macros and fix a missing assignment.
+	* src/ocsp.c: Remove errno.h.  Replace gpg_error_from_errno(errno) by
+	gpg_error_from_syserror ().
+	(parse_response): Ditto.  Return direct becuase static analyzer may
+	not grasp that  gpg_error_from_syserror will never return false.
+	(ksba_ocsp_get_responder_id): Actually return an error for NO_DATA.
+
+	Detect invalid RDN names and avoid a read from uninitialized variable.
+	* src/dn.c (parse_rdn): Bail out for an invalid name.
+
+2016-05-25  Werner Koch  <wk@gnupg.org>
+	    Pascal Cuoq  <cuoq@trust-in-soft.com>
+
+	Fix OOB read in parse_distribution_point.
+	* src/cert.c (parse_distribution_point): Check TI.length.
+
+2016-05-11  Werner Koch  <wk@gnupg.org>
+
+	Make sure that ASN.1 data is stored in an all-initialized buffer.
+	* src/ber-decoder.c (decoder_next): Clear the image buffer.
+
+2016-05-03  Werner Koch  <wk@gnupg.org>
+
+	Release 1.3.4.
+	* configure.ac: Set LT version to C19/A11/R5.
+
+	Update config.{guess,sub} to 2016-04-02 and 2016-03-30.
+	* build-aux/config.guess: Update.
+	* build-aux/config.sub: Update.
+
+	Create an SWDB file during "make distcheck"
+	* Makefile.am (distcheck-hook): New.
+
+	Fix an undefined return value in ksba_cert_get_digest_algo.
+	* src/cert.c (ksba_cert_get_digest_algo): Set ALGO in the error case.
+	* tests/cert-basic.c (one_file): Take care of printf which does not
+	handle NULL for %s
+
+	Fix an OOB read access in _ksba_dn_to_str.
+	* src/dn.c (append_utf8_value): Use a straightforward check to fix an
+	off-by-one.
+
+	Fix possible read access beyond the buffer.
+	* src/ber-help.c (_ksba_ber_parse_tl): Add extra sanity check.
+	* src/cert.c (ksba_cert_get_cert_policies): Check TLV given length
+	against buffer length.
+	(ksba_cert_get_ext_key_usages): Ditto.
+	* src/ocsp.c (parse_asntime_into_isotime): Ditto.
+
+2015-10-28  Werner Koch  <wk@gnupg.org>
+
+	Add more curves to the name->OID table.
+	* src/keyinfo.c (curve_names): Add more curves.
+
+	Fix lookup of ECC OIDs by name.
+	* src/keyinfo.c (get_ecc_curve_oid): Fix obviously never tested table
+	lookup.
+
+2015-08-25  Werner Koch  <wk@gnupg.org>
+
+	Add configure option --enable-build-timestamp.
+	* configure.ac (BUILD_TIMESTAMP): Set to "<none>" by default.  Add
+	ac_define_unquoted.
+
+2015-04-10  Werner Koch  <wk@gnupg.org>
+
+	Release 1.3.3.
+
+2015-04-09  Werner Koch  <wk@gnupg.org>
+
+	Do not abort on decoder stack overflow.
+	* src/ber-decoder.c (push_decoder_state, pop_decoder_state): Return an
+	error code.
+	(set_error): Prefix error message with "ksba:". Act on new return code.
+	(decoder_next): Act on new return code.
+
+	Fix integer overflow in the BER decoder.
+	* src/ber-decoder.c (ber_decoder_s): Change val.length from int to
+	size_t.
+	(sum_a1_a2_gt_b, sum_a1_a2_ge_b): New.
+	(decoder_next): Check for integer overflow.  Use new sum function for
+	size check.
+	(_ksba_ber_decoder_dump): Use size_t for n to match change of
+	val.length.  Adjust printf fomrat.  Check for integer overflow and use
+	gpg_error_from_syserror instead of GPG_ERR_ENOMEM.
+	(_ksba_ber_decoder_decode): Use new sum function for size check.
+	Check for integer overflow.  Use size_t for n to match change of
+	val.length.
+
+2015-04-08  Werner Koch  <wk@gnupg.org>
+
+	Fix encoding of invalid utf-8 strings in dn.c.
+	* src/dn.c (append_quoted, append_atv): Use snprintf.
+	(append_utf8_value): Fix invalid encoding handling.
+
+2015-01-30  Werner Koch  <wk@gnupg.org>
+
+	w32: Use -static-libgcc to avoid linking to libgcc_s_sjlj-1.dll.
+	* src/Makefile.am (extra_ltoptions): New.
+	(libksba_la_LDFLAGS): Use it.
+
+	Update ASN.1 grammar for newer Bison versions.
+	* src/asn1-parse.y (YYERROR_VERBOSE): Replace by ...
+	(%define parse.error.verbose): this.
+	(YYPARSE_PARM, YYLEX_PARM): Replace by ...
+	(%parm): this.
+	(%pure_parser): Replace by ...
+	(%define api.pure full): this.
+	(yyerror): Add arg parm.
+
+2015-01-28  Werner Koch  <wk@gnupg.org>
+
+	Require automake 1.14 and update build-aux files.
+	* Makefile.am (AUTOMAKE_OPTIONS): Move to ...
+	* configure.ac (AM_INIT_AUTOMAKE: here.  Add serial-tests.
+
+2014-11-25  Werner Koch  <wk@gnupg.org>
+
+	Release 1.3.2.
+	* configure.ac: Set LT version to C19/A11/R3.
+
+	build: Update version number magic.
+	* autogen.sh: Update from gnupg master.
+	* configure.ac: Change for new init style.  Create VERSION.
+	* Makefile.am (dist-hook): Do no create VERSION
+
+	Fix buffer overflow in ksba_oid_to_str.
+	* src/oid.c (ksba_oid_to_str): Fix unsigned underflow.
+
+	* tests/Makefile.am (noinst_PROGRAMS): Move t-oid to ..
+	(TESTS): here.
+	* tests/t-oid.c (test_oid_to_str): New.
+	(main): Run the new tests by default.  The former functionality
+	requires the use of one of the new options.
+
+2014-09-25  Werner Koch  <wk@gnupg.org>
+
+	Strip CRs while building the oid translation table.
+	* tests/Makefile.am (oidtranstbl.h): Strip CRs
+
+2014-09-18  Werner Koch  <wk@gnupg.org>
+
+	Release 1.3.1.
+	* configure.ac: Set LT version to C19/A11/R2.
+
+2014-07-22  Dmitry Eremin-Solenikov  <dbaryshkov@gmail.com>
+
+	Fix two memory leaks in cert-basic test.
+	* tests/cert-basic.c (one_file): always free public key and der2.
+
+	Enable optional valgrind for testsuite.
+	* configure.ac: Enable gnulib valgrind module.
+	* gl/m4/gnulib.m4: Enable valgrind module.
+	* tests/Makefile.am: Enable valgrind as LOG_COMPILER.
+	* gl/m4/valgrind-tests.m4: New
+
+	Fix memory leak in crl parsing code.
+	* src/crl.c (store_one_entry_extension): Free memory at oid variable -
+	  otherwise libksba leaks memory on crl parsing.
+
+	Adapt mkoidtbl script to newer dumpasn1 database format.
+	* tests/mkoidtbl.awk: optionally parse oid at OID line.
+
+	Reuse common test functions in cert-basic test.
+	* tests/cert-basic.c (xmalloc, print_hex, print_sexp, print_time,
+	  print_dn): Drop.
+
+	tests: fix print_sexp and print_sexp_hex functions.
+	* tests/t-common.h (print_sexp, print_sexp_hex): advance pointer on
+	  closing brace.
+
+	tests: Pass -no-install to libtool.
+	* tests/Makefile.am: add AM_LDFLAGS = -no-install
+
+2014-04-15  Werner Koch  <wk@gnupg.org>
+
+	tests: Fix warning about unused var.
+	* tests/t-dnparser.c (main): Drop unneeded var INPUTLEN.
+
+	Fix possible segv if NULL is passed as cert.
+	* src/cert.c (ksba_cert_get_digest_algo): Fix !cert case.
+
+2014-01-10  Werner Koch  <wk@gnupg.org>
+
+	Remove cruft.
+	* autogen.rc: Remove cruft.
+
+	Use the generic autogen.sh script.
+	* Makefile.am (EXTRA_DIST): Add autogen.rc.
+	* autogen.rc: New.
+	* autogen.sh: Update from current GnuPG.
+	* ltmain.sh: Move to build-aux/.
+	* compile: Ditto.
+	* config.guess: Ditto.
+	* config.sub: Ditto.
+	* depcomp: Ditto.
+	* doc/mdate-sh: Ditto.
+	* doc/texinfo.tex: Ditto.
+	* install-sh: Ditto.
+	* missing: Ditto.
+	* ylwrap: Ditto.
+	* configure.ac (AC_CONFIG_AUX_DIR): New.
+
+2014-01-08  Werner Koch  <wk@gnupg.org>
+
+	Add --enable-silent-rules stuff.
+	* configure.ac: Add AM_SILENT_RULES.
+
+	Fix libtool 2.4.2 to correctly detect .def files.
+	* ltmain.sh (sed_uncomment_deffile): New.
+	(orig_export_symbols): Uncomment def file before testing for EXPORTS.
+	* m4/libtool.m4: Do the same for the generated code.
+
+2013-12-10  David 'Digit' Turner  <digit@google.com>
+
+	Update libtool to support Android.
+	* m4/libtool.m4: Add "linux*android*" case.  Taken from the libtool
+	repository.
+
+2013-12-10  Werner Koch  <wk@gnupg.org>
+
+	Add build support for ppc64le.
+	* config.guess, config.sub: Update to latest version (2013-11-29).
+	* m4/libtool.m4: Add patches for ppc64le.
+
+	Fix duplicate definition of TRUE and FALSE in grammar file.
+	* src/asn1-parse.y (YYPRINT): Define.
+	(%token-table): Define.
+	(TRUE,FALSE,BOOLEAN): Prefix these tokens with "ksba_" to avoid name
+	conflicts.
+	(key_word, key_word_token): Remove arrays.
+	(%token): Add literal strings to almost all tokens.
+	(yylex): Use yytname array for keyword lookup.
+
+2012-11-16  Werner Koch  <wk@gnupg.org>
+
+	Improve parsing of the GIT revision number.
+	* configure.ac (mmm4_revision): Use git rev-parse.
+
+	Fix non-portable use of chmod in autogen.sh.
+	* autogen.sh: Remove option -c from chmod.
+
+2012-09-27  Werner Koch  <wk@gnupg.org>
+
+	Release 1.3.0.
+	* configure.ac: Set LT version to C19/A11/R1.
+
+2012-09-26  Werner Koch  <wk@gnupg.org>
+
+	Update build helper scripts.
+	* config.guess, config.sub: Update to version 2012-07-31.
+	* ltmain.sh: Update to version 2.4.2.
+	* install-sh, m4/libtool.m4, m4/ltoptions.m4, m4/ltversion.m4
+	* m4/lt~obsolete.m4: Update to autoconf 2.69 versions.
+
+	Adjust for stricter autoconf requirements.
+	* configure.ac: Fix usage of AC_LANG_PROGRAM.
+
+	Do not distribute a copy of gitlog-to-changelog.
+	* Makefile.am (AUTOMAKE_OPTIONS): Do not create a tar.gz.
+	(gen-ChangeLog): Require an installed gitlog-to-changelog.
+	* build-aux/gitlog-to-changelog: Remove.
+
+	Allow building with w64-mingw32.
+	* autogen.sh <--build-w32>: Support the w64-mingw32 toolchain.  Also
+	prepare for 64 bit building.
+
+	Switch to the new automagic beta numbering scheme.
+	* configure.ac: Add all the required m4 magic.
+
+	Change library license to LGPLv3+/GPLv2+.
+	* COPYING.GPLv2, COPYING.GPLv3, COPYING.LGPLv3: New.
+	* COPYING: Replace text by a reference to the new files.
+	* AUTHORS: Update copyright, license, and maintainer information.
+	* Makefile.am (EXTRA_DIST): Distribute the new files.
+
+	Remove unused or useless files.
+	* src/asn1-parse.h: Remove empty file.
+	* src/asn1-parse.y: Do not include asn1-parse.h.
+
+2011-12-06  Werner Koch  <wk@gnupg.org>
+
+	Allow to set subject and issuer.
+	* src/certreq.c (ksba_certreq_set_issuer): Do not check the subject.
+
+2011-12-01  Werner Koch  <wk@gnupg.org>
+
+	Post release updates.
+
+	Generate the ChangeLog from commit logs.
+	* build-aux/gitlog-to-changelog: New script.  Taken from gnulib.
+	* build-aux/git-log-fix: New file.
+	* build-aux/git-log-footer: New file.
+	* doc/HACKING: New file.
+	* ChangeLog: New file.
+	* Makefile.am (EXTRA_DIST): Add new files.
+	(gen-ChangeLog): New.
+	(dist-hook): Run gen-ChangeLog.
+	* autogen.sh: Install commit-msg hook for git.
+
+	Rename all ChangeLog files to ChangeLog-2011.
+
+2011-12-01  Werner Koch  <wk@gnupg.org>
+
+	NB: Changes done before December 1st, 2011 are described in
+	per directory files named ChangeLog-2011.  See doc/HACKING for
+	details.
+
+        -----
+	Copyright (C) 2011 g10 Code GmbH
+
+	Copying and distribution of this file and/or the original GIT
+	commit log messages, with or without modification, are
+	permitted provided the copyright notice and this notice are
+	preserved.

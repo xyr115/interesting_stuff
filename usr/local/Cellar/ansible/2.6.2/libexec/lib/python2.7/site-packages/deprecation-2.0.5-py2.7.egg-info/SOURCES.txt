@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+deprecation.py
+setup.cfg
+setup.py
+deprecation.egg-info/PKG-INFO
+deprecation.egg-info/SOURCES.txt
+deprecation.egg-info/dependency_links.txt
+deprecation.egg-info/requires.txt
+deprecation.egg-info/top_level.txt
+tests/__init__.py
+tests/test_deprecation.py

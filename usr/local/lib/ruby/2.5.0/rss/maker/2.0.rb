@@ -1,0 +1,1 @@
+../../../../../Cellar/ruby/2.5.1/lib/ruby/2.5.0/rss/maker/2.0.rb

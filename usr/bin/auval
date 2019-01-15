@@ -1,0 +1,8 @@
+#! /bin/sh
+
+if [[ $1 = '-32' ]] ; then
+shift
+arch -i386 /usr/bin/auvaltool "$@"
+else
+arch -x86_64 /usr/bin/auvaltool "$@"
+fi

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>POLICIES - RubyGems Update Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Pull+Requests">Pull Requests</a>
+    <li><a href="#label-Long-Term+Support">Long-Term Support</a>
+    <li><a href="#label-Security+Fixes">Security Fixes</a>
+    <li><a href="#label-Release+Policies">Release Policies</a>
+    <li><a href="#label-Committer+Access">Committer Access</a>
+    <li><a href="#label-Changing+These+Policies">Changing These Policies</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="./CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="./CVE-2013-4287_txt.html">CVE-2013-4287</a>
+  
+    <li><a href="./CVE-2013-4363_txt.html">CVE-2013-4363</a>
+  
+    <li><a href="./CVE-2015-3900_txt.html">CVE-2015-3900</a>
+  
+    <li><a href="./History_txt.html">History</a>
+  
+    <li><a href="./LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="./MAINTAINERS_txt.html">MAINTAINERS</a>
+  
+    <li><a href="./MIT_txt.html">MIT</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./POLICIES_rdoc.html">POLICIES</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+    <li><a href="./UPGRADING_rdoc.html">UPGRADING</a>
+  
+    <li><a href="./bundler/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="./bundler/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="./bundler/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="./bundler/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="./bundler/README_md.html">README</a>
+  
+    <li><a href="./hide_lib_for_update/note_txt.html">note</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page POLICIES.rdoc">
+
+<h2 id="label-Pull+Requests">Pull Requests<span><a href="#label-Pull+Requests">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Contributions to RubyGems are made via GitHub pull requests, which must be
+approved by a project committer other than the author. To approve a PR, a
+maintainer can leave a comment including the text “@bundlerbot r+”,
+indicating that they have reviewed the PR and approve it. Bundlerbot will
+then automatically create a merge commit, test the merge, and land the PR
+if the merge commit passes the tests.</p>
+
+<p>This process guarantees that our release branches always have passing
+tests, and reduces siloing of information to a single contributor. For a
+full list of possible commands, see <a
+href="https://bundlerbot-homu.herokuapp.com/">the Bundlerbot
+documentation</a>.</p>
+
+<h2 id="label-Long-Term+Support">Long-Term Support<span><a href="#label-Long-Term+Support">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>RubyGems long-term support policy will be similar to and follow the Ruby
+long-term support policy.</p>
+
+<p>When a Ruby version reaches end-of-life, the RubyGems version included in
+that release will also reach end-of-life.  After that date no security
+releases will be made for RubyGems releases up to the version shipped in
+the next release of Ruby.</p>
+
+<p>For example, Ruby 1.9.3 reached end-of-life on 23 February 2015.  RubyGems
+version 2.0.0 shipped with Ruby 2.0.0, so no RubyGems versions earlier than
+2.0.0 will receive any updates.  Ruby 2.1.0 shipped with RubyGems 2.2.0. 
+When Ruby 2.0.0 reaches end-of-life no RubyGems versions earlier than 2.2.0
+will receive any updates.</p>
+
+<h3 id="label-Security+Fixes">Security Fixes<span><a href="#label-Security+Fixes">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Security releases will be made for RubyGems version series that were
+included in a Ruby release.</p>
+
+<p>For example, RubyGems 2.0.x will receive security fixes until Ruby 2.0.0
+reaches end-of-life.</p>
+
+<h2 id="label-Release+Policies">Release Policies<span><a href="#label-Release+Policies">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>RubyGems primarily makes bug fix releases off of the master branch.  We may
+mix bug fixes and new features in the same release.  RubyGems does not
+guarantee it will make bug fix releases for earlier versions.</p>
+
+<p>For example, RubyGems 2.5.0 was recently released.  RubyGems does not
+guarantee any non-security bugfix releases will be made upon the 2.4.x
+series, or any earlier series, of releases.</p>
+
+<p>Additionally, when a Ruby version reaches end-of-life the following release
+of RubyGems will no longer be required to maintain backwards compatibility
+with that Ruby version.  This may result in a major version change.</p>
+
+<p>For example, since Ruby 1.9.3 has reached end-of-life, RubyGems may use
+features of ruby that only exist in Ruby 2.0 and later.  As of this writing
+RubyGems is 2.5.x, so the RubyGems version would become 3.x if it used
+features only available in Ruby 2.0 and later.</p>
+
+<h2 id="label-Committer+Access">Committer Access<span><a href="#label-Committer+Access">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>RubyGems committers may lose their commit privileges if they are inactive
+for longer than 12 months.  Committer permission may be restored upon
+request by having a pull request merged.</p>
+
+<p>This is designed to improve the maintainability of RubyGems by requiring
+committers to maintain familiarity with RubyGems activity and to improve
+the security of RubyGems by preventing idle committers from having their
+commit permissions compromised or exposed.</p>
+
+<h2 id="label-Changing+These+Policies">Changing These Policies<span><a href="#label-Changing+These+Policies">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>These policies were set in order to reduce the burden of maintenance and to
+keep committers current with existing development and policies.  RubyGems
+work is primarily volunteer-driven which limits the ability to provide
+long-term support.  By funding RubyTogether you can help extend support for
+older RubyGems versions.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

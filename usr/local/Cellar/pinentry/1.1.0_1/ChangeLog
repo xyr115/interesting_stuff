@@ -1,0 +1,1869 @@
+2017-12-03  Werner Koch  <wk@gnupg.org>
+
+	Release 1.1.0.
+	+ commit 02df3d26b986c8f2850eeba47efcb3aca9d5dbcb
+
+
+2017-11-22  Damien Goutte-Gattat  <dgouttegattat@incenp.org>
+	    "deloptes"  <deloptes@gmail.com>
+
+	tqt: Add a TQt-based pinentry.
+	+ commit 985e5cad6f60de8e60d8ae410cffcd7e2d84f3a2
+	* NEWS: Update.
+	* Makefile.am: Add new tqt subdirectory.
+	* configure.ac: Add --enable-pinentry-tqt option.
+	* tqt/Makefile.am: New file.
+	* tqt/main.cpp: New file.
+	* tqt/pinentrydialog.cpp: New file.
+	* tqt/pinentrydialog.h: New file.
+	* tqt/secqinternal.cpp: New file.
+	* tqt/secqinternal_p.h: New file.
+	* tqt/secqlineedit.cpp: New file.
+	* tqt/secqlineedit.h: New file.
+	* tqt/secqstring.cpp: New file.
+	* tqt/secqstring.h: New file.
+
+2017-11-21  Werner Koch  <wk@gnupg.org>
+
+	w32: Allow building for Windows again.
+	+ commit 8ea3a6c3f8e72ebece2af9b1b05ea1da4865a786
+	* pinentry/pinentry.c [W32]: Do not include utsname.h
+	(WITH_UTF8_CONVERSION): New macro.
+	(lc_ctype_unknown_warning): Move that var to the top and define only
+	if needed.
+	(pinentry_utf8_to_local, pinentry_local_to_utf8): Simplyfy by using
+	the new macro.
+	(get_cmdline) [W32]: Do not build.
+	(get_pid_name_for_uid) [W32]: Do not build.
+	(pinentry_get_title) [W32]: Do not use the new utsname code.
+	(option_handler) <debug-wait>: Ignore for any Windows version.
+
+2017-11-20  Werner Koch  <wk@gnupg.org>
+
+	Add SPDX-License-Identifier to most files.
+	+ commit 622f876784239c9524a598e6486181bcd0ee64b2
+
+
+	Add copyright info for AUTHORS.
+	+ commit 738ab548f13cc032f01ca5da1f8dc3ea221b209d
+
+
+2017-11-16  Damien Goutte-Gattat  <dgouttegattat@incenp.org>
+
+	fltk: Fix compilation and distcheck errors.
+	+ commit 89ae5378d1cc54be0825bcfa3ea567b1caa4a247
+	* fltk/Makefile.am (AM_CXXFLAGS): Add -std=c++11 flag.
+	(pinentry_fltk_SOURCES): Add header files.
+	(EXTRA_DIST): Add icon files.
+	* .gitignore: Ignore autoconf-generated files in fltk/.
+
+2017-10-19  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	core: Expect (and verify) a uid on "owner" option.
+	+ commit 6aafa61b199ab9091d6c9e190129f2ead2a647c7
+	* pinentry/pinentry.h (struct pinentry): Add field 'owner_uid'.
+	* pinentry/pinentry.c (pinentry_reset): Handle this new field.
+	(get_pid_name_for_uid): New. Atomic check for the base process name
+	contingent on process ownership.
+	(pinentry_get_title): Only scan for full commandline if the process
+	actually belongs to the claimed uid.
+	(option_handler): Option "owner" now expects "pid/uid hostname".
+
+2017-10-12  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	core: Only scan for the command line if probably on the same host.
+	+ commit 1f5b351531205214e9513a0aed170660dc822ceb
+	* pinentry/pinentry.c (pinentry_get_title): Check the current hostname
+	and make sure it matches.  If it does not, do not bother looking for
+	the command line.
+
+	core: Clean up command line extraction.
+	+ commit 242b658289488696d371c639c1da631712bd774c
+	* pinentry/pinentry.c (get_cmdline): Avoid trailing space, and return
+	NULL when no bytes were read from /proc.
+
+	tty: correct comments.
+	+ commit d7c54372512fbbd77709a3ea913b902061e5d45d
+	* tty/Makefile.am, tty/pinentry-tty.c: comments were copy/pasted from
+	  pinentry-curses; correcting them.
+
+2017-08-23  Damien Goutte-Gattat  <dgouttegattat@incenp.org>
+
+	gtk: Really always set the window as transient.
+	+ commit 2b1fb2f30a94a967dacec298e3c7d8a80b4c3194
+	* gtk+-2/pinentry-gtk-2.c (make_transient): Set the window as
+	transient even if we do not grab the keyboard.
+
+2017-08-23  Marcus Brinkmann  <marcus.brinkmann@ruhr-uni-bochum.de>
+
+	core: Supress compiler warnings.
+	+ commit 858bde1fbbc5e14f2d6410da05869188bdc36ee3
+	* pinentry/password-cache.c (password_cache_save, password_cache_lookup,
+	password_cache_clear) [!HAVE_LIBSECRET]: Suppress unused parameter
+	warnings.
+
+2017-08-04  Damien Goutte-Gattat  <dgouttegattat@incenp.org>
+
+	gtk: Disable tooltips in keyboard-grabbing mode.
+	+ commit 1590b664d88be8386a4664c2994b685187d1eb25
+	* gtk+-2:/pinentry-gtk-2.c (show_hide_button): Do not show the
+	tooltip if we attempt to grab the keyboard.
+	(create_window): Likewise.
+
+2017-07-12  Daiki Ueno  <ueno@gnu.org>
+
+	doc: Make Emacs frontend description more accurate.
+	+ commit ebfa54e6044420ae12a090cdef9df7e7b0d961d2
+	* doc/pinentry.texi (Front ends): Remove false assertions on
+	insecurity of Emacs, and mention allow-emacs-pinentry option of
+	gpg-agent.
+
+2017-07-12  Marcus Brinkmann  <marcus.brinkmann@ruhr-uni-bochum.de>
+
+	core: Disable "save passphrase" checkbox without secret service.
+	+ commit e57bcb7a2acff3a61a342d24e6a55407bf736631
+	* pinentry/password-cache.c (password_cache_lookup): New argument
+	FATAL_ERROR.  Set it on fatal error.
+	* pinentry/password-cache.h (password_cache_lookup): New argument
+	FATAL_ERROR in declaration.
+	* pinentry/pinentry.c (cmd_getpin): On fatal error, disallow
+	external password store.
+	* NEWS: Update.
+
+2017-07-11  Alon Bar-Lev  <alon.barlev@gmail.com>
+
+	Use pkg-config consistently.
+	+ commit 6053cb4f3873897acf5d899bc6f02046d0748a0f
+	* configure.ac: Invoke PKG_PROG_PKG_CONFIG. Consistently use
+	PKG_CHECK_MODULES for GTK+2.0, Gnome 3 and libsecret.
+	* gnome3/Makefile.am (AM_CPPFLAGS, LDADD): Adjust Gnome 3 flags.
+	* gtk+-2/Makefile.am (AM_CPPFLAGS, LDADD): Adjust Gtk+2.0 flags.
+
+2017-07-11  Marcus Brinkmann  <marcus.brinkmann@ruhr-uni-bochum.de>
+
+	curses: Add option to beep or flash terminal on dialog.
+	+ commit 1dba96fafa123f3631c0a50bb01835306c23b903
+	* pinentry/pinentry-curses.c (dialog_run): Beep or flash terminal.
+	* pinentry/pinentry.c (pinentry_reset): Reset ttyalert option.
+	(pinentry_parse_opts): Parse option ttyalert.
+	(option_handler): Handle option ttyalert.
+	* pinentry/pinentry.h (struct pinentry): New option ttyalert.
+
+2017-07-05  Damien Goutte-Gattat  <dgouttegattat@incenp.org>
+
+	gtk: Always set the window as transient.
+	+ commit f69dadc6ccea7672869436291ab5c1f58d545466
+	* gtk+-2/pinentry-gtk-2.c (create_window): Setup the make_transient
+	callback whether we ask for a passphrase or not.
+
+2017-05-03  Andre Heinecke  <aheinecke@intevation.de>
+
+	qt: Improve width of pinentryconfirm.
+	+ commit 4101806bf73caf25c8ce4e455b154901da1fe788
+	* qt/pinentryconfirm.cpp (PinentryConfirm::showEvent): Add spacer
+	item for text width.
+
+	qt: Fix build with Qt4.
+	+ commit 8bf41fe086438de9fa223ccf4162ed9d98e54646
+	* qt/main.cpp (main): Don't use Q_NULLPTR.
+
+2017-03-08  Justus Winter  <justus@gnupg.org>
+
+	fltk: Remove commented-out code.
+	+ commit 5c3f796798d655b5583257f9dfc81ae9c1427fb3
+	* fltk/main.cxx: Remove commented-out code.
+
+	fltk: Fix warning.
+	+ commit 2b2bbc9f67115baf518514281d3911b727b1caf9
+	* fltk/main.cxx (fltk_cmd_handler): Use a 'std::unique_ptr' instead of
+	a deprecated 'std::auto_ptr'.
+
+2017-03-08  Anatoly madRat L. Berenblit  <madrat-@users.noreply.github.com>
+
+	fltk: Add a FLTK-based pinentry.
+	+ commit 6c45eed62214b44fcc11e642b19df7b6ca0da0bd
+	* NEWS: Update.
+	* Makefile.am: Add new subdirectory.
+	* configure.ac: Add configuration for FLTK.
+	* fltk/Makefile.am: New file.
+	* fltk/encrypt.xpm: Likewise.
+	* fltk/icon.xpm: Likewise.
+	* fltk/main.cxx: Likewise.
+	* fltk/passwindow.cxx: Likewise.
+	* fltk/passwindow.h: Likewise.
+	* fltk/pinwindow.cxx: Likewise.
+	* fltk/pinwindow.h: Likewise.
+	* fltk/qualitypasswindow.cxx: Likewise.
+	* fltk/qualitypasswindow.h: Likewise.
+
+2017-02-13  Andre Heinecke  <aheinecke@intevation.de>
+
+	qt: Fix pinentry-curses fallback for qt5.
+	+ commit cd7b35e8ff106993b9ce98ea99a5210d637f3452
+	* qt/main.cpp (main): Initialize QApplication later.
+
+2017-02-03  Werner Koch  <wk@gnupg.org>
+
+	core: Show the command line in the titlebar.
+	+ commit e467a000f87e87582f5838964b6f1e0a960d4445
+	* pinentry/pinentry.c (get_cmdline): New.
+	(pinentry_get_title): Add the cmdline to the title.
+
+	Use a shared function to construct the title.
+	+ commit 36d32fbdedb07b285d01871b3ee66400c81681d3
+	* pinentry/pinentry.c (pinentry_get_title): New.
+	* qt/main.cpp (qt_cmd_handler): Use that function for the title.
+	* tty/pinentry-tty.c (confirm, password): Ditto.
+	* gnome3/pinentry-gnome3.c (create_prompt): Ditto.
+	* gtk+-2/pinentry-gtk-2.c (create_window): Ditto.
+	* pinentry/pinentry-emacs.c (set_labels): Ditto.
+
+	gtk: Unless SETTITLE is used show the pid in the titlebar.
+	+ commit c0d60e130b9bbd21801c8e71e80ab7c36f4ad6bd
+	* gtk+-2/pinentry-gtk-2.c (create_window): Display the pid as title.
+
+	core: New Assuan option "owner".
+	+ commit 61cde37b3e6a41bd24476d3c285288c12da0ed60
+	* pinentry/pinentry.h (struct pinentry): Add fields 'owner_pid' and
+	'owner_host'.
+	* pinentry/pinentry.c (pinentry_reset): Take care of these fields.
+	(option_handler): New option "owner".
+
+	curses: Do not return OK on error.
+	+ commit ce745a292192b01203ba5f557205a6f000bff953
+	* pinentry/pinentry.c (cmd_confirm): Take care not to return OK if the
+	RESULT is negative.
+	* pinentry/pinentry-curses.c (dialog_create): Amend error reporting by
+	setting specific_err_loc.
+	(dialog_run): Use new var confirm_mode for clearness.  In confirm mode
+	return Cancel instead of error.  This is how the gtk Pinentry does it.
+
+	core: New command getinfo/ttyinfo.
+	+ commit cd45d74d07512f8ec8d2b3306a1804457dd12964
+	* pinentry/pinentry.c (remember_display): New var.
+	(pinentry_have_display): Peek at --display.
+	(pinentry_parse_opts): Set pinentry.display.
+	(cmd_getinfo): Add sub-command "ttyinfo".
+
+2017-02-03  Werner Koch  <wk@gnupg.org>
+	    Vincent Lefevre  <vincent@vinc17.net>
+
+	gtk2: Fix a problem with fvwm.
+	+ commit b0e0bdeac5d40ca645afc9017778b39a26303523
+	* gtk+-2/pinentry-gtk-2.c (grab_pointer): Take care of
+	GDK_GRAB_ALREADY_GRABBED.
+
+2017-01-16  Justus Winter  <justus@g10code.com>
+
+	gnome3: Use the program name as default title.
+	+ commit 8e3aa3204e74e8d7a7538e0d0f04e555f140131b
+	* gnome3/pinentry-gnome3.c (create_prompt): If no title is requested,
+	use the program name as the default title.  This mimics what the GTK+2
+	variant does (although the GTK+2 pinentry seems to use
+	basename(argv[0])).
+
+2017-01-13  NIIBE Yutaka  <gniibe@fsij.org>
+
+	gnome3: Fix CONFIRM condition.
+	+ commit c725fdd260b0c2291660ff954e6b2250006ec08f
+	* gnome3/pinentry-gnome3.c (gnome3_cmd_handler): No buffer for PIN means
+	it's not passphrase input but confirmation dialog.
+
+2016-12-19  Raphael Kubo da Costa  <rakuco@FreeBSD.org>
+
+	Qt: Make sure extended grep is used with '|'.
+	+ commit 1acb06aac3dd08f573d7c2e3be75226346e61ed2
+	* m4/qt.m4: Use grep -E when using the alternation character.
+
+2016-12-01  Werner Koch  <wk@gnupg.org>
+
+	Fix linkage problem in tty and emacs pinentries.
+	+ commit c5c7bee68730c9f66a27f9bb0d023480623a2bfb
+	* emacs/pinentry-emacs.c (curses_cmd_handler): Remove var.
+	* tty/pinentry-tty.c (curses_cmd_handler): Remove var.
+	* pinentry/pinentry.c (flavor_flag): New local var.
+	(pinentry_set_flavor_flag): New function.
+	(cmd_getinfo): Use FLAVOR_FLAG for the "flavor" sub-command.
+	* gnome3/pinentry-gnome3.c (main): Call pinentry_set_flavor_flag.
+	* gtk+-2/pinentry-gtk-2.c (main): Ditto.
+	* pinentry/pinentry-emacs.c (initial_emacs_cmd_handler): Ditto.
+	* qt/main.cpp (main): Ditto.
+
+2016-11-22  Werner Koch  <wk@gnupg.org>
+
+	Create SWDB entry during make distcheck.
+	+ commit d015020b56dc11848d638d8a0f22c11971f896ea
+	* Makefile.am (DISTCHECK_CONFIGURE_FLAGS): Build emacs flavor.
+	(distcheck-hook): New.
+
+	Release 1.0.0.
+	+ commit 5eb55801a70148111a78a7ffd8ee459790f1aafe
+
+
+	emacs: Add curses handler stub.
+	+ commit d126036671e7dd631babc118cb4113f723f15748
+	* emacs/pinentry-emacs.c (curses_cmd_handler): New stub.
+
+2016-11-08  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	gnome3: Tighten up error messages when GNOME screensaver is absent.
+	+ commit cf8885fd5a61654a164f470fa3e7095b8e424258
+	* gnome3/pinentry-gnome3.c (pe_gnome_screen_locked): clean up error
+	messages when GNOME screensaver is absent or misbehaving.
+
+2016-11-07  Werner Koch  <wk@gnupg.org>
+
+	Add fail-safe string termination for snprintf.
+	+ commit 8f51108a17d0080c33fae182f1e4b9259f10a9e5
+	* gtk+-2/pinentry-gtk-2.c (changed_text_handler): Make sure an
+	 snprintf buffer is always ternminated.
+	* pinentry/pinentry.c (my_strusage): Ditto.
+	(write_status_error): Ditto.
+	(cmd_getinfo): Ditto.
+	* w32/main.c (w32_strerror): Ditto.
+
+2016-11-07  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	gnome3: Avoid risk of uinitialized memory access.
+	+ commit 15a6fd9f1ee0e3bc62daf143546f5186ce947700
+	* gnome3/pinentry-gnome3.c (_propagate_g_error_to_pinentry): Ensure
+	that pinentry->specific_err_info is null-terminated.
+
+	tty: Declare dummy curses_cmd_handler.
+	+ commit e4e3a9cc88704dcffac660d0b92fd1ed8abecc11
+	* tty/pinentry-tty.c: Declare a dummy handler for the
+	curses_cmd_handler for fallback.
+
+	gnome3: Fall back to curses if screensaver is locked.
+	+ commit e353f4d1ac31e58f46eeba29279adf809dfb96a9
+	* gnome3/pinentry-gnome3.c (pe_gnome_screen_locked): New Function.
+	Returns true only if we can talk to a GNOME screensaver over D-Bus and
+	it assures us that it is locked.
+	(main): If GNOME screensaver is locked, fall back to curses.
+
+2016-11-05  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	gnome3: Test if Gcr System Prompter is available at startup.
+	+ commit 2e17565fd9cb94afe840050780d28db75e5c4053
+	* gnome3/pinentry-gnome3.c (gcr_system_prompt_available): New. Tests
+	whether it is possible to create a GcrSystemPrompt.
+	(main): Use gcr_system_prompt_available() to decide whether to fall
+	back to curses or not.
+
+	build: Avoid unnecessary dependency on gtk+-2 for GNOME3 development.
+	+ commit b945576fe906ffcd5bcc50b4322ef2f34d8fb89f
+	* configure.ac: There is no reason to reject building the GNOME3
+	pinentry if GTK+-2 development libraries are not present.  GNOME3 does
+	not require GTK+-2.
+
+2016-11-05  Werner Koch  <wk@gnupg.org>
+
+	gnome3: Avoid using gnome and gcr symbol namespace.
+	+ commit 799116010a57aec9a86c5529388111d54aff3c55
+	* gnome3/pinentry-gnome3.c (struct _gnome3_run): Rename to
+	pe_gnome3_run_s.
+	(_gcr_prompt_password_done): Rename to pe_gcr_prompt_password_done.
+	(_gcr_prompt_confirm_done): Rename to pe_gcr_prompt_confirm_done.
+	(_gcr_timeout_done): Rename to pe_gcr_timeout_done.
+
+2016-11-05  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	gnome3: Honor timeout.
+	+ commit f7b99ff5f7f78db45350308bf409ea4a9e94f161
+	* gnome3/pinentry-gnome3.c (create_prompt): Use timeout to determine
+	how long to wait for Gcr to provide a system prompt before giving up.
+	(_gcr_timeout_done): New.  Record that a timeout has elapsed.
+	(gnome3_cmd_handler): Set up a timeout before launching the prompt,
+	and tear it down afterward.
+	(_gcr_prompt_password_done): Report timeout differently from normal
+	cancellation.
+	(_gcr_prompt_confirm_done): Report timeout differently from normal
+	cancellation.
+
+	gnome3: Convert password/confirmation to asynchronous model.
+	+ commit d0fe54d592a8d2be6fc82b26290a644bb3629214
+	* gnome3/pinentry-gnome3.c (gnome3_cmd_handler): Convert main part of
+	password or confirmation fetching into asynchronous code by moving
+	completion into...
+	(_gcr_prompt_password_done): ... here and...
+	(_gcr_prompt_confirm_done): ... here.
+
+	qt: Report timeout.
+	+ commit 102832a2c1f3ffa432e2a169791611bb3ca13a04
+	* qt/pinentryconfirm.h (PinentryConfirm): Add _timed_out, timedOut().
+	* qt/pinentrydialog.h (PinentryDialog): Add _timed_out, timedOut().
+	* qt/pinentryconfirm.cpp (slotTimeout): Record elapsed timeout.
+	(PinentryConfirm): Initialize _timed_out to false.
+	(timedOut): New. Returns value of _timed_out.
+	* qt/pinentryDialog.cpp (slotTimeout): Record elapsed timeout.
+	(PinentryDialog): Initialize _timed_out to false.
+	(timedOut): New. Returns value of _timed_out.
+	* qt/main.cpp (qt_cmd_handler): Report if canceled due to timeout.
+
+	curses: Report timeout.
+	+ commit 784c4e0a3acace39a4a632bf443c794752297d54
+	* pinentry/pinentry-curses.c (dialog_run): Report if canceled due to
+	timeout.
+
+	gtk2: Report timeout.
+	+ commit 93b4454f4fe4d97dd89efccd64dbdd02bd002f77
+	* gtk+-2/pinentry-gtk-2.c (create_window): Send pointer to pinentry
+	into timeout_cb.
+	(timeout_cb): Report if canceled due to timeout.
+
+	tty: Report timeout.
+	+ commit 3be5b4fabaabf86f085b0b5303a1312abb7d0617
+	* tty/pinentry-tty.c (confirm): Report if canceled due to timeout.
+	(password): Report if canceled due to timeout.
+
+	gnome3: Propagate GError messages to pinentry.
+	+ commit 19c2110557d0504c1b406bde24e86cb5eb552fc7
+	* gnome3/pinentry-gnome3.c (_propagate_g_error_to_pinentry): New. Send
+	GError messages back out to pinentry error reporting.
+	(create_prompt): Use _propagate_g_error_to_pinentry on error.
+	(gnome3_cmd_handler): Use _propagate_g_error_to_pinentry on error.
+
+	gnome3: Set parent window.
+	+ commit 96e3c5fcf210e971fe1ba66b9127ad51144fcc49
+	* gnome3/pinentry-gnome3.c (create_prompt): Tell Gcr about the caller
+	window, if we know it.
+
+2016-11-05  Werner Koch  <wk@gnupg.org>
+
+	core: Add command getinfo/flavor.
+	+ commit 553af04cf9c103c2e2cd5085b0d5fb647a608d51
+	* pinentry/pinentry.c: Inlcude pinentry-curses.h.
+	(cmd_getinfo): Add sub-command "flavor"
+
+2016-11-03  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	Convert to UTF-8.
+	+ commit 7b0a822460eb6f4bf28f85f38c64a86bb8f80d3d
+
+
+2016-10-11  Daiki Ueno  <ueno@gnu.org>
+
+	core: Don't report error on setting option 'allow-emacs-pinentry'.
+	+ commit a383ddeb76463ddcf5aca2fb38847ea3158c42a7
+	Previously "OPTION allow-emacs-pinentry" returned an error if the Emacs
+	pinentry is not compiled in.  Since it is merely an option, it would
+	make more sense to just return OK.
+
+2016-10-04  Werner Koch  <wk@gnupg.org>
+
+	gnome3: Drop unnecessary use of gtk.
+	+ commit 65d8e0ec19795d9ec60d7f37f1511f65135cfd84
+	* configure.ac: pinentry-gnome3 only needs gcr-base, not gcr.
+	* gnome3/pinentry-gnome3.c (main): Instead of testing whether GTK can
+	be loaded, check for DBUS_SESSION_BUS_ADDRESS.
+	(create_prompt): Use fprintf (stderr, ...) instead of g_warning (...),
+	to align with the rest of pinentry.c.
+
+	core: Add a way to print ERROR status lines.
+	+ commit 777650b9b021342ba887543396c67f9148218caf
+	* pinentry/pinentry.h (struct pinentry): New fields SPECIFIC_ERR_LOC
+	and SPECIFIC_ERR_INFO.
+	* pinentry/pinentry.c (pinentry_reset): Free the new field.
+	(write_status_error): New.
+	(cmd_getpin): Use new fields.
+	(cmd_confirm): Ditto.
+	* gnome3/pinentry-gnome3.c (create_prompt): Set error for failed
+	GCR_PROMPT.
+
+2016-10-03  Ineiev  <ineiev@gnu.org>
+
+	tty: Provide default text for "notok".
+	+ commit db3b2bf0c7ae4d3d0fbeecfe6a9a77ea4ed0f84e
+	* tty/pinentry-tty.c (confirm): Provide default text for "notok".
+
+	tty: Fix underscore processing in accelerators.
+	+ commit f0ae2986708614bce9070eec77309e838c403db7
+	* tty/pinentry-tty.c (button): Fix underscore processing in
+	accelerators.
+
+	tty: Refactor usage of tolower.
+	+ commit aa969a09a1225f8fb683ba8d0c3ccc099dd8d1d3
+	* tty/pinentry-tty.c (button): Apply tolower to the result.
+	* tty/pinentry-tty.c (confirm): Compare lowercased character instead of
+	converting them every time.
+
+2016-09-01  Werner Koch  <wk@gnupg.org>
+
+	curses: Return better error codes for bad ttynames.
+	+ commit 4c5ae72d481ffd24ff93accee0b42e9b264285f2
+	* pinentry/pinentry-curses.c (dialog_create): Return better error
+	codes.
+
+2016-08-18  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Add SetWindowPos based foreground hack for Win.
+	+ commit c032ea2dcb4ac3ce970e62eae88fd24bec822f9c
+	* qt/pinentrydialog.cpp(raiseWindow): Add another fallback for
+	our foreground window hacks.
+
+2016-08-12  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Disable automatic wrap for desc and errors.
+	+ commit 300755c1a10eec1f8bccd4182ed15c569473982c
+	* qt/pinentrydialog.cpp (PinEntryDialog): Disable WordWrap.
+
+2016-08-12  Kristian Fiskerstrand  <kf@sumptuouscapital.com>
+
+	Qt: Append -std=c++11 if building against Qt 5.7.
+	+ commit fa97de673bd36758ae4ce151923435318f7c8877
+	 * m4/qt.m4: Append -std=c++11 to CFLAGS if building against Qt 5.7
+
+2016-08-04  Ben Kibbey  <bjk@luxsci.net>
+
+	Fix ncurses build.
+	+ commit 2227f67af53f38d3d7f97760f2553d2c9ed05969
+	* pinentry/Makefile.am: Add NCURSES_CFLAGS.
+
+2016-08-02  Justus Winter  <justus@g10code.com>
+
+	gtk2: Also grab the pointer.
+	+ commit 2f1f1f06c1885d2f5a30ea734359613609be0743
+	* gtk+-2/pinentry-gtk-2.c (grab_pointer): New function.
+	(ungrab_keyboard): Rename to 'ungrab_inputs' and also release the
+	pointer grab.
+	(create_window): Also grab the pointer.
+
+2016-08-01  Justus Winter  <justus@g10code.com>
+
+	gtk2: Be more persistent trying to grab the keyboard.
+	+ commit ad390f29df34ef73f2393a8ad97cbe2d60af31e7
+	We seem to get the 'visibility-notify' event before X is willing to
+	let us grab the keyboard, insisting that the target window is not
+	viewable (sic).
+
+	* gtk+-2/pinentry-gtk-2.c (grab_keyboard): Retry grabbing the
+	keyboard.
+
+	gtk2: Print keyboard grabbing errors.
+	+ commit fe5bb475da08cb46242825d5abe5b4d27e6086e3
+	* gtk+-2/pinentry-gtk-2.c (grab_strerror): New function.
+	(grab_keyboard): Use the new function to print the error.
+
+	gtk2: Avoid possible format string troubles.
+	+ commit abf4f9924412c7afb6ce6c08eeda81b4c5365ab5
+	* gtk+-2/pinentry-gtk-2.c (confirm_unhiding): Do not use message as
+	format string.
+
+2016-04-25  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Only use one line action for visibility.
+	+ commit ed066c261594de69c3c2aeaac98aeaf74bbb5f9e
+	* qt/pinentrydialog.cpp (PinEntryDialog::toggleVisibility): Toggle
+	both lines in repeat mode.
+	(PinEntryDialog::PinEntryDialog): Remove repeat line action.
+
+	Qt: Move qualitybar below repeat.
+	+ commit d580304566b5b1c4e7c97c060d7a7b8c0b810ae3
+	* qt/pinentrydialog.cpp (PinEntryDialog::PinEntryDialog): Move
+	quality bar below repeat.
+
+	Qt: Do not take icon from theme.
+	+ commit 1532b60dcc5a45a74195cfbc20225006d027e7fa
+	* qt/main.cpp (main): Revert changes to take icon from theme.
+
+2016-04-15  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Change qualitybar position back to below.
+	+ commit e925e8955b0a82f1a0e3c697704007c503a5f8b7
+	* qt/pinentrydialog.cpp (PinEntryDialog::PinEntryDialog): Change
+	position back to below the entry. Fix label alignment.
+
+	gtk2: Add a button to show/hide the passphrase.
+	+ commit f4b5049c68a79d5e4faba06447db5440936cefeb
+	* gtk+-2/pinentry-gtk-2.c (HIG_TINY): New.
+	 (confirm_unhiding): New.
+	 (show_hide_button_toggled): New.
+	 (create_show_hide_button): New.
+	 (create_window): Add a show/hide button.
+
+2016-04-14  Andre Heinecke  <aheinecke@intevation.de>
+
+	Revert "GTK: Add visibility toggle button"
+	+ commit 3a10a0beddc059ce4b0d75bacf6d7f4e3148fcff
+	This reverts commit 71b51e02cf20174ba7144765e985f7e889eaa429.
+
+	GTK: Add visibility toggle button.
+	+ commit 71b51e02cf20174ba7144765e985f7e889eaa429
+	* gtk+-2/pinentry-gtk-2.c (create_window): Create checkbox.
+	 (show_passphrase_toggled): New. Do the toggling.
+
+	Qt: Restrict list of icon themes to try.
+	+ commit 287d40e879f767dbcb3d19b3629b872c08d39cf4
+	* qt/main.cpp (main): Only search in select icon themes.
+
+	Qt: Add actions to make passphrase visible.
+	+ commit 49a7ac5209aa54f3b91209acc899463e8097f808
+	* qt/main.cpp (qt_cmd_handler): Support visibility tooltips.
+	* qt/pinentrydialog.cpp (PinEntryDialog::PinEntryDialog):
+	 Add a checkbox or line actions.
+	 (PinEntryDialog::checkRepeat): Renabed to textChanged.
+	 (PinEntryDialog::toggleVisibility): New. Toggle echo mode.
+	* qt/pinentrydialog.h: Update accordingly.
+
+	Add support for visibility string options.
+	+ commit 15685a9c1471eb01066e0bbdb7d6b929a8fcc314
+	* doc/pinentry.texi: Note new values.
+	* pinentry/pinentry.c (pinentry): Add default_cf_visi,
+	 default_tt_visi and default_tt_hide.
+	 (option_handler): Parse new values.
+	* pinentry/pinentry.h (pinentry_t): Add new values.
+
+	Qt: Implement repeat and improve grabbing.
+	+ commit 04115b3289dcc9b02044f88c08580618c055a571
+	The keyboard is now only grabbed if an edit has input focus.
+
+	* qt/main.cpp (qt_cmd_handler): Parse repeat values. Set repeat_okay.
+	* qt/pinentrydialog.cpp (PinentryDialog::PinentryDialog): Update
+	 layout. Add repeat label and edit. Connect focusChanged.
+	 (PinEntryDialog::hideEvent): Remove grabbing hack.
+	 (PinEntryDialog::focusChanged): New. Properly handle grabbing.
+	 (PinEntryDialog::checkRepeat): New. Enable Ok if repeat matches.
+	 (PinEntryDialog::repeatedPin): New. Getter for repeated pin.
+	 (PinEntryDialog::setRepeatErrorText): Setter for error.
+	* qt/pinentrydialog.h: Update accordingly.
+
+	Qt: Respect icon themes and only fallback to own.
+	+ commit c6b43bd147186deee84dcccbc14f5763db67a0f3
+	* m4/qt.m4: Raise version requirement.
+	* qt/main.cpp (main): Use QIcon::fromTheme to get the icon.
+
+	Qt: Unify coding style and encoding.
+	+ commit 8d801fe2c74041f2f8c563785ed7cba73f47500e
+	* qt/main.cpp, qt/pinentryconfirm.cpp, qt/pinentryconfirm.h,
+	  qt/pinentrydialog.cpp, qt/pinentrydialog.h: Use KDE coding style.
+	  Encode as UTF-8.
+
+2016-03-04  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Fix Windows foreground window hacks for Qt5.
+	+ commit 30aa1046afe9a745c918fc1311c1f598c91bf913
+	* qt/pinentrydialog.cpp: Use Q_OS_WIN instead of Q_WS_WIN
+	 (SetForegroundWindowEx): Handle new Wid type with casts.
+
+2016-02-15  Stef Walter  <stefw@redhat.com>
+
+	pinentry: Use stderr to print failures in password-cache.c.
+	+ commit 2f5bfa071ab5eaf86f64404bff448ca29cd0bdb6
+	Otherwise this interferes with the assuan protocol expected
+	on stdout.
+
+2016-01-05  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Fix use after free in quality calculation.
+	+ commit 954da56c2325c3a5ca628cfc2e3086c1e146a390
+	* qt/pinentrydialog.cpp (PinEntryDialog::updateQuality): Keep UTF8
+	 byte array alive after conversion.
+
+2015-12-07  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.7.
+	+ commit 97b6ea59de0ca33323aa204eb47d45fd412a8ff2
+
+
+2015-12-01  Werner Koch  <wk@gnupg.org>
+
+	Remove unused code.
+	+ commit bd3781f92bb0989bfbc33a89fe1f6db3c89cdf31
+	* secmem/util.c (lower_privs, raise_privs): Remove commented
+	functions.
+
+2015-11-27  Neal H. Walfield  <neal@gnu.org>
+
+	tty: Fix formatting.
+	+ commit 999162e7c38d4b8c76270e7b6790417fd6439ef3
+	* tty/pinentry-tty.c (password): Remove trailing space.
+
+2015-11-18  Neal H. Walfield  <neal@gnu.org>
+
+	tty: Flush output.  Show an error if an invalid option is selected.
+	+ commit f238a58772b7d51362ca7d819e1648a64ff50d57
+	* tty/pinentry-tty.c (confirm): Flush the output after printing the
+	prompt.  Echo what the user typed.  If the user's selection is
+	invalid, indicate as much.
+
+2015-10-22  Dirk Mueller  <dirk@dmllr.de>
+
+	Qt: Do not use temporary reference to utf8 pin.
+	+ commit f143d216eff4eac3f05a85640b9f91431aec5588
+	* qt/main.cpp (qt_cmd_handler): Keep utf8 pin byte array.
+
+2015-10-02  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt: Fix assignment of have_qt5_libs variable.
+	+ commit 48ab8cdccff4eefec4d8fa2e23b933c2277bc30c
+	* m4/qt.m4 (FIND_QT): Remove spaces in variable assignment.
+
+	Qt: Fix quoting of have_qt5_libs init in FIND_QT.
+	+ commit e9d063e2371540ad9c1d7a727c44f9dcc1e9e400
+	* m4/qt.m4 (FIND_QT): Quote initialization of have_qt5_libs var.
+
+2015-09-25  Andre Heinecke  <aheinecke@intevation.de>
+
+	Add option to disable looking for qt5.
+	+ commit 08ec9556c8a384ea7bb5d42d3f6aab6c2f6a8786
+	* m4/qt.m4 (FIND_QT): Add --disable-pinentry-qt5 option to
+	disable qt5 support even if it is available.
+
+2015-09-16  Werner Koch  <wk@gnupg.org>
+
+	Add option "invisible-char".
+	+ commit 9cc13bbd6954928f8a7dae022728c13415816a67
+	* pinentry/pinentry.h (struct pinentry): Add field invisible_char.
+	* pinentry/pinentry.c (pinentry_reset): Restore that.
+	(option_handler): Add option "invisible-char".
+	* gtk+-2/pinentry-gtk-2.c (create_window): Set the invisible char if
+	given.
+
+2015-09-10  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.6.
+	+ commit 192ee8ad5bd9c4950d749cf9bb1efd9369836257
+
+
+2015-08-24  Neal H. Walfield  <neal@gnu.org>
+
+	tty: When reading the password, print any supplied error message.
+	+ commit bfd4cf3bee8c9e4a3af825c95694b8af098b1cb2
+	* tty/pinentry-tty.c (password): Print any supplied error message.
+
+	tty: Refactor the code for printing error messages.
+	+ commit 7e91e5f71c86c3899c7f256d7ae9d872e692dd28
+	* tty/pinentry-tty.c (dump_error_text): New function to display error
+	messages.
+	(confirm): Use it.
+	(password): Likewise.
+
+2015-08-18  Andre Heinecke  <aheinecke@intevation.de>
+
+	Clarify comment about fds in pinentry_loop2.
+	+ commit 13e09800a997845906bfb10ac3379bad00e6e63d
+	* pinentry/pinentry.h (pinetry_loop2): Clarify comment.
+
+	Qt: Make it possible to build qt5 variant static.
+	+ commit 11886c530de3b0a7c4dcd932c5c23762f3ccc4b0
+	* qt/main.cpp: Import static platform plugins when necessary.
+
+	Respect SYSROOT variable when looking for assuan.
+	+ commit 8d73d2a55a0043202c08beaed9972343b1021327
+	* m4/libassuan.m4: Respect SYSROOT Variable.
+
+	Fix pinentry for Windows.
+	+ commit 78afb80e5742f8542f21537307c6f39c05c1a7f3
+	* pinentry/pinentry.c (pinentry_loop2): Use assuan_fdopen for pipe fds.
+	* pinentry/pinentry.h (pinentry_loop2): Mention this in the comment.
+
+2015-08-11  Neal H. Walfield  <neal@gnu.org>
+
+	tty: Correctly implement the repeat passphrase functionality.
+	+ commit 1532bf3fa57f624c80ea1e9f958d88fedc377e68
+	* tty/pinentry-tty.c (password): If the user repeated the passphrase
+	and they matched, then set PINENTRY->REPEAT_OKAY.
+
+	tty: Fix buffer resizing bug.
+	+ commit ffd37b673b3cbe05fac037ac02c1424a76772b3f
+	* tty/pinentry-tty.c (read_password): Fix buffer resizing bug.
+
+2015-07-28  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt4: Rename to pinentry-qt and add Qt5 Support.
+	+ commit abb59f50abf698ff1e56490fb39bcc98c26ab44b
+	* qt4: Moved to qt.
+	* Makefile.am: Change qt4 suffix to qt.
+	* m4/qt.m4: Remove old qt lookup functions.
+	  (FIND_QT): New. Use pkg-config to find either Qt5 or Qt4
+	* configure.ac: Change qt4 suffix to qt. Use new FIND_QT function.
+	* qt/Makefile.am: Change qt4 suffix to qt. Use new FLAGS / LIBS.
+	* qt/pinentrydialog.cpp, qt/qrc_pinentry.cpp: Fix whitespace.
+	* .gitignore: Change qt4 paths to qt.
+	* README: Update accordingly.
+	* autogen.rc: Change qt4 to qt.
+	* qt/main.cpp (qt_cmd_handler, main): Change qt4 to qt.
+
+2015-07-28  Neal H. Walfield  <neal@gnu.org>
+
+	doc: Describe the frontends and their security implications.
+	+ commit 43f975bf0348663dc8b01737dee5b15244ef7ee8
+	* doc/pinentry.texi: Describe the frontends and their security
+	implications.
+
+2015-07-28  Andre Heinecke  <aheinecke@intevation.de>
+
+	qt4: Replace the custom, secure entry widget with the standard widget.
+	+ commit a4694dcda0fe27852be20db3017f9313adf361a3
+	* configure.ac: Remove enable-pinentry-qt4-clipboard option.
+	* qt4/qsecurelineedit.cpp, qt4/qsecurelineedit.h,
+	  qt4/qsecurelineedit_p.h, qt4/secstring.cpp,
+	  qt4/secstring.h: Removed.
+	* qt4/Makefile.am: Update accordingly.
+	* qt4/main.cpp (qt_cmd_handler): Use QString instead of secqstring.
+	* qt4/pinentrydialog.cpp (PinentryDialog::PinentryDialog),
+	  (PinEntryDialog::error, PinEntryDialog::pin),
+	  (PinEntryDialog::updateQuality): Use QLineEdit and QString
+	  instead of secmem variants.
+	* qt4/pinentrydialog.cpp (PinentryDialog::PinentryDialog):
+	  Set echo mode to password.
+	* qt4/pinentrydialog.h: Update accordingly.
+
+2015-07-26  Neal H. Walfield  <neal@gnu.org>
+
+	gtk2: Use gtk_widget_get_window instead of accessing the struct.
+	+ commit d70a106d71dbcaf90e2246ed8e72c14d9c2cf266
+	* gtk+-2/pinentry-gtk-2.c (make_transient): Don't directly access the
+	window field of WIN.  Use gtk_widget_get_window instead.
+	(grab_keyboard): Likewise.
+	(ungrab_keyboard): Likewise.
+
+	gtk2: Use newer tooltips functions, if available.
+	+ commit c9c3576b5e2e3139fd9f6af3426b5f5e727deadd
+	* gtk+-2/pinentry-gtk-2.c (tooltips): Don't declare for Gtk+ >=2.12.0.
+	(create_window): Gtk+ >=2.12.0, use gtk_widget_set_tooltip_text
+	instead of gtk_tooltips_set_tip.
+
+	Don't build the emacs pinentry program by default.
+	+ commit 676b1ac38d0c1db754492b6817bbc6195dcef300
+
+
+	gtk2: Replace the custom, secure entry widget with the standard widget.
+	+ commit f9db93786cbdbc0f5f6edf0ae996ec405931decf
+	* gtk+-2/Makefile.am (pinentry_gtk_2_SOURCES): Remove gtksecentry.c,
+	gtksecentry.h and gseal-gtk-compat.h.
+	* gtk+-2/gseal-gtk-compat.h: Remove file.
+	* gtk+-2/gtksecentry.c: Remove file.
+	* gtk+-2/gtksecentry.h: Remove file.
+	* gtk+-2/pinentry-gtk-2.c: Don't include "gtksecentry.h".
+	(button_clicked): Use gtk_entry_get_text instead of
+	gtk_secure_entry_get_text.
+	(changed_text_handler): Use gtk_entry_get_text instead of
+	gtk_secure_entry_get_text and use gtk_entry_set_text instead of
+	gtk_secure_entry_set_text.
+	(create_window): Use gtk_entry_new instead of gtk_secure_entry_new.
+	Disable text visibility on ENTRY and REPEAT_ENTRY.
+	(main): Don't override the memory allocation functions.
+
+	gtk2: Simplify focus / default entry management.
+	+ commit ae74440c8a3469e1e69882cd26a742d41f28e37b
+	* gtk+-2/pinentry-gtk-2.c (create_window): Don't have ENTRY or
+	REPEAT_ENTRY explicitly grab the focus.  The default is fine.  Don't
+	add the GDK_ENTER_NOTIFY_MASK and GDK_LEAVE_NOTIFY_MASK events to
+	QUALITYBAR.  Only set GTK_CAN_DEFAULT on the ok button.  In pin entry
+	mode, make the ok button the default.
+
+	gtk2: Have enter in the text entry, send the focus to the repeat entry.
+	+ commit af3de269bc0f56058eefcd46bce1b03d9466d1b4
+	* gtk+-2/pinentry-gtk-2.c (enter_callback): Rename anentry to
+	next_widget.  If NEXT_WIDGET is not NULL, send the focus to it.
+	Otherwise, call button_clicked.
+	(create_window): Initialize repeat_entry to NULL.  When connecting the
+	enter_callback entry to REPEAT_ENTRY, set the user data paramter to
+	NULL.  Connect the entry_callback entry to ENTRY after initializing
+	REPEAT_ENTRY (if applicable) and set the user data parameter to
+	REPEAT_ENTRY.
+
+	gtk2: Simplify: combine confirm_button_clicked and button_clicked.
+	+ commit 5dfb7f5662917c9d2f8a4772045074544bd4d472
+	* gtk+-2/pinentry-gtk-2.c (confirm_mode): New global static.
+	(confirm_button_clicked): Fold this function...
+	(button_clicked): ... into this one.  Update all callers.
+	(create_window): Remove argument confirm_mode.
+	(gtk_cmd_handler): Set confirm_mode.
+
+2015-07-01  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.5.
+	+ commit 404943e465beeb34d71039f64f2b7e214d2d9368
+
+
+	w32: Adjust for use of standard libassuan.
+	+ commit 380757782373c2069c182550d9093f995bea2f13
+	* autogen.rc: Add gpg-error and libassuan prefix options.
+	* w32/Makefile.am (AM_CPPFLAGS): Use COMMON_FLAGS.
+	(pinentry_w32_LDADD): Use COMMON_LIBS.
+
+	Distribute files in m4/
+	+ commit 11cd8aff6e1720d4a37c92fb6d4cf2613eb17a10
+
+
+2015-06-24  Gergely Imreh  <imrehg@gmail.com>
+
+	curses: remove hard-wired ncursesw include path.
+	+ commit f0db3192463cccf4541820de36d985629c4df6ee
+	* pinentry/pinentry-curses.c: pkg-config finds the correct include
+	paths so should not hard-wire the path for the ncursesw header file.
+
+2015-06-23  Neal H. Walfield  <neal@gnu.org>
+
+	emacs: Don't link against ../assuan/libassuan.a.
+	+ commit 266f1c9e3542627b1cbd191141af4e6f76f706fe
+	* emacs/Makefile.am (LDADD): Don't link against ../assuan/libassuan.a.
+	We now use the system libassuan.
+
+	curses: Recognize ASCII DEL as backspace.
+	+ commit 6ce1d0c0d4106c359eee65d7cf27d522d3f8b72a
+	* pinentry/pinentry-curses.c (dialog_input): Recognize ASCII DEL as
+	backspace.
+
+2015-06-17  Daiki Ueno  <ueno@gnu.org>
+
+	Add inside-Emacs mode to GUI pinentry programs.
+	+ commit 3ef5d07873ab917e66c299521e85cff12fbbf40c
+	* configure.ac: Add --enable-pinentry-emacs and
+	--enable-inside-emacs option.
+	(BUILD_LIBPINENTRY_EMACS): New conditional.
+	(BUILD_PINENTRY_EMACS): New conditional.
+	(INSIDE_EMACS): New conditional.
+	* Makefile.am (pinentry_emacs): New.
+	(SUBDIRS): Add "emacs" subdir if PINENTRY_EMACS is set.
+
+	* pinentry/pinentry-emacs.h: New file.
+	* pinentry/pinentry-emacs.c: New file.
+	* pinentry/Makefile.am: New file.
+	* pinentry/pinentry.c (option_handler): Handle the allow-emacs-prompt
+	Assuan option.
+
+	* emacs/pinentry-emacs.c: New file.
+	* emacs/Makefile.am: New file.
+
+2015-06-16  Neal H. Walfield  <neal@gnu.org>
+
+	If we fail to initialize gtk, fallback to the curses frontend.
+	+ commit 34f3cdbf5aa0b7b8647a3bcedef7e1a51746b5ed
+	* gnome3/pinentry-gnome3.c (main): Use gtk_init_check instead of
+	gtk_init.  If it fails, fallback to the curses frontend.
+
+	Fix comment for pinentry_cmd_handler_t.
+	+ commit 34539f97a6ddc552295b5cb64676eee9dab5bd30
+	* pinentry/pinentry.h (pinentry_cmd_handler_t): Fix comment.
+
+	Describe default-prompt in the implementation section of the manual.
+	+ commit 56fe7ef451ee473407b7dc604e3d73a6a5771c5d
+	* doc/pinentry.texi (Implementation Details): Describe default-prompt.
+
+	Remove internal mini-libassuan implementation and link to libassuan.
+	+ commit 302903f76b8d62b1e07219a203f7219cb3aff7d8
+	* assuan/ChangeLog-old: Remove file.
+	* assuan/Makefile.am: Remove file.
+	* assuan/README.1st: Remove file.
+	* assuan/assuan-buffer.c: Remove file.
+	* assuan/assuan-defs.h: Remove file.
+	* assuan/assuan-handler.c: Remove file.
+	* assuan/assuan-listen.c: Remove file.
+	* assuan/assuan-pipe-server.c: Remove file.
+	* assuan/assuan-util.c: Remove file.
+	* assuan/assuan.h: Remove file.
+	* assuan/mkerrors: Remove file.
+
+	* configure.ac: Check for libgpg-error and libassuan.
+	(COMMON_CFLAGS): Add $GPG_ERROR_CFLAGS and $LIBASSUAN_CFLAGS.
+	(COMMAND_LIBS): Add $GPG_ERROR_LIBS and $LIBASSUAN_LIBS.
+	(GPG_ERR_ENABLE_GETTEXT_MACROS): Define this macro.
+	(GPG_ERR_ENABLE_ERRNO_MACROS): Likewise.
+	(GNUPG_LIBASSUAN_VERSION): Likewise.
+	(AC_CONFIG_FILES): Don't generate assuan/Makefile.
+	(config.h): Define GPG_ERR_SOURCE_DEFAULT.
+	* Makefile.am (SUBDIRS): Remove assuan.
+	* curses/Makefile.am (LDADD): Remove ../assuan/libassuan.a.
+	* gnome3/Makefile.am (AM_CPPFLAGS): Remove -I$(top_srcdir)/assuan.
+	(LDADD): Remove ../assuan/libassuan.a.
+	* gtk+-2/Makefile.am (LDADD): Remove ../assuan/libassuan.a.
+	* pinentry/Makefile.am: Remove -I$(top_srcdir)/assuan.
+	* qt4/Makefile.am (AM_CPPFLAGS): Remove -I$(top_srcdir)/assuan.
+	(pinentry_qt4_LDADD): Remove $(top_builddir)/assuan/libassuan.a.
+	* tty/Makefile.am (LDADD): Remove ../assuan/libassuan.a.
+
+	* gnome3/pinentry-gnome3.c: Include <assuan.h>, not "assuan.h".
+	Replace ASSUAN_General_Error, etc. with gpg_error or
+	gpg_error_from_syserror.
+	* pinentry/pinentry-curses.c: Likewise.
+	* pinentry/pinentry.c: Likewise.
+	(pinentry_assuan_reset_handler): Change return type to gpg_error_t.
+	Change type of argument CTX from ASSUAN_CONTEXT to assuan_context_t.
+	Return 0.
+	(pinentry_inq_quality): Change variable CTX's type from ASSUAN_CONTEXT
+	to assuan_context_t.
+	(assuan_malloc_hooks): New variable.
+	(pinentry_init): Call gpgrt_check_version.  Change use of
+	assuan_set_malloc_hooks to match libassuan's semantics.
+	(option_handler): Return a gpg_error_t, not an int.  Replace use of
+	ASSUAN_Out_Of_Core, etc. with gpg_error or gpg_error_from_syserror.
+	(cmd_setdesc): Return a gpg_error_t, not an int.  Change argument
+	CTX's type from ASSUAN_CONTEXT to assuan_context_t.  Replace use of
+	ASSUAN_Out_Of_Core, etc. with gpg_error or gpg_error_from_syserror.
+	GPG_ERR_ENOMEM), etc.
+	(cmd_setprompt): Likewise.
+	(cmd_setkeyinfo): Likewise.
+	(cmd_setrepeat): Likewise.
+	(cmd_setrepeaterror): Likewise.
+	(cmd_seterror): Likewise.
+	(cmd_setok): Likewise.
+	(cmd_setnotok): Likewise.
+	(cmd_setcancel): Likewise.
+	(cmd_settimeout): Likewise.
+	(cmd_settitle): Likewise.
+	(cmd_setqualitybar): Likewise.
+	(cmd_setqualitybar_tt): Likewise.
+	(cmd_getpin): Likewise.
+	(cmd_confirm): Likewise.
+	(cmd_message): Likewise.
+	(cmd_getinfo): Likewise.
+	(cmd_clear_passphrase): Likewise.
+	(register_commands): Likewise.  Change use of assuan_register_command
+	to match libassuan's semantics.
+	(pinentry_loop2): Change variable RC's type from int to gpg_error_t.
+	Change variable CTX's type from ASSUAN_CONTEXT to assuan_context_t.
+	Use assuan_new to initialize CTX.  Change use of
+	assuan_init_pipe_server to match libassuan's semantics.  Replace use
+	of assuan_strerror with gpg_strerror.  Call assuan_release instead of
+	assuan_deinit_server.
+
+2015-06-16  Andre Heinecke  <aheinecke@intevation.de>
+
+	Qt4: Fix GCC compile warnings.
+	+ commit 5026d0b9ac08d8366c82beec6c4425fb7f7b11e5
+	* qt4/qsecurelineedit.cpp (QSecureLineEdit::sizeHint),
+	(QSecureLineEdit::minimumSizeHint): Remove unused Q_D macros.
+	(QSecureLineEdit::setCursorPosition, QSecureLineEditPrivate::setText),
+	(QSecureLineEditPrivate::hasAcceptableInput): Explicitly cast length to int.
+	(QSecureLineEditPrivate::maskString): Use unsigned type for strIndex.
+	(QSecureLineEditPrivate::maskString): Remove uneccesary casts.
+	* qt4/secstring.cpp (toUtf8): Remove unused variable.
+
+2015-06-07  Neal H. Walfield  <neal@gnu.org>
+
+	gnome3: Actually respect the user's choice of using a password manager.
+	+ commit 444598586d0abf70d5a27d2aafcd6c14989621db
+	* gnome3/pinentry-gnome3.c (create_prompt) [HAVE_LIBSECRET]: Only show
+	the libsecret prompt in this case.
+	(gnome3_cmd_handler) [HAVE_LIBSECRET]: Set PE->MAY_CACHE_PASSWORD
+	according to the user's choice.
+
+2015-06-05  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.4.
+	+ commit 29d7c5ffda648e61431b42964e773c13f77bf501
+
+
+2015-06-05  Neal H. Walfield  <neal@gnu.org>
+
+	secmem: When clearing memory, don't clear beyond the end of the buffer.
+	+ commit 554250b56ae00d590d05b1c5af7892314f0e72d8
+	* secmem/secmem.c (secmem_malloc): Only clear the user memory; don't
+	clear beyond the end of the buffer.
+
+2015-06-04  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	Make pinentry_setbufferlen always return the pin buffer.
+	+ commit c29c5657fd77e212799715c23806a0cb6e1cfd47
+	* pinentry/pinentry.c (pinentry_setbufferlen): When the pin buffer is
+	already large enough, return the buffer instead of NULL.
+
+2015-06-02  Werner Koch  <wk@gnupg.org>
+
+	Fixed compiler warnings - mostly unused parameter.
+	+ commit ee23924390a45700b35ab37a75278cfeb965b8c8
+
+
+	Add more GCC warnings flags.
+	+ commit f74e40465f979749af6df5b9ea325324a428a669
+	* configure.ac: Add GCC specific -W flags.
+
+2015-06-02  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	use g_debug(format, ...) safely.
+	+ commit 87e6811f2d1e72c501d14670ad911245a41c0828
+	* pinentry/password-cache.c (password_cache_clear): use g_debug safely
+	  in case error->message is malformed.
+
+2015-06-01  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.3.
+	+ commit 9f98bbfa7f05f1c7e02443bc8d0bd74a61eb39bc
+
+
+2015-05-31  Stanislav Ochotnicky  <sochotnicky@redhat.com>
+
+	Fix qt4 pinentry window created in the background.
+	+ commit eab03a469d82018e53380f26390594f47bb4c5c8
+	This is probably just a workaround. Proper fix is being investigated.
+	See:
+	https://bugzilla.redhat.com/show_bug.cgi?id=589532
+	http://stackoverflow.com/questions/2788518/calling-activatewindow-on-qdia
+
+2015-05-20  Werner Koch  <wk@gnupg.org>
+
+	Improve configure log messages for ncurses/ncursesw.
+	+ commit 55ea554b2020b1e7b0996bd9f7bb38c8af2b03f3
+	* m4/pkg.m4: Print the moule name not the variable name.
+
+	Allow building without ncursesw and other minor fixes.
+	+ commit 0c1af8e9af59d01936924c91c5d2d45133923d6d
+	* pinentry/password-cache.c (password_cache_clear): s/debug/g_debug/.
+	* pinentry/pinentry-curses.c (dialog_input): Actually bail out.
+	(dialog_run) [!HAVE_NCURSESW]: Define alt.
+
+2015-05-19  Neal H. Walfield  <neal@gnu.org>
+
+	gtk+-2: Make sure the save-passphrase-externally checkbox is not checked.
+	+ commit 54dd881a9a733074bafee4062f8591f4fe69cad5
+	* gtk+-2/pinentry-gtk-2.c (create_window): Make sure the check button
+	to save the passphrase externally is not checked by default.
+
+	Provide an Assuan command to clear a cached password.
+	+ commit 72b653d8088ce508ab688c68d88c363832d50eb7
+	* pinentry/password-cache.c (password_cache_clear): New function.
+	* pinentry/password-cache.h (password_cache_clear): New declaration.
+	* pinentry/pinentry.c (cmd_getinfo): New function.
+	(register_commands): Have the Assuan command "CLEARPASSPHRASE" call
+	it.
+
+	If there is an error message, show it and don't read from the cache.
+	+ commit 516e01049e9829020b40ddbcf387d4c5c05b1c3f
+	* pinentry/pinentry.c (cmd_getpin): If PINENTRY.ERROR is not NULL,
+	don't read the password from the cache.
+
+2015-05-18  Neal H. Walfield  <neal@gnu.org>
+
+	curses: When creating the button text, respect underscores.
+	+ commit 6fdcad6a1f91bc769b03d2cb32f0b8001ed3ae19
+	* pinentry/pinentry-curses.c (MAKE_BUTTON): When creating the button
+	text, respect underscores.
+
+	curses: Make control-l repaint the screen.
+	+ commit cade1ae102d5f4972f68b5bef0003f1ad1b3bde3
+	* pinentry/pinentry-curses.c (dialog_input): Make control-l repaint
+	the screen.
+
+	curses: Make control-h an alias for backspace.
+	+ commit 85646e9c08875214f6888df507c6f9ceb463a000
+	* pinentry/pinentry-curses.c (dialog_input): Add control-h an alias
+	for backspace.
+
+	When checking for ncurses, first try using PKG_CHECK_MODULES.
+	+ commit 25e77c0fd10e9a1d26c31c0a8ec1917b51da5cd2
+	* m4/curses.m4: When checking for ncurses, first try using
+	PKG_CHECK_MODULES.
+
+	Purge dead code enabled by ENABLE_ENHANCED.
+	+ commit e89c36a6546515c2a19645356d8f80dd459f2075
+
+
+2015-05-16  Neal H. Walfield  <neal@gnu.org>
+
+	gtk+-2: If gtk fails to initialize, fallback to the curses backend.
+	+ commit edd9a884604ff76e63d238504ede9b118655c55b
+	* gtk+-2/pinentry-gtk-2.c (main): Use gtk_init_check instead of
+	gtk_init.  If gtk_init_check fails, fallback to the curses backend.
+
+	curses: Handle control-u, control-w and alt-backspace.
+	+ commit d3c52a144b5b23d0d841a99a310090dcafe2074b
+	* pinentry/pinentry-curses.c (dialog_input): Take additional argument,
+	alt.  Update callers.  If passed control-u, erase the whole line.  If
+	passed alt-backspace or control-w, erase any white space the the
+	previous word.
+	(dialog_run): Detect when alt is pressed.
+
+	secmem: Clear the buffer before returning it from secmem_malloc.
+	+ commit 1d3583a2562e83496ac515276e9bd63a7f1abbc7
+	* secmem/secmem.c (secmem_malloc): In case wipememory2 gets optimized
+	away in secmem_free, clear the buffer before returning it.
+
+	curses: NUL terminate the pin entry buffer.
+	+ commit 97a47ee99e14e0c8c6a2c3c5eec0434e6eac77e0
+	* pinentry/pinentry-curses.c (dialog_run): NUL terminate the pin entry
+	buffer.
+
+	curses: Make sure the pin entry buffer is larger enough.
+	+ commit c33073eb40ee4bb6e079605dbf2f343de50390d7
+	* pinentry/pinentry-curses.c (dialog_input): Make sure the pin entry
+	buffer is large enough.
+
+	curses: Avoid aliasing the pin buffer.
+	+ commit c7736745f5683b820ebbd11e30ddb425748c16ab
+	* pinentry/pinentry-curses.c (struct dialog): Remove field pin.  Add
+	field pinentry.
+	(dialog_create): Don't set DIALOG->PIN to PINENTRY->PIN.  Set
+	DIALOG->PINENTRY to PINENTRY and access PIN via
+	DIALOG->PINENTRY->PIN.  Update other users.
+
+	gtk+-2: When the dialog is destroyed, remove any pending timers.
+	+ commit 88772ddaac96303a63c97a45c26144d93a942798
+	* gtk+-2/pinentry-gtk-2.c (timeout_source): New variable.
+	(timeout_cb): Set it to 0.
+	(create_window): When setting up the timeout, save the source
+	identifier in TIMEOUT_SOURCE.
+	(gtk_cmd_handler): If TIMEOUT_SOURCE is not 0, remove the timeout.
+
+	curses: If an error occurs while reading input, cancel the operation.
+	+ commit f3cb78985c3c7f96401a06a73412fb704c5efaab
+	* pinentry/pinentry-curses.c (dialog_run) [! HAVE_DOSISH_SYSTEM]: If
+	an error occurs while reading input, cancel the operation.
+
+	tty: ok takes precedence over default-ok.  Likewise for cancel.
+	+ commit ae3352566994623d54723283e887bc5f74766e1c
+	* tty/pinentry-tty.c (confirm): When creating the ok button,
+	pinentry->ok takes precedence over pinentry->default-ok.  Likewise for
+	pinentry->cancel and pinentry->default_cancel.
+
+	Don't use a static initializer to initialize PINENTRY.
+	+ commit de3241ae0bc9072cfef204ea638171a3a95380a3
+	* pinentry/pinentry.c (pinentry): Don't use a static initializer.
+	(pinentry_reset): Initialize PINENTRY here.
+	(pinentry_parse_opts): Call pinentry_reset here.
+	(pinentry_assuan_reset_handler): New function.
+	(pinentry_loop2): Register it as the assuan reset handler.
+
+	Don't emit the LC_CTYPE-not-set warning more than once.
+	+ commit 9fdb05554b5fc9c6f6621d606ccf21c038c7b6cb
+	* pinentry/pinentry.c (lc_ctype_unknown_warning): New variable.
+	(pinentry_utf8_to_local): Only emit the LC_CTYPE warning if
+	lc_ctype_unknown_warning is not set.  After emitted such a warning,
+	set lc_ctype_unknown_warning.
+	(pinentry_local_to_utf8): Likewise.
+
+	curses: Use default-ok and default-cancel if set.
+	+ commit 222866894993041ceaca3ca4ef33373ab78bfdff
+	* pinentry/pinentry-curses.c (default_notok): New macro.
+	(MAKE_BUTTON): Also check if default variant is set.
+
+	curses: Don't show the notok button in pin entry mode.
+	+ commit 3d97b18ba928677550a8f7eaa938551aad42dacf
+	* pinentry/pinentry-curses.c (dialog_create): Don't show the notok
+	button in pin entry mode.
+
+2015-05-16  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	Avoid implicit declaration of function addnwstr.
+	+ commit 21e83f422667e431c1283b9ae3356fded3523e50
+	* pinentry/pinentry-curses.c [HAVE_NCURSESW]: Include <ncursesw/curses.h>.
+	[! HAVE_NCURSESW]: Only include <curses.h> in this case.
+
+2015-05-13  Neal H. Walfield  <neal@gnu.org>
+
+	tty: Handle the case where the user needs to repeat the passphrase.
+	+ commit 4549998627ee04e74f8d1c94aef55e3ed17f14d9
+	* tty/pinentry-tty.c: Include "memory.h".
+	(read_password): Break into two functions: read_password and password.
+	(read_password): Just read the password from the terminal and return
+	it in secure memory (or NULL if the user canceled the entry or there
+	was an error).
+	(password): Improve output.  Handle the repeat passphrase case (i.e.,
+	when pinentry->repeat_passphrase is set).
+	* tty/Makefile.am (AM_CPPFLAGS): Add "-I$(top_srcdir)/secmem".
+
+	Add a new helper function, pinentry_setbuffer_use.
+	+ commit c68a6854aadaf8c271648f369f14b4943e684ecf
+	* pinentry/pinentry.c (pinentry_setbuffer_use): New function.
+	* pinentry/pinentry.h (pinentry_setbuffer_use): New declaration.
+
+	tty: Always call do_touch_file if we (potentially) touched the screen.
+	+ commit 960317ec86c06bc737e1ff3c1b571dc8f4194763
+	* tty/pinentry-tty.c (tty_cmd_handler): Always call do_touch_file.
+
+	tty: Improve confirmation mode functionality.
+	+ commit dd0307be51587a9a7866981ce00eed474bee6e14
+	* tty/pinentry-tty.c: Include <ctype.h>.
+	(UNDERLINE_START): Define.
+	(ALERT_START): Define.
+	(NORMAL_RESTORE): Define.
+	(button): New function.
+	(confirm): Rewrite to include all confirmation mode functionality.
+	(tty_cmd_handler): Don't include any confirmation mode functionality.
+	Just call confirm.
+
+	Fix linking order to work when linked with --as-needed.
+	+ commit 496235af8dfd373b54e5610f86bf1cada175ac23
+	* curses/Makefile.am (LDADD): Add $(COMMON_LIBS) after all of the
+	local objects and object archives.
+	* gnome3/Makefile.am (LDADD): Likewise.
+	* gtk+-2/Makefile.am (LDADD): Likewise.
+	* qt4/Makefile.am (pinentry_qt4_LDADD): Likewise.
+	* tty/Makefile.am (LDADD): Likewise.
+
+	Don't interpret the handler's return value as the passphrase's length.
+	+ commit 3062742b945f95d72001896f8ba5468b9e63aa9b
+	* pinentry/pinentry.c (cmd_getpin): Don't interpret the return value
+	as the passphrase length.  Use strlen instead.
+
+	Make the management of pinentry.pin more explicit.
+	+ commit bdd81974633f8e31d582b62999ef9b004bc3b95e
+	* pinentry/pinentry.c: Include <assert.h>.
+	(pinentry): Set pin_len to 0.
+	(pinentry_setbufferlen): If len is less than 2048, set it to 2048.
+	Add an assertion.
+	(pinentry_setbuffer_clear): New function that releases the pin buffer.
+	(pinentry_setbuffer_init): New function that initializes the pin
+	buffer.
+	(cmd_getpin): Use pinentry_setbuffer_init and pinentry_setbuffer_clear
+	instead of manual memory management.
+	(cmd_confirm): Use pinentry_setbuffer_clear instead of manual memory
+	management.
+
+	Better document struct pinentry.
+	+ commit ae7dfae00df81a683adf0292a52b63632491319e
+	* pinentry/pinentry.h (struct pinentry): Better document the various
+	fields.
+
+2015-05-12  Neal H. Walfield  <neal@gnu.org>
+
+	Fix some documentation details.
+	+ commit 2582cb9eb23ca287520caa04a12f83f10c268f71
+	* doc/pinentry.texi: Fix some details.
+
+	Add a GNOME3 pinentry based on gcr.
+	+ commit be87785005d256b7f3dacc607ba5ea0a14de8593
+	* configure.ac (--enable-pinentry-gnome3): Option to enable the GNOME3
+	pinentry.
+	(pinentry_gnome_3): Set to yes if enabled and gcr-3 and gcr-base-3 gcr
+	is available.
+	(GNOME3CFLAGS): Define and AC_SUBST.
+	(GNOME3LIBS): Define and AC_SUBST.
+	(GCR_API_SUBJECT_TO_CHANGE): Define.
+	(BUILD_PINENTRY_GNOME_3): Define.
+	* Makefile.am (pinentry_gnome_3): Define.
+	(SUBDIRS): Add ${pinentry_gnome_3}.
+	* gnome3/Makefile.am: New file.
+	* gnome3/pinentry-gnome3.c: New file.
+
+	Add new chapter to documentation describing implementation details.
+	+ commit 14b95bd6d92ba699c3d263ac1f9140973d8c9156
+	* doc/pinentry.texi: Add new chapter describing some implementation
+	details.
+
+	Simplify code.
+	+ commit 831782b3b625ca81624fae0ee184da0d2fc46d96
+	* pinentry/pinentry.c (cmd_confirm): Don't use nested ternary
+	expressions.
+
+	Implement cmd_confirm in terms of cmd_message.
+	+ commit 29236f84aca64be72c97a9b5513457a4e45afbc6
+	* pinentry/pinentry.c (cmd_confirm): Implement cmd_confirm in terms of
+	cmd_message.
+
+	Fix memory allocation in pinentry_setbufferlen.
+	+ commit aa04dac66f2ee949e8789a3c91090b01646f2e57
+	* pinentry/pinentry.c (pinentry_setbufferlen): Set PIN->PIN to a
+	buffer that is LEN bytes large, not 2 * PIN->PIN_LENGTH.
+
+2015-05-11  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.2.
+	+ commit 8e52ddc874838ad512ed76cdc1c34057da328fba
+
+
+	Return better error codes.
+	+ commit 726c00514be4a0c2831dd775e306f7d5243bab8b
+	* assuan/assuan.h (ASSUAN_Too_Short): New
+	(ASSUAN_ENOENT, ASSUAN_ENOTTY): New.
+	* pinentry/pinentry-curses.c: Include assuan.h.
+	(dialog_create, dialog_run): Set specific error codes.
+	* pinentry/pinentry.h (struct pinentry): Add field specific_err.
+	* pinentry/pinentry.c (cmd_getpin): Return specific_err.
+	(cmd_confirm, cmd_message): Ditto.
+
+	curses: Reset tty state on failed dialog creation.
+	+ commit d7f2081fdd605b0d0789bcb6984decfea3777f23
+	* pinentry/pinentry-curses.c (dialog_run): Cleanup on dialog_create
+	error.
+
+	gtk: Use a description string from gpg-agent for libsecret.
+	+ commit 319e1a32e3ab67cb0624c0586d7519c16c76d43b
+	* pinentry/pinentry.h (struct pinentry): Add field default_pwmngr.
+	* pinentry/pinentry.c (option_handler): Set it.
+	* gtk+-2/pinentry-gtk-2.c (create_window) [HAVE_LIBSECRET]: Use new
+	string.
+
+	gtk: Silence compiler warning.
+	+ commit 3d02645d757e573e4628a1caf2e36bb92d523e77
+
+
+2015-05-07  Neal H. Walfield  <neal@gnu.org>
+
+	Don't use asprintf.
+	+ commit 1a8af55b76d8235ce891f44808064e7f846e193c
+	* pinentry/password-cache.c (keygrip_to_label): Don't use asprintf.
+
+	Improve documentation.
+	+ commit 09203147bef487c9a85f55f8cc96d265197b0bf5
+	* doc/pinentry.texi: Improve description of SETKEYINFO's format.
+
+	Minor documentation cleanups.
+	+ commit 3a8daef81c49dc3c04b6703a0384381cb43eb91b
+
+
+	Add support for saving the passphrase with libsecret.
+	+ commit c6eaa7bf8300f524de41956a339ca0ed3af4656e
+	* configure.ac (COMMON_CFLAGS): New variable.  AC_SUBST it.
+	(COMMON_LIBS): Likewise.  AC_SUBST it.
+	(LIBSECRET_CFLAGS): Likewise.
+	(LIBSECRET_LIBS): Likewise.
+	(--enable-libsecret): Add option to enable support for libsecret.  If
+	enabled, check for its presense.
+	* pinentry/password-cache.h: New field.
+	* pinentry/password-cache.c: New field.
+	* pinentry/pinentry.h (struct pinentry): Add fields pin_from_cache,
+	allow_external_password_cache, tried_password_cache, keyinfo, and
+	may_cache_password.
+	* pinentry/pinentry.c: Include "password-cache.h".
+	(pinentry): Initialize new fields.
+	(option_handler): Handle the "allow-external-password-cache" option.
+	(cmd_setkeyinfo): Implement it.
+	(cmd_getpin): Read the password from the cache, if appropriate.  Save
+	it to the cache, if appropriate.
+	* pinentry/Makefile.am (AM_CPPFLAGS): Add $(COMMON_CFLAGS).
+	(LDADD): Add $(COMMON_LIBS).
+	(libpinentry_a_SOURCES): Add password-cache.h
+	password-cache.c.
+	* gtk+-2/pinentry-gtk-2.c (may_save_passphrase_toggled): New function.
+	(create_window): Take additional parameter, the pinentry's context.
+	Update callers.
+	[HAVE_LIBSECRET]: Show a checkbox asking whether the passphrase should
+	be saved.
+	* gtk+-2/Makefile.am (AM_CPPFLAGS): Add $(COMMON_CFLAGS).
+	(LDADD): Add $(COMMON_LIBS).
+	* curses/Makefile.am (AM_CPPFLAGS): Add $(COMMON_CFLAGS).
+	(LDADD): Add $(COMMON_LIBS).
+	* tty/Makefile.am (AM_CPPFLAGS): Add $(COMMON_CFLAGS).
+	(LDADD): Add $(COMMON_LIBS).
+	* doc/pinentry.texi (Protocol): Update documentation.  Describe the
+	protocol and provide some justification.
+
+2015-05-07  Werner Koch  <wk@gnupg.org>
+
+	w32: Do not build gtk pinentry by default.
+	+ commit aa98f25ddcc3c36035f18249443cec15d16e8fa5
+	* autogen.rc: Remove obsolete options.
+
+2015-05-07  Neal H. Walfield  <neal@gnu.org>
+
+	Align secmem_realloc behavior with realloc's.
+	+ commit aaec7c7c50adfb51510962a14c0fa2179a34a01e
+	* secmem/secmem.c (secmem_realloc): If passed a NULL pointer, then
+	call secmem_malloc instead of crashing.
+
+2015-05-05  Werner Koch  <wk@gnupg.org>
+
+	w32: Minor changes to the dialog.
+	+ commit cbecc6d38a86f8fa7c052efab7649be07b5df334
+	* w32/main.c (set_bitmap): New.
+	(dlg_proc): Show error prompt in red.
+	* w32/pinentry-w32.rc: Add icons and chnage dialog.
+	* w32/logo-128.bmp: New.
+	* w32/logo-32.bmp: New.
+	* w32/logo-48.bmp: New.
+	* w32/logo-64.bmp: New.
+	* w32/logo-96.bmp: New.
+
+	pinentry-tty: Fix problem with zero length prompt.
+	+ commit a616bd9dec00e068185b6b37a35ced4ec12ac5a7
+	* tty/pinentry-tty.c (read_password): Use default prompt also for an
+	empty prompt argument.
+
+2015-05-01  Neal H. Walfield  <neal@gnu.org>
+
+	Improve documentation.
+	+ commit 8b802cf928d199d9c09080f71a7dd1eb397f414a
+	Improve documentation: clean up wording and add some minor
+	improvements to the content.
+
+	Improve comment.
+	+ commit b9d529557b368548d6a55ae6c2df66ece7023e5f
+	* tty/pinentry-tty.c (tty_cmd_handler): Add comment.
+
+	When reading the pin, correctly handle backspace.
+	+ commit 189ab07e94dc2d4103c1edf00e15e0156df89297
+	* tty/pinentry-tty.c (read_password): Handle backspace.
+
+	Improve prompt for pin.
+	+ commit c7099565524010b86891fc14b723fc722509d4bb
+	* tty/pinentry-tty.c (read_password): Improve prompt for pin.
+
+2015-05-01  Daniel Kahn Gillmor  <dkg@fifthhorseman.net>
+
+	fix small memory leak in pinentry-curses.
+	+ commit 03e4207f11e228a4c079af991f82507539793bae
+	* pinentry/pinentry-curses.c: free internally allocated local string.
+
+	pinentry-tty: make confirm actions work.
+	+ commit 21d28d114259da9cb555ee612e053e6e68f37fd3
+	* tty/pinentry-tty.c: treat the situation where no PIN is requested
+	  and one_button is not set as a confirmation prompt.
+
+	pinentry-tty: fix segfault on MESSAGE or CONFIRM.
+	+ commit 93bd60a3ca91581a1cf8e754c4fb51e54c9e7ce9
+	* tty/pinentry-tty.c: avoid prompting for a PIN when one was not asked
+	  for.
+
+	pinentry-tty: handle designated tty outside of read_password.
+	+ commit b4bf75f24f1126a8ba8f8c1c025103c2dcee0710
+	* tty/pinentry-tty.c: reorganize, wrapping read_password in tty
+	  open/close.
+
+2015-04-16  Yuri D'Elia  <wavexx@users.sourceforge.net>
+
+	gtk: Make Escape key work.
+	+ commit 9d2d8b6bfaf2d5b07e7fb5be7188516e4158ed98
+	* gtk+-2/pinentry-gtk-2.c: Include gdk/gdkkeysyms.h.
+	(enter_callback): Pass confirm_value_t to button_clicked.
+	(confirm_button_clicked): Use confirm_value_t cast.
+	(cancel_callback): New.
+	(create_window): Add accelerator for the Escape key.
+
+2015-04-14  Werner Koch  <wk@gnupg.org>
+
+	Add stub command SETKEYINFO.
+	+ commit 2bffbbff09177afb75ad667d949eed2a8cb846ea
+	* pinentry/pinentry.c (cmd_setkeyinfo): New.
+	(register_commands): Addd command.
+
+2015-03-18  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.1.
+	+ commit 0b2d5e435445e3b9f8dffcf2240a95313c3ce335
+
+
+	Fix build problems on AIX.
+	+ commit 1cfcf9dadb73bccc52b7ece47616d621d9cbe044
+	* pinentry/pinentry.c: Do not include getopt.h.
+	* pinentry/pinentry-curses.c (dialog_run): Call use_default_colors
+	only with ncurses.
+
+	Update to automake 1.14.
+	+ commit 2c56b16a18713786a7e66e408967f91388a008cb
+
+
+2015-03-17  Werner Koch  <wk@gnupg.org>
+
+	Get rid of getopt_long and improve --help output.
+	+ commit 2f7b275b2b5d31df48f02ab2913ba3ff2e74b7a4
+	* pinentry/argparse.c, pinentry/argparse.h: New. Taken from GnuPG
+	master.
+	* pinentry/Makefile.am (libpinentry_a_SOURCES): Add them.
+	* pinentry/pinentry.c: Include argparse.h.
+	(usage): Remove.
+	(my_strusage): New.
+	(pinentry_parse_opts): Rewrite.  Do not return a value.  Change call
+	callers.
+
+	Use CH type instead of wchar_t for curses.
+	+ commit 8fa3ca90bfbaa84314443fab9865742b78eb85a9
+	* pinentry/pinentry-curses.c (collect_line): Change second arg to CH.
+	* pinentry/pinentry.c (pinentry_utf8_to_local): Make args const.
+
+2014-12-15  Andre Heinecke  <aheinecke@intevation.de>
+
+	qt4: Improve moc handling.
+	+ commit bb423620fca82159e60ab25de3c608a0243088b0
+	    * configure.ac: Disable pinentry-qt4 or exit if moc not found.
+	    * m4/qt.m4: Look for and prefer moc-qt4.
+	    * qt4/Makefile.am: Add moc files to nodist and clean them.
+
+	doc: Update gpl.texi to match version from gcrypt.
+	+ commit c911657710893643558f91ec497fac2831d91040
+	    * doc/gpl.texi: Use version from gcrypt.
+
+2014-12-09  Vicente Olivert Riera  <Vincent.Riera@imgtec.com>
+
+	pinentry-qt4: make the accessibility part optional.
+	+ commit 484465338ea6f5f12eb1341ca0ef84aa79224ed4
+	Check if the Qt libraries have support for QT Accessibility before using
+	it. Otherwise it will raise error like these one:
+
+	main.cpp: In function 'int qt_cmd_handler(pinentry_t)':
+	main.cpp:220:51: error: 'class QAbstractButton' has no member named
+	'setAccessibleDescription'
+
+2014-10-26  Werner Koch  <wk@gnupg.org>
+
+	Release 0.9.0.
+	+ commit 8943bc86d6cf8295d0ec4382480d886b1f2ec062
+
+
+	gtk: Aboid segv for opaste keys.
+	+ commit 821dc21a241a27cc381c7d65be690e3858e2ddc6
+	* gtk+-2/gtksecentry.c (gtk_secure_entry_class_init): Disable paste
+	key bindings.
+
+	Remove support form QT3 and GTK+-1.
+	+ commit f2ed42297528f2a126d189c6181d3105ceecca22
+	* configure.ac: Remove old qt and gtk+-1 support.
+	* Makefile.am: Ditto.
+
+2014-10-26  Stanislav Ochotnicky  <sochotnicky@redhat.com>
+
+	Check if we are on tty before initializing curses.
+	+ commit 3803fd15942f2f25108e400be6cd6faef791c8f7
+	* pinentry/pinentry-curses.c (dialog_run): Check stant stdin and stout
+	are connected to ttys.
+
+2014-10-26  Werner Koch  <wk@gnupg.org>
+
+	gtk: Allow pasting using the mouse.
+	+ commit 4f4af9056d1c100aa53363f019253160cd8d9ff0
+	* gtk+-2/gtksecentry.h (_GtkSecureEntry): Add fields insert_pos,
+	real_changed, cand change_count.
+	(_GtkSecureEntryClass): Add field paste_clipboard.
+	* gtk+-2/gtksecentry.c (PASTE_CLIPBOARD): New.
+	(gtk_secure_entry_class_init): Set paste_clipboard and create
+	paste-clipboard signal.
+	(gtk_secure_entry_button_press): Call gtk_secure_entry_pase.
+	(begin_change, end_change, emit_changed): New.
+	(gtk_secure_entry_real_insert_text): Use emit_changed.
+	(gtk_secure_entry_real_delete_text): Ditto.
+	(paste_received, gtk_secure_entry_paste)
+	(gtk_secure_entry_paste_clipboard): New.
+
+2014-10-24  Werner Koch  <wk@gnupg.org>
+
+	gtk+-2: Make current focus visible again.
+	+ commit 2ef788fb5dce2e49fa925264802388f4c002cd31
+	* gtk+-2/pinentry-gtk-2.c (grab_keyboard): Return false
+	(ungrab_keyboard): Ditto.
+
+	gtk+-2: Implement the SETREPEAT command.
+	+ commit e483abb883f65719ce8008a211f49b8d207ee4af
+	* gtk+-2/pinentry-gtk-2.c (repeat_entry, error_label): New.
+	(button_clicked): Implement repeat check.
+	(changed_text_handler): Clear repeat field.
+	(create_window): Add repeat entry.
+
+	Add commands to allow implementing a "repeat passphrase" field.
+	+ commit 9f78f0709d9ba60677129c179f7f0ef835c51c1d
+	* pinentry/pinentry.c (cmd_setrepeat): New.
+	(cmd_setrepeaterror): New.
+	(register_commands): Add new commands.
+	(cmd_getpin): Print "PIN_REPEATED" status.
+
+2014-09-18  Werner Koch  <wk@gnupg.org>
+
+	Release 0.8.4.
+	+ commit f610ea6248b5a77739d2e16052b8ddd78f95394e
+
+
+	Add missing build support files and move them to build-aux.
+	+ commit f21dcb8083905efef8e82e1bf91dd01457af81d1
+
+
+	Use generic autogen.sh script.
+	+ commit 549479d69363ca1ef5e7c676517e2327b8baadea
+	* autogen.rc: New.
+	* autogen.sh: New.  Take from GnuPG.
+	* Makefile.am (EXTRA_DIST): Add autogen.rc.
+	(DISTCHECK_CONFIGURE_FLAGS): Disable qt4.
+
+2014-08-12  Werner Koch  <wk@gnupg.org>
+
+	common: Fix compiler warning.
+	+ commit 888591602fc359e2c1baaa49d92825e050426956
+	* pinentry/pinentry.c (pinentry_utf8_to_local): Use cast for iconv arg.
+	(pinentry_local_to_utf8): Ditto.
+
+	New pinentry-tty version for dumb terminals.
+	+ commit 12369b15c65fa64eef9dbc5e475b407e338641c7
+	* Makefile.am: Add pinentry-tty.
+	* NEWS: Add news about pinentry-tty.
+	* README: Update.
+	* configure.ac: Add support for this pinentry.
+	* tty/Makefile.am: New.
+	* tty/pinentry-tty.c: New.
+
+2014-08-06  Andre Heinecke  <aheinecke@intevation.de>
+
+	Check for MOC also if pinentry-qt is disabled.
+	+ commit 52cf95c4fd97dc38856e72aa3e42a135d010df06
+	  * configure.ac: Call QT_PATH_MOC if pinentry_qt4 is not no.
+
+	Add fallbacks for SetForegroundWindow.
+	+ commit f4d14ffcf2e04b1938c00a0ef1504e0e932631fd
+	    If that foreground window fails pinentry-qt now tries to
+	    attach to the current foreground process and then tries
+	    to set the foreground window again. If that fails it also
+	    calls ShowWindow as a last resort.
+
+	    * qt4/pinentrydialog.cpp (raiseWindow): Add fallbacks in
+	    case SetForegroundWindow fails.
+
+	Use raiseWindow also for confirm dialogs.
+	+ commit 47476d2f288a22c29567ae2c179ce0472db4257e
+	    This should fix the case that the dialog opened
+	    in the foreground but a warning / confirm dialog
+	    opened in the background.
+
+	    * qt4/pinentryconfirm.cpp, qt4/pinentryconfirm.h (showEvent):
+	    New overwrite base class method to call raiseWindow.
+	    * NEWS: Mention this.
+
+2014-07-30  Andre Heinecke  <aheinecke@intevation.de>
+
+	Set some accessibility information.
+	+ commit 41d046022e912c76cb424c906064745e732f01f3
+	    * qt4/main.cpp (qt_cmd_handler): Build buttons with accessibile
+	    Description.
+	    * qt4/pinentrydialog.cpp (setDescription, setError, setOkText)
+	    (setCancelText, setQualityBar): Set an accessible description.
+	    * qt4/pinentryconfirm.cpp (PinentryConfirm): Set message
+	    box contents also as accessible values.
+	    * NEWS: Mention it and the copy/paste change from last year.
+
+2013-07-15  Andre Heinecke  <aheinecke@intevation.de>
+
+	Lower paste length limit to 300.
+	+ commit 556d305b970ed60ef1dc2718fcafbf3bea6b7fea
+	    This should be more then enough and avoids possible problems
+	    with libassuan cmd line lenght or percent escaping etc.
+
+	    * qt4/qsecurelineedit.cpp (insert): Lower paste limit
+
+	Limit paste length to 1023 characters.
+	+ commit 9b154c9f87abd3ea5df4b763c958e538b19d0904
+	    * qt4/qsecurelineedit.cpp (insert): Check for a maximum
+	    length before allocation the secmem string.
+
+	Fix contextmenu support for pasting.
+	+ commit 4d56651dd4ab2568f8adc7e4448bb1239dbdbfb0
+	    MOC ignores preprocessor definitions so we can not conditionally
+	    declare SLOTS. So we now move the ifdefs in the definition and
+	    always declare the SLOTS.
+
+	    * qt4/qsecurelinedit.cpp (cut, copy, paste): Do nothing if
+	    QT_NO_CLIPBOARD is defined.
+	    * qt4/qsecurelinedit.h: Always declare cut, copy and paste slots
+
+	Remove check for RTL extensions.
+	+ commit d4feabe153b096db896dfe25bd1bf763d23123d7
+	    Our code does nothing RTL specific there anyway. And the
+	    qt_use_rtl_extensions symbol has been removed.
+
+	    * qt4/qsecurelinedit.cpp: Remove check for RTL extensions.
+
+2013-07-12  Werner Koch  <wk@gnupg.org>
+
+	Fix for commit fb38be9 to allow for "make distcheck".
+	+ commit 54b9b92c13a496a33868501dec893bc8d82b1a8d
+	* qt4/Makefile.am: Make correct use of BUILT_SOURCES.
+
+2013-05-29  Andre Heinecke  <aheinecke@intevation.de>
+
+	Add pinentry-qt4-clipboard option.
+	+ commit 0b3a8568e14b994a8d1f4c1cb42aed4959dfc811
+	    Enabling this option will make it possible to paste a
+	    passphrase into pinentry-qt4. This defeats the secmem
+	    mechanism but drastically increases usability for some
+	    users.
+
+	    * configure.ac: New option pinentry-qt4-clipboard.
+	    * qt4/qsecurelineedit.cpp, qt4/qsecurelineedit.h: Activate
+	    clipboard and context menu if PINENTRY_QT4_CLIPBOARD is defined.
+
+	Remove qt4 moc files and add moc to buildsystem.
+	+ commit fb38be960e837bb5854aa65bf8cbf9cbf535631e
+	    This is neccessary to conditionally enable signals/slots
+	    at build time.
+
+	    * qt4/Makefile.am: Moc files automatically.
+	    * qt4/pinentryconfirm.moc, qt4/pinentrydialog.moc,
+	    qsecurelineedit.moc: Removed.
+
+2013-04-26  Werner Koch  <wk@gnupg.org>
+
+	Release 0.8.3.
+	+ commit ce7f2e69fa78d9afac96efc3009513b203668b4b
+
+
+2013-04-26  Andre Heinecke  <aheinecke@intevation.de>
+
+	Switch to i686-w64-mingw32 as default Windows toolchain.
+	+ commit a421efcb91b80a37f58ae35687dc33db08a04b3d
+	* autogen.sh <build-w32>: Insert i686-w64-mingw32.
+	* configure.ac: Pretty print final info.
+
+	Fix declaration of lock_set_foreground_window for pinnetry-w32.
+	+ commit 369e774ab835ecf23da267cf55f9ecf8ae8c5585
+	* w32/main.c (lock_set_foreground_window): Remove WINUSERAPI
+	qualifier.
+
+	Fix ressource compilation of pinentry-w32.
+	+ commit 18b0d8849e51b6203b3f1dbc1cc1cc71e52f78b6
+	* w32/pinentry-w32.rc: Include windows.h
+
+2013-02-16  Ben Kibbey  <bjk@luxsci.net>
+
+	Curses build fix for DOS'ish systems.
+	+ commit 462f00dfc6636fbfe2e453c1b820d919ec1d0c99
+
+
+2013-02-14  Ben Kibbey  <bjk@luxsci.net>
+
+	Document the --timeout and SETTIMEOUT feature.
+	+ commit 31467f7c2cd748d6f822ccf627a2ce8870fb09c6
+
+
+	Add timeout support to the Gtk+2 pinentry.
+	+ commit 8ce6e0c9cecd91d7b1dfe8bcc9942803c13c7afb
+	* gtk+-2/pinentry-gtk-2.c (create_window): Add timer.
+	(timeout_cb): New.
+
+	Add timeout support to the curses pinentry.
+	+ commit e3bed4f087304ac126e247053fc82a593bec31b6
+	* pinentry/pinentry-curses.c (dialog_run): Set the window input to
+	non-blocking.
+	(catchsig): New.
+	(main): Catch SIGALRM and set the timeout.
+
+2013-01-06  Ben Kibbey  <bjk@luxsci.net>
+
+	Fix initializing the timeout timer.
+	+ commit d33537aef0358313cbcf1d010b227d93f3430900
+	When timeout == 0 a segfault would occur.
+
+2012-08-08  Werner Koch  <wk@gnupg.org>
+
+	Release 0.8.2.
+	+ commit ffc59acd0188006b9c90d03b59fe93dc7e12fe51
+
+
+	Distribute only bzip2 tarballs.
+	+ commit 94f356b2615a8cd2c5ce608b9f08a5fde3d02b26
+	* Makefile.am (AUTOMAKE_OPTIONS): New.
+
+	qt4: Update all moc files to Qt version 4.8.2.
+	+ commit 7cbe87800fa8f84d7868da507010999cbc314beb
+
+
+	Update config.guess and config.sub.
+	+ commit b3016d72478a57dd1132721a324b1a09ca23fed2
+	* config.guess, config.sub: Update to version 2012-07-31 from gnulib.
+
+	Change build system to auto-generate the ChangeLog.
+	+ commit 826ca44db0d29bae54de8b5d4c0d67a3f22430ee
+	* build-aux/gitlog-to-changelog: New script.  Taken from GnuPG.
+	* build-aux/git-log-fix: New file.
+	* build-aux/git-log-footer: New file.
+	* doc/HACKING: Describe the ChangeLog policy
+	* ChangeLog: New file.
+	* Makefile.am (EXTRA_DIST): Add new files.
+	(gen-ChangeLog): New.
+	(dist-hook): Run gen-ChangeLog.
+
+	Rename existing ChangeLog files to ChangeLog-old.
+
+	Switch to an automagic beta numbering scheme.
+	+ commit 19fae1e8652410712d52f1d926fb9bb40a506787
+	* configure.ac: Add all the required m4 magic.
+
+2012-08-08  Werner Koch  <wk@gnupg.org>
+
+	NB: Changes done before August 8, 2012 are described in per
+	directory files named ChangeLog-old.  See doc/HACKING for
+	details.
+
+        -----
+        Copyright (C) 2002, 2003, 2010, 2012 g10 Code GmbH
+
+	Copying and distribution of this file and/or the original GIT
+	commit log messages, with or without modification, are
+	permitted provided the copyright notice and this notice are
+	preserved.

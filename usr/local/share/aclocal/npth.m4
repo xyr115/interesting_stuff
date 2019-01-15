@@ -1,0 +1,1 @@
+../../Cellar/npth/1.6/share/aclocal/npth.m4

@@ -1,0 +1,24 @@
+#!/usr/bin/perl5.18
+
+eval 'exec /usr/bin/perl  -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+
+use strict;
+use warnings;
+# PODNAME: moo-outdated
+
+use Getopt::Long;
+use Moo::Conflicts;
+
+my $verbose;
+GetOptions( 'verbose|v' => \$verbose );
+
+if ($verbose) {
+    Moo::Conflicts->check_conflicts;
+}
+else {
+    my @conflicts = Moo::Conflicts->calculate_conflicts;
+    print "$_\n" for map { $_->{package} } @conflicts;
+    exit @conflicts;
+}
+

@@ -1,0 +1,141 @@
+#!/bin/sh
+
+#  smbdiagnose.sh
+#
+#
+#  Copyright (c) 2015-2016 Apple Inc. All rights reserved.
+#
+
+
+
+# trap ctrl-c and call exit_function
+trap exit_function INT
+
+function exit_function() {
+if [ $COLLECT -eq 1 ]
+then
+if [ $TRAPPED -eq 0 ]
+then
+TRAPPED=1
+sleep 5
+echo
+echo "Stopped tcpdumps. Collecting additional information"
+echo
+# start syslog with smb debug messages
+sudo log dump --filter 'process:"smbd"' > ${TEST_DIR}/smbd.log
+PID_2=$!
+if [ $SYSDIAGNOSE -eq 1 ]
+then
+# start sysdiagnose
+sudo sysdiagnose -f ${TEST_DIR} &
+PID_3=$!
+fi
+wait  ${PID_2}
+wait  ${PID_3}
+# turn off smb debug logging
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server.plist LogLevel -int 0
+#sync the changes
+sudo /usr/libexec/smb-sync-preferences
+#Turn off system debug logging
+sudo log config --mode "level:default"
+cd ${TEST_DIR}
+cd ../
+tar -zcvf smbdiagnose.tar.gz smbdiagnose
+open .
+rm -rf ${TEST_DIR}
+else
+exit 0
+fi
+else
+echo
+exit 0
+fi
+}
+
+function pause(){
+read -p "$*"
+}
+
+
+# show program usage
+show_usage() {
+echo
+echo ${0##/*}" Usage:"
+echo "-h help"
+echo "-f <results_directory>. Default is ~/Desktop"
+echo "-s will collect sysdiagnose. Default is not to collect sysdiagnose"
+exit
+}
+
+SYSDIAGNOSE=0
+TRAPPED=0
+COLLECT=0
+TARGET_DIR=~/Desktop
+while [ "$1" != "" ]; do
+case $1 in
+-h|--help)
+show_usage
+exit 1
+;;
+-f)
+shift
+TARGET_DIR=$1
+;;
+-s)
+SYSDIAGNOSE=1
+;;
+esac
+shift
+done
+
+TEST_DIR=${TARGET_DIR%/}/smbdiagnose
+SIZE_OF_CAP=50
+NUM_OF_FILES=10
+mkdir -p ${TEST_DIR}
+
+echo
+
+echo "This tool generates files that allow Apple to investigate issues with your
+computer and help improve Apple products.  The files might contain personal
+information found on your device or associated with your iCloud accounts and/or
+Apple ID, including but not limited to your name, your user name, your email
+address and email settings, file paths, file names, downloads, your computer’s
+IP addresses, network connection information and network traffic information,
+which includes authentication exchange, file names and file data being
+transferred at the time this tool is run."
+
+echo
+
+echo "This information is used by Apple in accordance with its privacy policy 
+(www.apple.com/privacy) and is not shared with any other company. By using this
+tool and sending the results to Apple you consent to Apple using the contents
+of these files to improve Apple products"
+
+echo
+
+pause 'Press [Enter] key to continue'
+
+echo
+
+echo "*******************************"
+echo
+echo "Instructions: 
+     1. Reproduce the issue and hit ctrl+c.
+     2. Wait for tool to produce smbdiagnose.tar.gz
+     3. Include it with your bug report."
+echo
+echo "*******************************"
+echo
+
+COLLECT=1
+# Enable smb logging
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server.plist LogLevel -int 1
+#sync the changes
+sudo /usr/libexec/smb-sync-preferences
+#Turn on debug logging
+sudo log config --mode "level:debug"
+#start tcpdumps
+sudo tcpdump -i any -C ${SIZE_OF_CAP} -s0 -W ${NUM_OF_FILES} -w ${TEST_DIR}/smbtcpfile.pcap port 445 &
+PID_1=$!
+wait  ${PID_1}
+exit 0

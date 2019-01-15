@@ -1,0 +1,1 @@
+../../../../../Cellar/ruby/2.5.1/lib/ruby/2.5.0/rdoc/parser/ripper_state_lex.rb

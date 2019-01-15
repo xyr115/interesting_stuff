@@ -1,0 +1,1 @@
+../../Cellar/libgpg-error/1.32/share/aclocal/gpg-error.m4

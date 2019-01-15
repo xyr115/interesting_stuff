@@ -1,0 +1,359 @@
+.\"
+.\"  Sophos Anti-Virus for UNIX sweep(1) manual page
+.\"  Copyright 1999-2008 Sophos Group. All rights reserved.
+.\"
+.TH SWEEP 1 "VERSION_NUMBER_INSERTED_AUTOMATICALLY" "Sophos Plc"
+
+.SH NAME
+\fBSWEEP\fP \- threat detection and disinfection utility
+
+.SH SYNOPSIS
+.nf
+\fBsweep\fP  [options] [boot sector scanning options] [special options]
+       [engine control options] [archive and special file type options]
+       path1 path2... pathN [include/exclude options]
+
+.fi
+where path1, path2... pathN etc. may refer to files, directories or filesystems.
+
+Note: With the exception of the -include and -exclude options, it does not matter where on the command line you specify an option: you can specify it before, in the middle of, or after, a list of paths. Regardless of where it appears, it is applied to all the paths on the command line. However, the -exclude and -include options control whether the paths after them are scanned, and therefore the position of these options does matter. If you specify options which have opposing effects to each other (for example, -archive followed by -narchive), then the latest one on the line takes effect (in this example, -narchive would take effect).
+
+.SH DESCRIPTION
+\fBSWEEP\fP is a threat scanner that detects viruses, worms and Trojans, and disinfects both program and document files.
+
+.SH OPTIONS
+The following options may be prefixed with 'n' to invert their meaning
+(for example, '-ndi' is the inverse of '-di'):
+.TP
+.B \-h
+Display help text and exit
+.TP
+.B \-p=<file>
+Write to log file
+.TP
+.B \-di
+Disinfect
+.TP
+.B \-ndi
+Don't disinfect
+.TP
+.B \-ss
+Keep super silent, don't display anything except on error or virus
+.TP
+.B \-nss
+Don't keep super silent
+.TP
+.B \-s
+Keep reasonably silent, don't list files scanned
+.TP
+.B \-ns
+Don't keep silent, list files scanned
+.TP
+.B \-dn
+Display names of files in form [mm:ss:filename]
+.TP
+.B \-ndn
+Don't display names of files in form [mm:ss:filename]
+.TP
+.B \-c
+Ask for confirmation before disinfection/deletion
+.TP
+.B \-nc
+Don't ask for confirmation before disinfection/deletion
+.TP
+.B \-b
+Sound bell on virus detection
+.TP
+.B \-nb
+Don't sound bell on virus detection
+.TP
+.B \-all
+Scan all files, regardless of filename extension
+.TP
+.B \-nall
+Don't scan all files, scan only files whose filename extensions are in SWEEP's extension list (see -vv option for this list)
+.TP
+.B \-rec
+Recurse down directories
+.TP
+.B \-nrec
+Don't recurse down directories
+.TP
+.B \-remove
+Remove infected files, assuming SWEEP can't disinfect them
+.TP
+.B \-nremove
+Don't remove infected files, assuming SWEEP can't disinfect them
+.TP
+.B \-eec
+Use extended exit codes
+.TP
+.B \-neec
+Don't use extended exit codes
+.TP
+.B \-v
+Output version number information and information about IDEs loaded
+.TP
+.B \-vv
+Output version number information, information about IDEs loaded, and information about which filename extensions and archive types this version supports
+.TP
+.B \-maxinfobj=<n>
+Maximum number of times to attempt to disinfect an item (default 100)
+.TP
+.B \-ext=<extension>,...
+Scan additional filename extensions. For example, -ext=abc adds extension .abc to SWEEP's extension list, -ext=def,ghi adds extensions .def and .ghi
+.SH " "
+The following options may be prefixed with 'no-' to invert their meaning (for example, '--no-reset-atime' is the inverse of '--reset-atime'):
+.TP
+.B  \--follow-symlinks
+Scan the object pointed to by symbolic links
+.TP
+.B  \--stay-on-filesystem
+Don't leave the starting filesystem (i.e. don't traverse mount points)
+.TP
+.B  \--stay-on-machine
+Don't leave the starting computer (i.e. don't traverse remote mount points)
+.TP
+.B  \--skip-special
+Don't scan 'special' objects (/dev, /proc, /devices, etc.)
+.TP
+.B  \--backtrack-protection
+Prevent repetition of work ('backtracking') due to symbolic links
+.TP
+.B  \--preserve-backtrack
+Preserve the backtracking information for the duration of this scan
+.TP
+.B \--examine-x-bit
+Scan files with an execute bit set
+.TP
+.B  \--reset-atime
+After scanning each file, reset the access time (also known as the atime) of the file to its value before the scan. \fBNOTE:\fP this causes the inode status-changed time (also known as the ctime) to be updated. When making backups, some archivers use the ctime to determine whether a file has been updated. If you find that your archiver always backs up files which SWEEP has scanned, try using SWEEP with the --no-reset-atime option instead, to prevent this
+.TP
+.B  \--show-file-details
+Show details of file ownership and permissions when displaying filenames using the -ns option
+.TP
+.B  \--quarantine
+Try to change file ownership and permissions if a file is infected with a virus.
+If you use "--quarantine" on its own, SWEEP attempts to change the file ownership to the user running SWEEP,
+and permissions to -r-------- (0400).
+You can also specify a uid/username, gid/groupname, or mode, to change ownership and permissions to. To do this,
+use "--quarantine:" followed by any of the
+following: 'uid=<nnn>', 'user=<username>', 'gid=<nnn>', 'group=<groupname>', 'mode=<ppp>'.
+You cannot specify more than one of each type, i.e. you cannot specify user twice,
+or both a uid and a user, or the group twice, or both a gid and a group.
+If you don't specify a uid/user, then the default is to try to change ownership to the user running SWEEP.
+The same applies to the gid/group.
+If you don't specify a mode, then this defaults to -r-------- (0400).
+.TP
+.B  \-move=<quarantine directory> 
+Move infected files to a quarantine directory
+.TP
+.B \-rename
+Rename infected files to have the .infected extension
+.TP
+.B  \--args-file=<file>
+Read command line arguments (options, directories, and filenames) from file, taking arguments from the command line again when the end of the file is reached. Arguments may be put on separate lines, or on the same line separated by spaces or tabs. A value of \- for <file> specifies taking input from stdin. A small number of command line options may not be used within an args file, namely: -eec, -neec, -p=, -s, -ns, -ss,-nss, -dn, -ndn, -v, -vv, -idedir=. These can only be specified on the command line
+.TP
+.B  \--stop-scan
+Abort scanning of files such as 'zip bombs' which require excessive amounts of time, disk space or memory to scan
+
+.SH
+BOOT SECTOR SCANNING OPTIONS
+
+Boot sector scanning is only supported for Linux (i386/libc6 and AMD64) and
+FreeBSD.
+.LP
+You need to log in as superuser if you want to scan boot sectors. Otherwise
+you may not have sufficient permission to access the disk devices.
+.LP
+You can use SWEEP for Linux or SWEEP for FreeBSD to scan the boot sectors of
+disks created with other operating systems.
+For example, if you have a floppy device, you could scan the boot sector of a
+floppy disk created with Windows.
+Also, if your computer's hard disk has been partitioned so that you can boot into
+other operating systems, you can scan the boot sectors of the other partitions (provided that the
+operating system you are running can 'see' the other partitions).
+.LP
+Disinfection of boot sectors can be carried out by using the -di option.
+.LP
+.TP
+.B  \-bs
+Scan boot sectors on all logical drives. SWEEP examines the partition table for each physical drive and uses that to locate the boot sectors for each logical drive
+.TP
+.B  \-bs=<drive>,...
+Scan boot sectors on specified logical drives. For example, 'sweep -bs=/dev/fd0' scans the boot sector of the floppy disk, 'sweep -bs=/dev/hda1' scans (on a Linux computer) the boot sector of one of the logical drives on the hard disk
+.TP
+.B  \-nbs
+Don't scan boot sectors
+.TP
+.B  \-mbr
+Scan master boot record(s). SWEEP scans the master boot record(s) of all the fixed physical drives on the computer
+.TP
+.B  \-nmbr
+Don't scan master boot record(s)
+.TP
+.B \-cdr=<drive>,...
+Scan CD boot sectors of listed drives
+
+.SH "SPECIAL OPTIONS"
+.TP
+.B \--
+Indicate that this is the end of the options. Anything after this on the command line is treated as a file, directory, or filesystem, even if it starts with a '-'
+.TP
+.B \-idedir=<dir>
+Read IDEs from directory <directory>, not from the same directory which contains the threat data
+
+.SH "ENGINE CONTROL OPTIONS"
+The following options control the way SWEEP's virus engine scans files:
+.TP
+.B \-sc
+Scan inside dynamically compressed files
+.TP
+.B \-nsc
+Don't scan inside dynamically compressed files
+.TP
+.B \-f
+Do full scan
+.TP
+.B \-q
+Do quick scan \- not full scan
+.TP
+.B \-nf
+Same as -q, don't do full scan
+.TP
+.B \-tnef
+Scan TNEF files
+.TP
+.B \-ntnef
+Don't scan TNEF files
+.TP
+.B \-actmime
+Scan for Active MIME viruses
+.TP
+.B \-nactmime
+Don't scan for Active MIME viruses
+.TP
+.B \-mime
+Scan inside MIME encoded files
+.TP
+.B \-nmime
+Don't scan inside MIME encoded files
+.TP
+.B \-oe
+Scan inside Outlook Express files
+.TP
+.B \-noe
+Don't scan inside Outlook Express files
+.TP
+.B \-pua
+Scan for adware/potentially unwanted applications (PUAs). This option scans for the primary component of PUAs.
+.TP
+.B \-npua
+Do not scan for adware/PUAs
+.TP
+.B \-suspicious
+Scan for suspicious files
+.TP
+.B \-nsuspicious
+Do not scan for suspicious files
+
+.SH "ARCHIVE AND SPECIAL FILE TYPE OPTIONS"
+The following options are related to archives and special file types:
+.TP
+.B \-zip
+Scan inside ZIP archives
+.TP
+.B \-qzip
+Scan inside gzip compressed files
+.TP
+.B \-arj
+Scan inside ARJ archives
+.TP
+.B \-cmz
+Scan inside UNIX-compressed files
+.TP
+.B \-tar
+Scan inside tar archives
+.TP
+.B \-rar
+Scan inside RAR archives
+.TP
+.B \-cab
+Scan inside Microsoft Cabinet archives
+.TP
+.B \-archive
+Scan inside all of the above
+.TP
+.B \-loopback
+Scan inside loopback files
+.SH "INCLUDE/EXCLUDE OPTIONS"
+The -exclude and -include options control whether items (files, directories, filesystems) are excluded from or included in, the scan.  Unlike other options, the order in which these options are typed on the command line does matter.  Paths which appear after -exclude are excluded from scanning; paths which appear after -include are included in the scan.  Normally, therefore, you would type these options towards the end of the command line.
+.TP
+.B \-exclude
+Exclude items (files, directories, or filesystems) from scanning. For example, the command 'sweep fred harry -exclude tom peter' scans items fred and harry, but NOT tom or peter. The command 'sweep /home/fred -exclude /home/fred/games' scans all of Fred's home directory, but excludes the directory games (and all directories and files under it). Exclusion lists containing large numbers of items can be put into a separate file and excluded by using the -exclude option within that file; SWEEP will then use this exclusion list if the --args-file= option is specified
+.TP
+.B "\-include"
+Include items in scanning. Use after the -exclude option, to specify that items after the -include option are to be scanned. For example, the command 'sweep fred harry -exclude tom peter -include bill' scans items fred, harry and bill, but NOT tom or peter
+.SH EXIT STATUS
+
+SWEEP returns error codes if there is an error or if a virus is detected.
+.TP
+SWEEP returns:
+
+.TP
+.B 0
+If no errors are encountered and no viruses are detected.
+.TP
+.B 1
+If you interrupt SWEEP (usually by pressing CRTL+C) or kill the process.
+.TP
+.B 2
+If an error is encountered.
+.TP
+.B 3
+If viruses or virus fragments are detected.
+
+.SH EXTENDED ERROR CODES
+
+SWEEP returns a different set of error codes if it is run with the -eec option.
+.TP
+SWEEP returns:
+.TP
+.B 0
+If no errors are encountered and no viruses are detected.
+.TP
+.B 8
+If survivable errors are encountered.
+.TP
+.B 16
+If password-protected files have been found.  (They are not scanned.)
+.TP
+.B 20
+If viruses are detected and disinfected.
+.TP
+.B 24
+If viruses are detected and not disinfected.
+.TP
+.B 28
+If viruses are found in memory (not supported by this version).
+.TP
+.B 32
+If there is an integrity check failure.
+.TP
+.B 36
+If unsurvivable errors are encountered.
+.TP
+.B 40
+If execution is interrupted.
+
+.SH
+AUTHOR
+.nf
+Sophos Group, The Pentagon, Abingdon Science Park, Abingdon, OX14 3YP,
+                       United Kingdom
+      Tel +44 (0) 1235 559933 or Fax +44 (0) 1235 559935
+
+		Sales email sales@sophos.com
+	 Technical support email support@sophos.com
+		 Web http://www.sophos.com/
+.fi

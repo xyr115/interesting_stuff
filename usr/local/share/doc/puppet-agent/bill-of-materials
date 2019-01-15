@@ -1,0 +1,24 @@
+cfpropertylist cfpropertylist-2.3.5
+cleanup 
+cpp-hocon 0.2.0
+cpp-pcp-client 1.6.0
+facter 3.12.1
+hiera 3.4.5
+leatherman 1.5.3
+libwhereami 0.2.2
+module-puppetlabs-augeas_core 1.0.3
+module-puppetlabs-cron_core 1.0.0
+module-puppetlabs-host_core 1.0.1
+module-puppetlabs-mount_core 1.0.2
+module-puppetlabs-scheduled_task 1.0.0
+module-puppetlabs-selinux_core 1.0.1
+module-puppetlabs-sshkeys_core 1.0.1
+module-puppetlabs-yumrepo_core 1.0.1
+module-puppetlabs-zfs_core 1.0.1
+module-puppetlabs-zone_core 1.0.1
+puppet 6.0.4
+puppet-runtime 201810110
+pxp-agent 1.10.3
+rubygem-puppet-resource_api v1.6.2
+runtime 
+wrapper-script 

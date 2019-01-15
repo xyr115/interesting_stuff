@@ -1,0 +1,371 @@
+.\" Man page generated from reStructuredText.
+.
+.TH ANSIBLE-PLAYBOOK 1 "" "Ansible 2.6.2" "System administration commands"
+.SH NAME
+ansible-playbook \- Runs Ansible playbooks, executing the defined tasks on the targeted hosts.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH SYNOPSIS
+.sp
+ansible\-playbook [options] playbook.yml [playbook2 ...]
+.SH DESCRIPTION
+.sp
+the tool to run \fIAnsible playbooks\fP, which are a configuration and multinode
+deployment system.
+See the project home page (\fI\%https://docs.ansible.com\fP) for
+more information.
+.SH COMMON OPTIONS
+.sp
+\fB\-\-ask\-su\-pass\fP
+.INDENT 0.0
+.INDENT 3.5
+ask for su password (deprecated, use become)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-ask\-sudo\-pass\fP
+.INDENT 0.0
+.INDENT 3.5
+ask for sudo password (deprecated, use become)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-ask\-vault\-pass\fP
+.INDENT 0.0
+.INDENT 3.5
+ask for vault password
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-become\-method\fP \(aqBECOME_METHOD\(aq
+.INDENT 0.0
+.INDENT 3.5
+privilege escalation method to use (default=sudo), valid choices: [ sudo | su | pbrun | pfexec | doas | dzdo | ksu | runas | pmrun | enable | machinectl ]
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-become\-user\fP \(aqBECOME_USER\(aq
+.INDENT 0.0
+.INDENT 3.5
+run operations as this user (default=root)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-flush\-cache\fP
+.INDENT 0.0
+.INDENT 3.5
+clear the fact cache for every host in inventory
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-force\-handlers\fP
+.INDENT 0.0
+.INDENT 3.5
+run handlers even if a task fails
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-list\-hosts\fP
+.INDENT 0.0
+.INDENT 3.5
+outputs a list of matching hosts; does not execute anything else
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-list\-tags\fP
+.INDENT 0.0
+.INDENT 3.5
+list all available tags
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-list\-tasks\fP
+.INDENT 0.0
+.INDENT 3.5
+list all tasks that would be executed
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-private\-key\fP, \fB\-\-key\-file\fP
+.INDENT 0.0
+.INDENT 3.5
+use this file to authenticate the connection
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-scp\-extra\-args\fP \(aqSCP_EXTRA_ARGS\(aq
+.INDENT 0.0
+.INDENT 3.5
+specify extra arguments to pass to scp only (e.g. \-l)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-sftp\-extra\-args\fP \(aqSFTP_EXTRA_ARGS\(aq
+.INDENT 0.0
+.INDENT 3.5
+specify extra arguments to pass to sftp only (e.g. \-f, \-l)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-skip\-tags\fP
+.INDENT 0.0
+.INDENT 3.5
+only run plays and tasks whose tags do not match these values
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-ssh\-common\-args\fP \(aqSSH_COMMON_ARGS\(aq
+.INDENT 0.0
+.INDENT 3.5
+specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-ssh\-extra\-args\fP \(aqSSH_EXTRA_ARGS\(aq
+.INDENT 0.0
+.INDENT 3.5
+specify extra arguments to pass to ssh only (e.g. \-R)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-start\-at\-task\fP \(aqSTART_AT_TASK\(aq
+.INDENT 0.0
+.INDENT 3.5
+start the playbook at the task matching this name
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-step\fP
+.INDENT 0.0
+.INDENT 3.5
+one\-step\-at\-a\-time: confirm each task before running
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-syntax\-check\fP
+.INDENT 0.0
+.INDENT 3.5
+perform a syntax check on the playbook, but do not execute it
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-vault\-id\fP
+.INDENT 0.0
+.INDENT 3.5
+the vault identity to use
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-vault\-password\-file\fP
+.INDENT 0.0
+.INDENT 3.5
+vault password file
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-version\fP
+.INDENT 0.0
+.INDENT 3.5
+show program\(aqs version number and exit
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-C\fP, \fB\-\-check\fP
+.INDENT 0.0
+.INDENT 3.5
+don\(aqt make any changes; instead, try to predict some of the changes that may occur
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-D\fP, \fB\-\-diff\fP
+.INDENT 0.0
+.INDENT 3.5
+when changing (small) files and templates, show the differences in those files; works great with \-\-check
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-K\fP, \fB\-\-ask\-become\-pass\fP
+.INDENT 0.0
+.INDENT 3.5
+ask for privilege escalation password
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-M\fP, \fB\-\-module\-path\fP
+.INDENT 0.0
+.INDENT 3.5
+prepend colon\-separated path(s) to module library (default=[u\(aq/home/jenkins/.ansible/plugins/modules\(aq, u\(aq/usr/share/ansible/plugins/modules\(aq])
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-R\fP \(aqSU_USER\(aq, \fB\-\-su\-user\fP \(aqSU_USER\(aq
+.INDENT 0.0
+.INDENT 3.5
+run operations with su as this user (default=None) (deprecated, use become)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-S\fP, \fB\-\-su\fP
+.INDENT 0.0
+.INDENT 3.5
+run operations with su (deprecated, use become)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-T\fP \(aqTIMEOUT\(aq, \fB\-\-timeout\fP \(aqTIMEOUT\(aq
+.INDENT 0.0
+.INDENT 3.5
+override the connection timeout in seconds (default=10)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-U\fP \(aqSUDO_USER\(aq, \fB\-\-sudo\-user\fP \(aqSUDO_USER\(aq
+.INDENT 0.0
+.INDENT 3.5
+desired sudo user (default=root) (deprecated, use become)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-b\fP, \fB\-\-become\fP
+.INDENT 0.0
+.INDENT 3.5
+run operations with become (does not imply password prompting)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-c\fP \(aqCONNECTION\(aq, \fB\-\-connection\fP \(aqCONNECTION\(aq
+.INDENT 0.0
+.INDENT 3.5
+connection type to use (default=smart)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-e\fP, \fB\-\-extra\-vars\fP
+.INDENT 0.0
+.INDENT 3.5
+set additional variables as key=value or YAML/JSON, if filename prepend with @
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-f\fP \(aqFORKS\(aq, \fB\-\-forks\fP \(aqFORKS\(aq
+.INDENT 0.0
+.INDENT 3.5
+specify number of parallel processes to use (default=5)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.INDENT 0.0
+.INDENT 3.5
+show this help message and exit
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-i\fP, \fB\-\-inventory\fP, \fB\-\-inventory\-file\fP
+.INDENT 0.0
+.INDENT 3.5
+specify inventory host path or comma separated host list. \-\-inventory\-file is deprecated
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-k\fP, \fB\-\-ask\-pass\fP
+.INDENT 0.0
+.INDENT 3.5
+ask for connection password
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-l\fP \(aqSUBSET\(aq, \fB\-\-limit\fP \(aqSUBSET\(aq
+.INDENT 0.0
+.INDENT 3.5
+further limit selected hosts to an additional pattern
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-s\fP, \fB\-\-sudo\fP
+.INDENT 0.0
+.INDENT 3.5
+run operations with sudo (nopasswd) (deprecated, use become)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-t\fP, \fB\-\-tags\fP
+.INDENT 0.0
+.INDENT 3.5
+only run plays and tasks tagged with these values
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-u\fP \(aqREMOTE_USER\(aq, \fB\-\-user\fP \(aqREMOTE_USER\(aq
+.INDENT 0.0
+.INDENT 3.5
+connect as this user (default=None)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-v\fP, \fB\-\-verbose\fP
+.INDENT 0.0
+.INDENT 3.5
+verbose mode (\-vvv for more, \-vvvv to enable connection debugging)
+.UNINDENT
+.UNINDENT
+.SH ENVIRONMENT
+.sp
+The following environment variables may be specified.
+.sp
+ANSIBLE_CONFIG \-\- Specify override location for the ansible config file
+.sp
+Many more are available for most options in ansible.cfg
+.sp
+For a full list check \fI\%https://docs.ansible.com/\fP\&. or use the \fIansible\-config\fP command.
+.SH FILES
+.sp
+/etc/ansible/ansible.cfg \-\- Config file, used if present
+.sp
+~/.ansible.cfg \-\- User config file, overrides the default config if present
+.sp
+\&./ansible.cfg \-\- Local config file (in current working direcotry) assumed to be \(aqproject specific\(aq and overrides the rest if present.
+.sp
+As mentioned above, the ANSIBLE_CONFIG environment variable will override all others.
+.SH AUTHOR
+.sp
+Ansible was originally written by Michael DeHaan.
+.SH COPYRIGHT
+.sp
+Copyright © 2018 Red Hat, Inc | Ansible.
+Ansible is released under the terms of the GPLv3 license.
+.SH SEE ALSO
+.sp
+\fBansible\fP (1), \fBansible\-config\fP (1), \fBansible\-console\fP (1), \fBansible\-doc\fP (1), \fBansible\-galaxy\fP (1), \fBansible\-inventory\fP (1), \fBansible\-pull\fP (1), \fBansible\-vault\fP (1)
+.sp
+Extensive documentation is available in the documentation site:
+<\fI\%https://docs.ansible.com\fP>.
+IRC and mailing list info can be found in file CONTRIBUTING.md,
+available in: <\fI\%https://github.com/ansible/ansible\fP>
+.\" Generated by docutils manpage writer.
+.

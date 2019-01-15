@@ -1,0 +1,15 @@
+prefix=/usr/local/Cellar/rpm/4.14.1_1
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+rpmhome=/usr/local/Cellar/rpm/4.14.1_1/lib/rpm
+
+Name: RPM
+Description: RPM Package Manager
+Version: 4.14.1
+URL: http://rpm.org
+Requires.private: libzstd 
+# Conflicts:
+Cflags: -I${includedir}
+Libs: -L${libdir} -lrpm -lrpmio
+Libs.private: -lpopt -lrt -lpthread -llzma -ldb -lbz2 -lz   -L/usr/local/lib -llua.5.1 -lm

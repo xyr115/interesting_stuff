@@ -1,0 +1,257 @@
+;;;;;;  Copyright 2013 Apple Inc. All rights reserved.
+;;;;;;
+;;;;;;  Sandbox profile for CloudDocs's bird on OS X.
+;;;;;;
+
+(version 1)
+(deny default)
+
+(import "system.sb")
+(import "opendirectory.sb")
+(import "com.apple.corefoundation.sb")
+(corefoundation)
+
+(allow lsopen)
+
+(allow mach-per-user-lookup)
+
+(allow distributed-notification-post)
+
+(allow user-preference*
+       (preference-domain "com.apple.bird")
+       (preference-domain "com.apple.security.revocation") ;; <rdar://problem/16698112>
+)
+
+(allow user-preference-read ;; <rdar://problem/31514002>
+       (preference-domain "com.apple.security")
+       (preference-domain "com.apple.Security")
+)
+
+;; Homedir-relative path filters
+(define (home-regex home-relative-regex)
+       (regex (string-append "^" (regex-quote (param "_HOME")) home-relative-regex)))
+(define (home-subpath home-relative-subpath)
+       (subpath (string-append (param "_HOME") home-relative-subpath)))
+(define (home-literal home-relative-literal)
+       (literal (string-append (param "_HOME") home-relative-literal)))
+
+;; AppSupport-related path filters
+(define (appsupport-subpath appsupport-relative-subpath)
+       (subpath (string-append (param "_APP_SUPPORT") appsupport-relative-subpath)))
+
+;;; Networking for Config Plist
+
+(system-network)
+
+(allow network-outbound
+        (literal "/private/var/run/mDNSResponder")
+        (remote tcp)
+)
+
+(allow ipc-posix-shm-read-data
+	(ipc-posix-name "FNetwork.defaultStorageSession")
+	(ipc-posix-name "apple.shm.notification_center")
+	(ipc-posix-name-regex #"^/tmp/com\.apple\.csseed\.[0-9]+$")
+)
+
+(allow ipc-posix-shm-read-data ipc-posix-shm-write-data
+	(ipc-posix-name "com.apple.AppleDatabaseChanged")
+)
+
+(allow file-read*
+	(subpath "/AppleInternal/Library/Preferences/Logging") ;; rdar://problem/26495116
+	(subpath "/private/var/db/mds")
+	(subpath "/Library/QuickLook")
+	(home-subpath "/Library/QuickLook")
+	(home-literal "/.CFUserTextEncoding")
+	;; IconServices rdar://17761890
+	(regex #"^/private/var/folders/[^/]+/[^/]+/[^/]+/com\.apple\.iconservices/store\.index")
+	(subpath "/Library/Caches/com.apple.iconservices.store")
+	;; App lookup rdar://25510090
+	(regex #"^/.*/Pages.app")
+	(regex #"^/.*/Keynote.app")
+	(regex #"^/.*/Numbers.app")
+	;; DiagnosticMessagesClient check (stat ==> file-read-metadata)
+	(literal "/Library/Caches/com.apple.DiagnosticReporting.HasBeenAppleInternal")
+)
+
+(deny file-write-setugid)
+
+(allow file-read* file-write*
+       (regex #"^/private/var/folders/[^/]+/[^/]+/[^/]+/com\.apple\.bird/mds($|/)")
+       (mount-relative-regex #"^/\.TemporaryItems(/|$)") ;;; Safe Saves use .TemporaryItems, see e.g. <rdar://problem/9245317>
+       (appsupport-subpath "/CloudDocs")
+       (appsupport-subpath "/Ubiquity")
+       (subpath (param "_CACHE"))
+       (subpath (param "_ROOT"))
+       (regex (string-append "^" (regex-quote (param "_ROOT")) #"\.")) ;; <rdar://problem/16981507>
+       (subpath (param "_TMP"))
+       (subpath (param "_CS_DARWIN_USER_DIR"))
+       (subpath (param "_CS_DARWIN_USER_CACHE_DIR"))
+       (home-literal "/Library/Caches")          ;; <rdar://problem/16784836>
+       (home-literal "/Library/Caches/CloudKit") ;; <rdar://problem/23748070>
+       (home-subpath "/Library/Caches/CloudKit/com.apple.clouddocs")
+       (home-subpath "/Library/Caches/CloudKit/com.apple.bird")
+       (home-subpath "/Library/Caches/com.apple.ubd")
+       (home-subpath "/Library/Logs/Ubiquity")
+       ;; Workaround for <rdar://problem/16333924>
+       (home-subpath "/Library/Caches/CloudKit/com.apple.cloudd")
+       ;; <rdar://problem/17536698> nsurlsessiond cache
+       (home-subpath "/Library/Caches/com.apple.nsurlsessiond/Downloads/com.apple.bird")
+       (home-subpath "/Desktop")
+       (home-subpath "/Documents")
+)
+
+;;; Revisiond client (stolen from iOS, should go to GS framework.sb eventually)
+(define (revisiond-client)
+    (allow mach-lookup (global-name "com.apple.revisiond"))
+
+    ;; Individual revisions vended by revisiond (read-only access).
+    (allow file-read* (require-all
+        (vnode-type REGULAR-FILE DIRECTORY SYMLINK)
+        (mount-relative-regex #"^/\.DocumentRevisions-V100/(AllUIDs|PerUID)/")
+        (extension "com.apple.revisiond.revision"
+                   "com.apple.app-sandbox.read")
+    ))
+
+    ;; Access to revisiond's staging area for adding new document revisiond (read-write access).
+    (allow file-read* file-write* (require-all
+         (vnode-type REGULAR-FILE DIRECTORY SYMLINK)
+         (mount-relative-regex #"^/\.DocumentRevisions-V100/staging/")
+         (extension "com.apple.revisiond.staging"
+                    "com.apple.app-sandbox.read-write")
+    ))
+)
+(revisiond-client)
+
+;;; Extensions to ubiquity containers
+(allow file-issue-extension (require-all
+       (require-any
+           (subpath (param "_ROOT"))
+           (home-subpath "/Desktop")
+           (home-subpath "/Documents")
+           (appsupport-subpath "/CloudDocs/session/r")
+           (appsupport-subpath "/CloudDocs/session/containers")
+           (home-subpath "/Library/Caches/com.apple.bird"))
+       (require-any
+           (extension-class "com.apple.librarian.ubiquity-container")
+           (extension-class "com.apple.app-sandbox.read")
+           (extension-class "com.apple.app-sandbox.read-write"))
+))
+
+;; Preferences access
+(define (preference-read domain)
+    (allow file-read*
+      (home-literal (string-append "/Library/Preferences/" domain ".plist"))
+      (home-regex (string-append #"/Library/Preferences/ByHost/" (regex-quote domain) #"\.[^/]*\.plist$")))
+      (allow user-preference-read (preference-domain domain)))
+(define (preference-rw domain)
+    (allow file-read* file-write*
+        (home-literal (string-append "/Library/Preferences/" domain ".plist"))
+        (home-regex (string-append #"/Library/Preferences/ByHost/" (regex-quote domain) #"\.[^/]*\.plist$")))
+        (allow user-preference-read (preference-domain domain))
+        (allow user-preference-write (preference-domain domain)))
+
+(preference-read ".GlobalPreferences")
+(preference-read "com.apple.bird")
+(preference-read "com.apple.mmcs")
+(preference-read "com.apple.CloudKit.BehaviorOptions")
+(preference-read "com.apple.DebugSymbols")
+(preference-read "com.apple.security.revocation")
+(preference-read "com.apple.cache_delete")
+(preference-rw   "MobileMeAccounts") ;; Get rid of this as soon as we can adopt Account.framework
+
+(allow file-read-metadata
+       (literal (param "_HOME"))
+       (literal "/AppleInternal")
+)
+
+;; FIXME get rid of this, this is needed for fsevents because they realpath()
+;; <rdar://problem/15220169> fsevents sandbox denial when using FSStreamStreamCreate()
+(allow file-read-metadata (subpath "/"))
+
+(allow file-read*
+       (literal "/")
+       (literal "/Library/Preferences/.GlobalPreferences.plist")
+       (literal "/Library/Preferences/com.apple.security.plist")
+       (literal "/Library/Preferences/SystemConfiguration/preferences.plist")
+       (literal "/Library/Preferences/com.apple.AOSKit.plist")
+       (literal "/Library/Application Support/CrashReporter/SubmitDiagInfo.domains")
+)
+
+(allow mach-lookup
+       (global-name "com.apple.FSEvents")
+       (global-name "com.apple.FileCoordination")
+       (global-name "com.apple.metadata.mds")
+       (global-name "com.apple.windowserver.active")
+       (global-name "com.apple.UNCUserNotification")
+       (global-name "com.apple.coreservices.quarantine-resolver")
+       (global-name "com.apple.DiskArbitration.diskarbitrationd")
+       (global-name "com.apple.cache_delete")
+;; IOPMConnectionGetSystemCapabilities
+       (global-name "com.apple.PowerManagement.control")
+;; CloudKit
+       (global-name "com.apple.cloudd")
+;; AOS
+        (global-name "com.apple.icloudusernotification.agent")
+;; CoreSymbolication for our logs
+       (global-name "com.apple.coresymbolicationd")
+;; NSProgress
+       (global-name "com.apple.ProgressReporting")
+;; OS X only: QuickLook for thumbnails
+       (global-name "com.apple.quicklook")
+       (global-name "com.apple.quicklook.ThumbnailsAgent")
+;; OS X only: NSURL bookmarkDataWithOptions calls LaunchServices which calls IconServices rdar://17761890
+	(global-name "com.apple.iconservices")
+	(global-name "com.apple.iconservices.store")
+;; OS X only: LaunchServices brings lsd to OS X (see 19378357)
+       (global-name "com.apple.lsd.mapdb")
+;; aps
+       (global-name "com.apple.apsd")
+;; Quick Look logging
+       (global-name "com.apple.decalog4.incoming")
+;; TCC
+       (global-name "com.apple.tccd")
+;; Config plist
+       (global-name "com.apple.cookied")
+       (global-name "com.apple.SecurityServer")
+       (global-name "com.apple.ocspd")
+       (global-name "com.apple.nsurlsessiond")
+       (global-name "com.apple.securityd.xpc")
+       (global-name "com.apple.accountsd.accountmanager")
+       (global-name "com.apple.usernoted.client")
+;; SFL <rdar://problem/20117921>
+        (global-name "com.apple.coreservices.sharedfilelistd.xpc")
+        (global-name "com.apple.coreservices.sharedfilelistd.mig")
+        (global-name "com.apple.coreservices.sharedfilelistd.async-mig")
+;; LS Register App <rdar://problem/20454752>
+        (global-name "com.apple.lsd.modifydb")
+        (global-name "com.apple.DesktopServicesHelper")
+;; Used by sharing acceptation flow to select file in Finder (25639025)
+        (global-name "com.apple.coreservices.launchservicesd")
+        (global-name "com.apple.coreservices.appleevents")
+;; fileproviderd
+        (global-name "com.apple.FileProvider")
+;; AutoBugCapture
+        (global-name "com.apple.symptom_diagnostics")
+;; Anisette (see rdar://problem/34819241)
+        (global-name "com.apple.ak.anisette.xpc")
+)
+
+;; Used by sharing acceptation flow to select file in Finder (25639025)
+(allow appleevent-send)
+
+;; from application.sb
+(allow system-fsctl
+       (fsctl-command (_IO "h" 24))
+       (fsctl-command (_IO "h" 30))
+       (fsctl-command (_IO "h" 31))
+       (fsctl-command (_IO "h" 32))
+       (fsctl-command (_IO "z" 12))
+       (fsctl-command (_IO "z" 19))
+       (fsctl-command (_IO "z" 23)))
+
+;; allow F_PATHPKG_CHECK (23424418)
+(if (defined? 'system-package-check)
+(allow system-package-check))
+

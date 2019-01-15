@@ -1,0 +1,1 @@
+../../../../Cellar/wget/1.19.5/share/locale/cs/LC_MESSAGES/wget.mo

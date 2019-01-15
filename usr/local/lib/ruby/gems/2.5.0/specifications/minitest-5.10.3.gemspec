@@ -1,0 +1,1 @@
+../../../../../Cellar/ruby/2.5.1/lib/ruby/gems/2.5.0/specifications/minitest-5.10.3.gemspec

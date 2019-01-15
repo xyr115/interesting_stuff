@@ -1,0 +1,1 @@
+../../Cellar/libidn2/2.0.5/lib/pkgconfig/libidn2.pc

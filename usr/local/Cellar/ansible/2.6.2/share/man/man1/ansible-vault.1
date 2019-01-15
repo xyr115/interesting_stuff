@@ -1,0 +1,248 @@
+.\" Man page generated from reStructuredText.
+.
+.TH ANSIBLE-VAULT 1 "" "Ansible 2.6.2" "System administration commands"
+.SH NAME
+ansible-vault \- encryption/decryption utility for Ansible data files
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH SYNOPSIS
+.sp
+ansible\-vault [create|decrypt|edit|encrypt|encrypt_string|rekey|view] [options] [vaultfile.yml]
+.SH DESCRIPTION
+.sp
+can encrypt any structured data file used by Ansible.
+This can include
+\fIgroup_vars/\fP or \fIhost_vars/\fP inventory variables,
+variables loaded by
+\fIinclude_vars\fP or \fIvars_files\fP, or variable files
+passed on the ansible\-
+playbook command line with \fI\-e @file.yml\fP or \fI\-e @file.json\fP\&.
+Role variables
+and defaults are also included!
+.sp
+Because Ansible tasks, handlers, and other
+objects are data, these can also be encrypted with vault.
+If you\(aqd like to not
+expose what variables you are using, you can keep an individual task file
+entirely encrypted.
+.sp
+The password used with vault currently must be the same
+for all files you wish to use together at the same time.
+.SH COMMON OPTIONS
+.sp
+\fB\-\-ask\-vault\-pass\fP
+.INDENT 0.0
+.INDENT 3.5
+ask for vault password
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-new\-vault\-id\fP \(aqNEW_VAULT_ID\(aq
+.INDENT 0.0
+.INDENT 3.5
+the new vault identity to use for rekey
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-new\-vault\-password\-file\fP
+.INDENT 0.0
+.INDENT 3.5
+new vault password file for rekey
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-vault\-id\fP
+.INDENT 0.0
+.INDENT 3.5
+the vault identity to use
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-vault\-password\-file\fP
+.INDENT 0.0
+.INDENT 3.5
+vault password file
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-version\fP
+.INDENT 0.0
+.INDENT 3.5
+show program\(aqs version number and exit
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-h\fP, \fB\-\-help\fP
+.INDENT 0.0
+.INDENT 3.5
+show this help message and exit
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-v\fP, \fB\-\-verbose\fP
+.INDENT 0.0
+.INDENT 3.5
+verbose mode (\-vvv for more, \-vvvv to enable connection debugging)
+.UNINDENT
+.UNINDENT
+.SH ACTIONS
+.INDENT 0.0
+.TP
+.B \fBencrypt\fP
+encrypt the supplied file using the provided vault secret
+.sp
+\fB\-\-encrypt\-vault\-id\fP \(aqENCRYPT_VAULT_ID\(aq
+.INDENT 7.0
+.INDENT 3.5
+the vault id used to encrypt (required if more than vault\-id is provided)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-output\fP
+.INDENT 7.0
+.INDENT 3.5
+output file name for encrypt or decrypt; use \- for stdout
+.UNINDENT
+.UNINDENT
+.TP
+.B \fBrekey\fP
+re\-encrypt a vaulted file with a new secret, the previous secret is required
+.sp
+\fB\-\-encrypt\-vault\-id\fP \(aqENCRYPT_VAULT_ID\(aq
+.INDENT 7.0
+.INDENT 3.5
+the vault id used to encrypt (required if more than vault\-id is provided)
+.UNINDENT
+.UNINDENT
+.TP
+.B \fBencrypt_string\fP
+encrypt the supplied string using the provided vault secret
+.sp
+\fB\-\-encrypt\-vault\-id\fP \(aqENCRYPT_VAULT_ID\(aq
+.INDENT 7.0
+.INDENT 3.5
+the vault id used to encrypt (required if more than vault\-id is provided)
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-output\fP
+.INDENT 7.0
+.INDENT 3.5
+output file name for encrypt or decrypt; use \- for stdout
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-\-stdin\-name\fP \(aqENCRYPT_STRING_STDIN_NAME\(aq
+.INDENT 7.0
+.INDENT 3.5
+Specify the variable name for stdin
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-n\fP,   \fB\-\-name\fP
+.INDENT 7.0
+.INDENT 3.5
+Specify the variable name
+.UNINDENT
+.UNINDENT
+.sp
+\fB\-p\fP,   \fB\-\-prompt\fP
+.INDENT 7.0
+.INDENT 3.5
+Prompt for the string to encrypt
+.UNINDENT
+.UNINDENT
+.TP
+.B \fBedit\fP
+open and decrypt an existing vaulted file in an editor, that will be encryped again when closed
+.sp
+\fB\-\-encrypt\-vault\-id\fP \(aqENCRYPT_VAULT_ID\(aq
+.INDENT 7.0
+.INDENT 3.5
+the vault id used to encrypt (required if more than vault\-id is provided)
+.UNINDENT
+.UNINDENT
+.TP
+.B \fBcreate\fP
+create and open a file in an editor that will be encryped with the provided vault secret when closed
+.sp
+\fB\-\-encrypt\-vault\-id\fP \(aqENCRYPT_VAULT_ID\(aq
+.INDENT 7.0
+.INDENT 3.5
+the vault id used to encrypt (required if more than vault\-id is provided)
+.UNINDENT
+.UNINDENT
+.TP
+.B \fBdecrypt\fP
+decrypt the supplied file using the provided vault secret
+.sp
+\fB\-\-output\fP
+.INDENT 7.0
+.INDENT 3.5
+output file name for encrypt or decrypt; use \- for stdout
+.UNINDENT
+.UNINDENT
+.TP
+.B \fBview\fP
+open, decrypt and view an existing vaulted file using a pager using the supplied vault secret
+.UNINDENT
+.SH ENVIRONMENT
+.sp
+The following environment variables may be specified.
+.sp
+ANSIBLE_CONFIG \-\- Specify override location for the ansible config file
+.sp
+Many more are available for most options in ansible.cfg
+.sp
+For a full list check \fI\%https://docs.ansible.com/\fP\&. or use the \fIansible\-config\fP command.
+.SH FILES
+.sp
+/etc/ansible/ansible.cfg \-\- Config file, used if present
+.sp
+~/.ansible.cfg \-\- User config file, overrides the default config if present
+.sp
+\&./ansible.cfg \-\- Local config file (in current working direcotry) assumed to be \(aqproject specific\(aq and overrides the rest if present.
+.sp
+As mentioned above, the ANSIBLE_CONFIG environment variable will override all others.
+.SH AUTHOR
+.sp
+Ansible was originally written by Michael DeHaan.
+.SH COPYRIGHT
+.sp
+Copyright © 2018 Red Hat, Inc | Ansible.
+Ansible is released under the terms of the GPLv3 license.
+.SH SEE ALSO
+.sp
+\fBansible\fP (1), \fBansible\-config\fP (1), \fBansible\-console\fP (1), \fBansible\-doc\fP (1), \fBansible\-galaxy\fP (1), \fBansible\-inventory\fP (1), \fBansible\-playbook\fP (1), \fBansible\-pull\fP (1),
+.sp
+Extensive documentation is available in the documentation site:
+<\fI\%https://docs.ansible.com\fP>.
+IRC and mailing list info can be found in file CONTRIBUTING.md,
+available in: <\fI\%https://github.com/ansible/ansible\fP>
+.\" Generated by docutils manpage writer.
+.

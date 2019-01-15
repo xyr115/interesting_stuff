@@ -1,0 +1,73 @@
+;;
+;; Spotlight importer - sandbox profile
+;; Copyright (c) 2006-2008 Apple Inc.  All Rights reserved.
+;;
+;; WARNING: The sandbox rules in this file currently constitute 
+;; Apple System Private Interface and are subject to change at any time and
+;; without notice. The contents of this file are also auto-generated and not
+;; user editable; it may be overwritten at any time.
+;;
+
+(version 1)
+(deny default)
+(import "system.sb")
+
+(if (defined? 'system-package-check)
+    (allow system-package-check))
+
+;; Suppress log noise from Carbon / frameworks.
+(deny process-exec (with no-log))
+(deny file-write*
+    (literal "/private/var/empty/Library")
+    (with no-log))
+    
+(deny mach-lookup (global-name "com.apple.ls.boxd") (with no-log))
+
+(allow file-read-metadata)
+
+(deny file-read* (regex #"\.GlobalPreferences\.plist") (with no-log))
+(deny file-read* (regex #"\.GlobalPreferences\.[^\.]+\.plist") (with no-log))
+
+;; comment out and check violations
+;;(allow distributed-notification-post)
+;;(allow mach-lookup)
+(allow mach-lookup (global-name "com.apple.DiskArbitration.diskarbitrationd"))
+(allow mach-lookup (global-name "com.apple.SecurityServer"))
+(allow mach-lookup (global-name "com.apple.ocspd"))
+(allow mach-lookup (global-name "com.apple.metadata.mds.legacy"))
+(allow mach-lookup (global-name "com.apple.metadata.mds"))
+
+(allow mach-lookup (global-name "com.apple.distributed_notifications@Uv3")
+                   (global-name "com.apple.CoreServices.coreservicesd"))
+
+(allow mach-lookup (global-name "com.apple.lsd.mapdb"))
+(allow mach-lookup (global-name "com.apple.lsd.modifydb"))
+
+(allow ipc-posix-shm)
+(allow sysctl*)
+(allow system-sched)
+
+(allow system-fsctl
+(fsctl-command (_IO "J" 14)))            ;;_IOR('J', 14, apfs_clone_info_t)
+
+(allow file-read* (extension "com.apple.spotlight.importer.readonly"))
+
+(allow ipc-posix-shm-read-data (ipc-posix-name-regex #"^/tmp/com\.apple\.csseed\.[0-9]+$"))
+(allow file-read* (literal "/Library/Preferences/com.apple.SpotlightServer.plist"))
+
+(if (positive? (string-length (param "DARWIN_TEMP_DIR")))
+    (begin
+        (allow file* (subpath (param "DARWIN_TEMP_DIR")))))
+
+(if (positive? (string-length (param "DARWIN_CACHE_DIR")))
+    (begin
+        (allow file* (subpath (param "DARWIN_CACHE_DIR")))))
+
+;; FIXME: Should be removed once <rdar://problem/16329087> is fixed.
+(deny file-write-xattr (xattr "com.apple.quarantine") (with no-log))
+;; Reserve a namespace for additional protected extended attributes.
+(if (defined? 'xattr-regex)
+    (deny file-read-xattr file-write-xattr (xattr-regex #"^com\.apple\.security\.private\."))
+(deny file-read-xattr file-write-xattr (xattr #"^com\.apple\.security\.private\.")))
+
+(allow user-preference-read)

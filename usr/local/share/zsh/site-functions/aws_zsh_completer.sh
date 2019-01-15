@@ -1,0 +1,1 @@
+../../../Cellar/awscli/1.15.80/share/zsh/site-functions/aws_zsh_completer.sh

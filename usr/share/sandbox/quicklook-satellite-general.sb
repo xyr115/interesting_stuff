@@ -1,0 +1,63 @@
+;;
+;; Quick Look Plug-in - sandbox profile
+;; Copyright (c) 2011 Apple Inc.  All Rights reserved.
+;;
+;; WARNING: The sandbox rules in this file currently constitute 
+;; Apple System Private Interface and are subject to change at any time and
+;; without notice. The contents of this file are also auto-generated and not
+;; user editable; it may be overwritten at any time.
+;;
+
+(version 1)
+(import "quicklook-satellite.sb")
+
+(system-graphics)
+
+;; Plug-in specific extensions
+;; Text
+(preference-read "com.apple.TextEdit")
+(preference-read "pbs")
+(preference-read "com.apple.ServicesMenu.Services")
+(allow mach-lookup (global-name "com.apple.coreservices.quarantine-resolver"))
+
+;; Audio
+(allow file-read* (home-subpath "/Music/iTunes"))
+(allow file-read* (home-subpath "/Library/Audio/Plug-Ins"))
+
+(preference-read "com.apple.iApps")
+
+(allow iokit-open (iokit-user-client-class "IOAudioEngineUserClient"))
+
+(allow mach-lookup (global-name "com.apple.audio.AudioComponentRegistrar"))
+
+;; Movie
+(allow file-read* (home-subpath "/Library/Video/Plug-Ins"))
+
+(preference-read "com.apple.coremedia")
+
+;; Image
+(allow mach-lookup (global-name "com.apple.mobileassetd"))
+
+;; EPS
+(allow file-read* file-write* (regex #"^/private/var/folders/[^/]+/[^/]+/C/[^/]+/com\.apple\.psnormalizer\.fontcache\.[^/]+$"))
+
+;; Web
+(allow file-read* (subpath "/Applications/Safari.app")) ;; to read Safari's icon
+
+(preference-read "com.apple.WebFoundation")
+
+;; QC
+(allow file-read* (home-subpath "/Library/Graphics"))
+(allow file-read* (home-subpath "/Library/Compositions"))
+
+;; iWork
+(allow file-read* (home-subpath "/Library/Containers/com.apple.iWork.Keynote"))
+(allow file-read* (home-subpath "/Library/Containers/com.apple.iWork.Pages"))
+(allow file-read* (home-subpath "/Library/Containers/com.apple.iWork.Numbers"))
+
+;; Mail
+(allow file-read* (home-subpath "/Library/Mail"))
+(preference-read "com.apple.mail-shared")
+
+;; For SceneKit
+(allow mach-lookup (global-name "com.apple.pluginkit.pkd"))

@@ -1,0 +1,2312 @@
+AEServer(8)              - AEServer(8) -- System-wide daemon which recevies incoming (remote) AppleEvents
+APFSUserAgent(8)         - APFS new container observer
+ARDAgent(8)              - Apple Remote Desktop Agent
+AVCAssistant(8)          - CoreMediaIO DAL Assistant Process
+AccessibilityVisualsAgent(8) - Accessibility Visuals Launch Agent
+AddressBookSourceSync(8) - Syncs Contacts data with servers
+AirPlayDiagnosticsServer(8) - Server for AirPlay diagnostics
+AppleCameraAssistant(8)  - CoreMediaIO DAL Assistant Process
+AppleQEMUGuestAgent(8)   - implements support for QMP commands and events
+AppleVNCServer(8)        - listens for VNC connections from clients
+Archetype(n)             - base class for all [incr Tk] mega-widgets
+AuthBrokerAgent(8)       - The proxy credential daemon
+BluetoothReporter(8)     - gathers Bluetooth specific diagnostic information helpful in investigating system Bluetooth issues
+BootCacheControl(8)      - provides control of caches used during startup
+BridgeSupport(5)         - Scripting bridges support file
+CFNetworkAgent(8)        - The network compatibility daemon
+CSCSupportd(8)           - Core System Check Support daemon
+CVMCompiler(8)           - Mac OS X Core Virtual Machine Compiler
+CVMServer(8)             - Mac OS X Core Virtual Machine Server
+CalendarAgent(8)         - calendar data process
+CloudKeychainProxy(8)    - part of iCloud keychain syncing
+CommCenter(8)            - Provides functionality to allow the Mac to make and receive phone calls
+CommCenterRootHelper(8)  - Helper to CommCenter(8)
+ContactsAccountsService(8) - Lets 32-bit apps use Contacts accounts
+ControlStrip(8)          - Touch Bar Control Strip
+CoreLocationAgent(8)     - manages location authorization prompts
+CrashReporterSupportHelper(8) - Provides functionality in support of CrashReporterSupport
+DataDetectorsLocalSources(8) - DataDetectors user source content manager
+DataDetectorsSourceAccess(8) - DataDetectors sources utility
+DevToolsSecurity(8)      - Change the security authorization policies for developer systems
+DictationIM(8)           - Implements system-wide Dictation and command & control
+DiskUnmountWatcher(8)    - watches for disk unmount and remove cached credentials
+Dock(8)                  - Provides the Dock interface for the system
+DumpPanic(8)             - Writes panic reports
+FDERecoveryAgent(8)      - Full Disk Encryption Key Recovery Transmission Agent
+FolderActionsDispatcher(8) - monitoring and settings daemon for Folder Actions
+GSSCred(8)               - manages GSS-API credentials
+IIDCVideoAssistant(8)    - CoreMediaIO DAL Assistant Process
+IOBluetoothUSBDFUTool(8) - Performs the USB Bluetooth automatic firmware update
+InternetSharing(8)       - daemon for Internet Sharing
+KernelEventAgent(8)      - utility to provide user interface on behalf of the kernel
+Keychain Circle Notification(8) - part of iCloud Keychain syncing
+MIDIServer(8)            - Agent supporting CoreMIDI framework
+ManagedClient(8)         - -- Managed preferences and configuration profiles daemon
+ManagedClientAgent(8)    - -- Device enrollment and ManagedClient process notification daemon
+NFS(5)                   - Network File System
+NVMeAgent(8)             - Agent for NVMe devices
+NetAuthAgent(8)          - Shows dialogs on behalf of NetAuthSysAgent
+NetAuthSysAgent(8)       - Mounts network shares
+NetBootClientStatus(8)   - NetBoot helper process
+NotificationCenter(8)    - Notification Center service for display notifications
+OSDUIHelper(8)           - OSDFramework UI helper
+PCIELaneConfigTool(8)    - PCIe configuration helper tool for Expansion Slot Utility
+PIPAgent(8)              - A system service which provides picture in picture functionality
+PasswordService(8)       - Mac OS X Server Password Server daemon
+PerfPowerServices(8)     - manages structured log archives that enable retrieval of system power and performance data
+PerfPowerServicesExtended(8) - manages structured log archives that enable retrieval of system power and performance data
+Photo Library Migration Utility(8) - Upgrade historical iPhoto/Aperture libraries
+PlistBuddy(8)            - read and write values to plists
+Plotchart(n)             - Simple plotting and charting package
+PrintUITool(8)           - a tool to perform privileged ui based operations on the printing system
+ProtectedCloudKeySyncing(8) - part of ProtectedCloudKey subsystem
+RFBEventHelperd(8)       - Screen Sharing app helper daemon
+ReportMemoryException(8) - generates memory usage diagnostic logs
+ReportPanic(8)           - Facilitates filing Radars for panics
+ReportPanicService(8)    - Provides functionality for the ReportPanic app
+S3(n)                    - Amazon S3 Web Service Interface
+SASL(n)                  - Implementation of SASL mechanisms for Tcl
+SSInvitationAgent(8)     - Screen Sharing Invitation Agent
+SafariBookmarksSyncAgent(8) - Safari Bookmarks Sync Agent
+SafariCloudHistoryPushAgent(8) - Safari Cloud History Push Agent
+SafariDAVClient(8)       - Safari DAV Client
+SafariHistoryServiceAgent(8) - Safari History Service Agent
+SafariLaunchAgent(8)     - Safari Launch Agent
+SafariNotificationAgent(8) - Safari Push Notification Agent
+SafariPlugInUpdateNotifier(8) - Safari Plug-in Update Notifier
+SafeBase(ntcl), Safe Base(ntcl) - A mechanism for creating and manipulating safe interpreters
+SafeEjectGPU(8)          - Facilitate safe eject/disconnect of eGPU(s) from system
+ScreensharingAgent(8)    - communicates with screensharingd to provide access to a user session
+SecurityAgent(8)         - Authorization Services Agent
+ServicesUIAgent(8)       - Agent for displaying AppKit services
+SmartCardServices(7)     - overview of SmartCard support
+SmartCardServices-legacy(7) - overview of legacy SmartCard support
+SoftwareUpdateNotificationManager(8) - macOS software update
+SpeechDataInstallerd(8)  - Manages downloading of speech-related assets
+SpeechSynthesisServer(8) - Implements speaking hotkey and time announcements text-to-speech features
+SystemUIServer(8)        - Presents status items in the upper right of menu bar
+Tcl(ntcl)                - Tool Command Language
+TclX(n)                  - Extended Tcl: Extended command set for Tcl '
+Toplevel(n)              - base class for mega-widgets in a top-level window
+TouchBarServer(8)        - Touch Bar render server
+UASharedPasteboardProgressUI(8) - Progress UI Service for Universal Clipboard
+UASysAgent(8)            - A tool used by UnmountAssistant
+USBAgent(8)              - Agent for USB devices
+UnmountAssistantAgent(8) - Provides help when a disk can't be ejected
+UsageTrackingAgent(8)    - Usage Tracking Agent
+UserEventAgent(8)        - high-level system event handler
+UserSelector(7)          - overview and documentation
+VDCAssistant(8)          - CoreMediaIO DAL Assistant Process
+VNCPrivilegeProxy(8)     - Screen sharing server helper daemon
+WiFiAgent(8)             - Wi-Fi User agent
+WiFiVelocityAgent(8)     - launchd agent for the WiFiVelocity framework
+Widget(n)                - base class for mega-widgets within a frame
+WindowServer(8)          - Window management, compositing, and event routing daemon
+a2p(1)                   - Awk to Perl translator
+ab(1)                    - Apache HTTP server benchmarking tool
+ac(8)                    - display connect-time accounting
+accept(8), cupsaccept/cupsreject(8) - accept/reject jobs sent to a destination
+access(5)                - Postfix SMTP server access table
+accesstool(1)            - accesstool
+acct(5)                  - execution accounting file
+accton(8)                - enable/disable system accounting
+addftinfo(1)             - add information to troff font files for use with groff
+adjust(n), textutil::adjust(n) - Procedures to adjust, indent, and undent paragraphs
+adler(n)                 - Message digest "adler"
+adprivacyd(8)            - advertising privacy services daemon
+adservicesd(8)           - advertising services daemon
+aes(n)                   - Implementation of the AES block cipher
+afmtodit(1)              - create font files for use with groff -Tps
+afscexpand(1)            - decompress files compressed with HFS+ compression
+after(ntcl)              - Execute a command after a time delay
+agentxtrap(1)            - send an AgentX NotifyPDU to an AgentX master agent
+aio(4)                   - asynchronous I/O
+airport(8)               - get information for 802.11 interface
+airportd(8)              - airport daemon
+aliases(5)               - Postfix local alias database format
+amfid(8)                 - The mobile file integrity daemon
+amt(8)                   - Abstract Machine Test Utility
+analyticsd(1)            - Diagnostics and Usage
+annealing(n), simulation::annealing(n) - Simulated annealing
+ansi_cattr(n), term::ansi::code::attr(n) - ANSI attribute sequences
+ansi_cctrl(n), term::ansi::code::ctrl(n) - ANSI control sequences
+ansi_cmacros(n), term::ansi::code::macros(n) - Macro sequences
+ansi_code(n), term::ansi::code(n) - Helper for control sequences
+ansi_ctrlu(n), term::ansi::ctrl::unix(n) - Control operations and queries
+ansi_send(n), term::ansi::send(n) - Output of ANSI control sequences to terminals
+anvil(8)                 - Postfix session count and request rate control
+apachectl(8)             - Apache HTTP Server Control Interface
+apfs.util(8)             - APFS file system utility
+apfs_hfs_convert(8)      - convert an existing HFS file system to APFS file system
+append(ntcl)             - Append to variable
+appleeventsd(8)          - appleeventsd(8) -- System-wide daemon which coordinates AppleEvents activity on the system
+applesingle(1), binhex(1), macbinary(1) - encode and decode files
+appletviewer(1)          - Java applet viewer
+apply(1)                 - apply a command to a set of arguments
+apply(ntcl)              - Apply an anonymous function
+appsleepd(8)             - app sleep daemon
+apropos(1)               - search the whatis database for strings
+apsd(8)                  - Apple Push Notification service daemon
+apt(1)                   - annotation processing tool
+apxs(1)                  - APache eXtenSion tool
+arch(1)                  - print architecture type or run selected architecture of a universal binary
+arp(4)                   - Address Resolution Protocol
+arp(8)                   - address resolution display and control
+array(ntcl)              - Manipulate array variables
+ascii(7)                 - octal, hexadecimal and decimal ASCII character sets
+ascii85(n)               - ascii85-encode/decode binary data
+asctl(1)                 - App Sandbox Control Tool
+asl.conf(5)              - configuration file for syslogd(8) and aslmanager(8)
+aslmanager(8)            - Apple System Log data life-cycle manager
+asn(n)                   - ASN.1 BER encoder/decoder
+asr(8)                   - Apple Software Restore; copy volumes (e.g. from disk images)
+async(n), cache::async(n) - Asynchronous in-memory cache
+at(1), batch(1), atq(1), atrm(1) - queue, examine, or delete jobs for later execution
+atomicupdatetool(1)      - macOS Software Update mechanism helper tool
+atos(1)                  - convert numeric addresses to symbols of binary images or processes
+atrun(8)                 - run jobs queued for later execution
+atsutil(8)               - font registration system utility
+attach_automation_image(8), -(8) - ."====================== attach_automation_image attach and initialize disk images for automation_trampoline(8) ." ."
+audit(4)                 - Security Event Audit
+audit(5)                 - Basic Security Module (BSM) file format
+audit(8)                 - audit management utility
+audit_class(5)           - audit event class descriptions
+audit_control(5)         - audit system parameters
+audit_event(5)           - audit event descriptions
+audit_user(5)            - events to be audited for given users
+audit_warn(5)            - alert when audit daemon issues warnings
+auditd(8)                - audit log management daemon
+auditpipe(4)             - pseudo-device for live audit event tracking
+auditreduce(1)           - select records from audit trail files
+authopen(1)              - open file with authorization
+authorizationhost(8)     - Authorization Services component
+auto_execok(ntcl), auto_import(ntcl), auto_load(ntcl), auto_mkindex(ntcl), auto_mkindex_old(ntcl), auto_qualify(ntcl), auto_reset(ntcl), tcl_findLibrary(ntcl), parray(ntcl), tcl_endOfWord(ntcl), tcl_startOfNextWord(ntcl), tcl_startOfPreviousWord(ntcl), tcl_wordBreakAfter(ntcl), tcl_wordBreakBefore(ntcl) - standard library of Tcl procedures
+auto_master(5)           - automounter master map
+autodiskmount(8)         - disk support tool
+autofs.conf(5)           - automount(8) and automountd(8) configuration file
+autofsd(8)               - daemon to update autofs mounts on network changes
+automation_trampoline(8), -(8) - ."====================== automation_trampoline runs automation on boot ." ." ." ."
+automator(1)             - Runs Automator workflow
+automount(8)             - mount autofs on the appropriate mount points
+automountd(8)            - automatic mount / unmount daemon for autofs
+autoproxy(n)             - Automatic HTTP proxy usage and authentication
+autoscroll(n)            - Provides for a scrollbar to automatically mapped and unmapped as needed
+avbdeviced(1)            - peristent entity management for AVB
+avbutil(1)               - manage AVB features and settings
+avconvert(1)             - movie conversion tool
+awacsd(8)                - Apple Wide Area Connectivity Service daemon " Name Description for whatis database
+awdd(1)                  - Diagnostics and Usage
+awk(1)                   - pattern-directed scanning and processing language
+backend(7)               - cups backend transmission interfaces
+backupd(8)               - Time Machine backup daemon
+backupd-helper(8)        - Time Machine backup daemon helper
+banner(6)                - print large banner on printer
+base32(n)                - base32 standard encoding
+base32core(n), base32::core(n) - Expanding basic base32 maps
+base32hex(n), base32::hex(n) - base32 extended hex encoding
+base64(1)                - Encode and decode using Base64 representation
+base64(n)                - base64-encode/decode binary data
+basename(1), dirname(1)  - return filename or directory portion of pathname
+bash(1)                  - GNU Bourne-Again SHell
+bashbug(1)               - report a bug in bash
+bc(1)                    - An arbitrary precision calculator language
+bee(n)                   - BitTorrent Serialization Format Encoder/Decoder
+bell(ntcl)               - Ring a display's bell
+bgerror(ntcl)            - Command invoked to process background errors
+bibtex(n)                - Parse bibtex files
+biff(1)                  - be notified if mail arrives and who it is from
+big5(5)                  - Big Five encoding for Traditional Chinese text
+bigfloat(n), math::bigfloat(n) - Arbitrary precision floating-point numbers
+bignum(n), math::bignum(n) - Arbitrary precision integer numbers
+bin(n)                   - Encoding "bin"
+binary(ntcl)             - Insert and extract fields from binary strings
+bind(ntcl)               - Arrange for X events to invoke Tcl scripts
+bindtags(ntcl)           - Determine which bindings apply to a window, and order of evaluation
+binhex.pl(1)             - use Convert::BinHex to encode files as BinHex
+biokitaggdd(8)           - BioKitAggD daemon
+bird(8)                  - Documents in the Cloud
+bitesize.d(1m)           - analyse disk I/O size by process. Uses DTrace
+bitmap(ntcl)             - Images that display two colors
+bless(8)                 - set volume bootability and startup disk options
+blowfish(n)              - Implementation of the Blowfish block cipher
+bluetoothaudiod(8)       - The Mac OS X Bluetooth audio daemon
+bluetoothd(8)            - The Bluetooth daemon
+bnepd(8)                 - The Mac OS X Bluetooth network daemon
+body(n)                  - change the body for a class method/proc
+bom(5)                   - bill of materials
+bootinstalld(8)          - macOS boot-time installation daemon
+bootparams(5)            - boot parameter database
+bootpd(8)                - DHCP/BOOTP/NetBoot server
+bootptab(5)              - Internet Bootstrap Protocol server database
+bosreporter(8)           - bridgeOS software update
+boswatcher(8)            - bridgeOS software update
+bounce(5)                - Postfix bounce message template format
+bounce(8)                - Postfix delivery status reports
+bpf(4)                   - Berkeley Packet Filter
+brctl(1)                 - Manage the CloudDocs daemon
+break(ntcl)              - Abort looping command
+bspatch(1)               - apply a patch built with bsdiff(1)
+btmmdiagnose(8)          - gather information to aid in diagnosing Back to My Mac issues
+builtin(1), !(1), %(1), .(1), :(1), @(1), {(1), }(1), alias(1), alloc(1), bg(1), bind(1), bindkey(1), break(1), breaksw(1), builtins(1), case(1), cd(1), chdir(1), command(1), complete(1), continue(1), default(1), dirs(1), do(1), done(1), echo(1), echotc(1), elif(1), else(1), end(1), endif(1), endsw(1), esac(1), eval(1), exec(1), exit(1), export(1), false(1), fc(1), fg(1), filetest(1), fi(1), for(1), foreach(1), getopts(1), glob(1), goto(1), hash(1), hashstat(1), history(1), hup(1), if(1), jobid(1), jobs(1), kill(1), limit(1), local(1), log(1), login(1), logout(1), ls-F(1), nice(1), nohup(1), notify(1), onintr(1), popd(1), printenv(1), pushd(1), pwd(1), read(1), readonly(1), rehash(1), repeat(1), return(1), sched(1), set(1), setenv(1), settc(1), setty(1), setvar(1), shift(1), source(1), stop(1), suspend(1), switch(1), telltc(1), test(1), then(1), time(1), times(1), trap(1), true(1), type(1), ulimit(1), umask(1), unalias(1), uncomplete(1), unhash(1), unlimit(1), unset(1), unsetenv(1), until(1), wait(1), where(1), which(1), while(1) - shell built-in commands
+button(ntcl)             - Create and manipulate button widgets
+bz2(n)                   - Data compression "bz2"
+bzcmp(1), bzdiff(1)      - compare bzip2 compressed files
+bzip2(1), bunzip2(1)     - a block-sorting file compressor, v1.0.6 bzcat - decompresses files to stdout bzip2recover - recovers data from damaged bzip2 files
+bzmore(1), bzless(1)     - file perusal filter for crt viewing of bzip2 compressed text
+c++filt(1)               - Demangle C++ and Java symbols
+c2ph(1), pstruct(1)      - Dump C structures as generated from "cc -g -S" stabs
+caffeinate(8)            - prevent the system from sleeping on behalf of a utility
+cal(1), ncal(1)          - displays a calendar and the date of Easter
+calculus(n), math::calculus(n) - Integration and ordinary differential equations
+calendar(1)              - reminder service
+callservicesd(8)         - call server
+cancel(1)                - cancel jobs
+canonical(5)             - Postfix canonical table format
+canvas(ntcl)             - Create and manipulate canvas widgets
+canvasLabel(n)           - tkpiechart canvas label class
+canvas_mvg(n), canvas::mvg(n) - Canvas to ImageMagick MVG vector format
+canvas_snap(n), canvas::snap(n) - Canvas snapshot to Tk photo image
+canvas_sqmap(n), canvas::sqmap(n) - Canvas with map background based on square tiles
+canvas_zoom(n), canvas::zoom(n) - Zoom control for canvas::sqmap
+cap_mkdb(1)              - create capability database
+captiveagent(8)          - Daemon to detect and process captive networks
+captoinfo(1m)            - convert a termcap description into a terminfo description
+case(ntcl)               - Evaluate one of several scripts, depending on a given value
+cat(1)                   - concatenate and print files
+catch(ntcl)              - Evaluate script and trap exceptional returns
+cc_fips_test(1)          - Validates correctness of the corecrypto library during bootup
+cd(ntcl)                 - Change working directory
+cd9660.util(8)           - ISO 9660 file system utility
+certtool(1)              - create key pairs, certificates and certificate signing requests for use with Keychains
+cfilutil(1)              - Tool to exercise the content filter subsystem
+cfprefsd(8)              - defaults server
+cfront(n), fileutil::magic::cfront(n) - Generator core for compiler of magic(5) files
+cgen(n), fileutil::magic::cgen(n) - Generator core for compiler of magic(5) files
+chan(ntcl)               - Read, write and manipulate channels
+changelog(n), doctools::changelog(n) - Processing text in Emacs ChangeLog format
+chat(8)                  - Automated conversational script with a modem
+chatwidget(n)            - Provides a multi-paned view suitable for display of chat room or irc channel information
+checkLocalKDC(1)         - checks a LocalKDC
+checkbutton(ntcl)        - Create and manipulate checkbutton widgets
+checkgid(8)              - validate group identifiers
+checknr(1)               - check nroff/troff files
+chflags(1)               - change file flags
+chgrp(1)                 - change group
+chkpasswd(8)             - verifies user password against various systems
+chmod(1)                 - change file modes or Access Control Lists
+chown(8)                 - change file owner and group
+chpass(1), chfn(1), chsh(1) - add or change user database information
+chroot(8)                - change root directory
+cidr_table(5)            - format of Postfix CIDR tables
+cksum(1), sum(1)         - display file checksums and block counts
+cksum(n)                 - Calculate a cksum(1) compatible checksum
+class(n)                 - create a class of objects
+classes.conf(5)          - class configuration file for cups
+cleanup(8)               - canonicalize and enqueue Postfix message
+clear(1)                 - clear the terminal screen
+client.conf(5)           - client configuration file for cups
+clipboard(ntcl)          - Manipulate Tk clipboard
+clock(ntcl)              - Obtain and manipulate dates and times
+close(ntcl)              - Close an open channel
+cloudconfigurationd(8)   - Device Enrollment client daemon
+cloudd(8)                - CloudKit
+cloudphotosd(8)          - The macOS photo sharing agent
+cmdline(n)               - Procedures to process command lines and options
+cmp(1)                   - compare two files byte by byte
+code(n)                  - capture the namespace context for a code fragment
+codesign(1)              - Create and manipulate code signatures
+col(1)                   - filter reverse line feeds from input
+colcrt(1)                - filter nroff output for CRT previewing
+colldef(1)               - convert collation sequence source definition
+colors(ntcl)             - symbolic color names recognized by Tk
+colorsync.displayservices(8) - ColorSync Display Services
+colorsync.useragent(8), colorsync.usergaent(8) - ColorSync User Agent
+colorsyncd(8)            - ColorSync Daemon
+colrm(1)                 - remove columns from a file
+column(1)                - columnate lists
+com.apple.Boot.plist(5)  - Configuration plist for OS X booter
+com.apple.Safari.SafeBrowsing.Service(8) - Safari Safe Browsing Service
+com.apple.ifdreader(8)   - SmartCard reader daemon
+com.apple.speech.speechsynthesisd(8) - Centralized text-to-speech process for generating speech output
+combinatorics(n), math::combinatorics(n) - Combinatorial functions in the Tcl Math Library
+comm(1)                  - select or reject lines common to two files
+comm(n)                  - A remote communication facility for Tcl (8.3 and later)
+comm_wire(n)             - The comm wire protocol
+compat(5)                - manipulate compatibility settings
+compress(1), uncompress(1) - compress and expand data
+compression_tool(1)      - encode/decode files using the Compression library
+comsat(8)                - biff server
+concat(ntcl)             - Join lists together
+config_data(1)           - Query or change configuration of Perl modules
+configbody(n)            - change the "config" code for a public variable
+configd(8)               - System Configuration Daemon
+configureLocalKDC(1)     - generate a LocalKDC
+connect(n), transfer::connect(n) - Connection setup
+console(ntcl)            - Control the console on systems without a real console
+constants(n), math::constants(n) - Mathematical and numerical constants
+contactsdonationagent(8) - contactsdonationagent daemon
+container(n), doctools::toc(n) - Holding tables of contents
+continue(ntcl)           - Skip to the next iteration of a loop
+control(n)               - Procedures for control flow structures
+controlwidget(n)         - Collection of widgets for displaying and controlling numerical values
+copy(9), copyin(9), copyinstr(9), copyout(9), copystr(9) - kernel copy functions
+copyops(n), transfer::copy(n) - Data transfer foundation
+core(5)                  - memory image file format
+coreautha(8)             - LocalAuthentication user interface agent
+coreauthd(8)             - LocalAuthentication daemon and agent
+corebrightnessd(8)       - corebrightnessd daemon
+corebrightnessdiag(1)    - corebrightnessdiag
+corecaptured(8)          - corecaptured daemon
+corelist(1)              - a commandline frontend to Module::CoreList
+corestoraged(8)          - CoreStorage volume manager
+coresymbolicationd(8)    - daemon to manage debug symbols cache
+counter(n)               - Procedures for counters and histograms
+cp(1)                    - copy files
+cpan(1)                  - easily interact with CPAN from the command line
+cpan2dist(1)             - The CPANPLUS distribution creator
+cpanp(1)                 - The CPANPLUS launcher
+cpio(1)                  - copy files to and from archives
+cpuwalk.d(1m)            - Measure which CPUs a process runs on. Uses DTrace
+crc(n)                   - Message digest "crc"
+crc-zlib(n)              - Message digest "crc-zlib"
+crc16(n)                 - Perform a 16bit Cyclic Redundancy Check
+crc32(n)                 - Perform a 32bit Cyclic Redundancy Check
+creatbyproc.d(1m)        - snoop creat()s by process name. Uses DTrace
+create_automation_image_overlay(8), -(8) - ."====================== create_automation_image_overlay overlay automation image content onto another directory ." ."
+crlrefresh(1)            - update and maintain system-wide CRL cache
+cron(8)                  - daemon to execute scheduled commands (Vixie Cron)
+crontab(1)               - maintain crontab files for individual users (V3)
+crontab(5)               - tables for driving cron
+crosshair(n)             - Crosshairs for Tk canvas
+crypt(n)                 - Password hashing based on "crypt"
+csplit(1)                - split files based on context
+csreq(1)                 - Expert tool for manipulating Code Signing Requirement data
+csrutil(8)               - Configure system security policies
+csunique(8)              - modify the UUIDs of CoreStorage metadata objects
+csv(n)                   - Procedures to handle CSV data
+ctext(n)                 - Ctext a text widget with highlighting support
+ctkahp(8)                - SmartCard Agent
+ctkbind(8)               - SmartCard pairing tool
+ctkd(8)                  - SmartCard daemon/agent
+cu(1)                    - Call up another system
+cups(1)                  - a standards-based, open source printing system
+cups-config(1)           - get cups api, compiler, directory, and link information
+cups-files.conf(5)       - file and directory configuration file for cups
+cups-lpd(8)              - receive print jobs and report printer status to lpd clients
+cups-snmp(8), snmp(8)    - cups snmp backend
+cupsaddsmb(8)            - export printers to samba for windows clients
+cupsctl(8)               - configure cupsd.conf options
+cupsd(8)                 - cups scheduler
+cupsd-helper(8)          - cupsd helper programs
+cupsd-logs(5)            - cupsd log files (access_log, error_log, and page_log)
+cupsd.conf(5)            - server configuration file for cups
+cupsdisable(8), cupsenable(8) - stop/start printers and classes
+cupsfilter(8)            - convert a file to another format using cups filters
+cupstestdsc(1)           - test conformance of postscript files (deprecated)
+cupstestppd(1)           - test conformance of ppd files
+curl(1)                  - transfer a URL
+curl-config(1)           - Get information about a libcurl installation
+cursor(n)                - Procedures to handle CURSOR data
+cursors(ntcl)            - mouse cursors available in Tk
+cut(1)                   - cut out selected portions of each line of a file
+cvs(n), doctools::cvs(n) - Processing text in 'cvs log' format
+dacceptor(n), grammar::fa::dacceptor(n) - Create and use deterministic acceptors
+dappprof(1m)             - profile user and lib function usage. Uses DTrace
+dapptrace(1m)            - trace user and library function usage. Uses DTrace
+darwinup(1)              - Install, uninstall, and manage roots
+dasd(1)                  - Daemon for background activity scheduling
+date(1)                  - display or set date and time
+datefield(n)             - Tk datefield widget
+dbicadmin(1)             - utility for administrating DBIx::Class schemata
+dbilogstrip(1)           - filter to normalize DBI trace logs for diff'ing
+dbiprof(1)               - command-line client for DBI::ProfileData
+dbiproxy(1)              - A proxy server for the DBD::Proxy driver
+dbmmanage(1)             - Manage user authentication files in DBM format
+dc(1)                    - an arbitrary precision calculator
+dd(1)                    - convert and copy a file
+dde(ntcl)                - Execute a Dynamic Data Exchange command
+ddest(n), transfer::data::destination(n) - Data destination
+ddns-confgen(8)          - ddns key generation tool
+debinhex.pl(1)           - use Convert::BinHex to decode BinHex files
+defaults(1)              - access the Mac OS X user defaults system
+defragcli(8)             - targeted userspace defragmentation tool
+defragx(8)               - targeted userspace defragmenter daemon
+deleg_method(n)          - Creation of comm delegates (snit methods)
+deleg_proc(n)            - Creation of comm delegates (procedures)
+delete(n)                - delete things in the interpreter
+deleted(8)               - The purgeable space / cache management daemon
+delv(1)                  - DNS lookup and validation utility
+des(n)                   - Implementation of the DES and triple-DES ciphers
+destroy(ntcl)            - Destroy one or more windows
+dev_mkdb(8)              - create /dev database
+dexec(n), grammar::fa::dexec(n) - Execute deterministic finite automatons
+df(1)                    - display free disk space
+diagnosticd(8)           - diagnostic daemon
+diagnostics(1), splain(1) - produce verbose warning diagnostics
+diagnostics_agent(8)     - Triggers log submission
+diagram(n)               - Diagram drawing
+dict(ntcl)               - Manipulate dictionaries
+diff(1)                  - compare files line by line
+diff3(1)                 - compare three files line by line
+diffstat(1)              - make histogram from diff-output
+dig(1)                   - DNS lookup utility
+dir(5), dirent(5)        - directory file format
+dirhelper(8)             - helper for special directory creation
+discard(8)               - Postfix discard mail delivery agent
+disjointset(n), struct::disjointset(n) - Disjoint set data structure
+diskarbitrationd(8)      - disk arbitration daemon
+disklabel(8)             - manipulate and query an Apple Label disk label
+diskmanagementd(8)       - DiskManagement.framework server
+diskmanagementstartup(8) - DiskManagement.framework helper tool
+disktool(8)              - disk support tool
+diskutil(8)              - modify, verify and repair local disks
+dispqlen.d(1m)           - dispatcher queue length by CPU. Uses DTrace
+distnoted(8)             - distributed notification server
+ditroff(7)               - classical device independent roff
+ditto(1)                 - copy directory hierarchies, create and extract archives
+divert(4)                - kernel packet diversion mechanism
+dmc(1)                   - controls the Disk Mount Conditioner
+dmesg(8)                 - display the system message buffer
+dnctl(8)                 - Traffic shaper control program
+dns-sd(1)                - Multicast DNS (mDNS) & DNS Service Discovery (DNS-SD) Test Tool " For whatis
+dnsblog(8)               - Postfix DNS white/blacklist logger
+dnsextd(8)               - BIND Extension Daemon " Name Description for whatis database
+docidx(n), doctools::idx(n) - docidx - Processing indices
+docidx_intro(n)          - docidx introduction
+docidx_lang_cmdref(n)    - docidx language command reference
+docidx_lang_faq(n)       - docidx language faq
+docidx_lang_intro(n)     - docidx language introduction
+docidx_lang_syntax(n)    - docidx language syntax
+docidx_plugin_apiref(n)  - docidx plugin API reference
+docstrip(n)              - Docstrip style source code extraction
+docstrip_util(n)         - Docstrip-related utilities
+doctoc(n), doctools::toc(n) - doctoc - Processing tables of contents
+doctoc_intro(n)          - doctoc introduction
+doctoc_lang_cmdref(n)    - doctoc language command reference
+doctoc_lang_faq(n)       - doctoc language faq
+doctoc_lang_intro(n)     - doctoc language introduction
+doctoc_lang_syntax(n)    - doctoc language syntax
+doctoc_plugin_apiref(n)  - doctoc plugin API reference
+doctools(n)              - doctools - Processing documents
+doctools_intro(n)        - doctools introduction
+doctools_lang_cmdref(n)  - doctools language command reference
+doctools_lang_faq(n)     - doctools language faq
+doctools_lang_intro(n)   - doctools language introduction
+doctools_lang_syntax(n)  - doctools language syntax
+doctools_plugin_apiref(n) - doctools plugin API reference
+dot_clean(1)             - Merge._* files with corresponding native files
+drutil(1)                - interact with CD/DVD burners
+dscacheutil(1)           - gather information, statistics and initiate queries to the Directory Service cache
+dscl(1)                  - Directory Service command line utility
+dsconfigad(8)            - retrieves/changes configuration for Active Directory
+dserr(8)                 - prints a description for an error code
+dsexport(1)              - export records from OpenDirectory
+dsmemberutil(1)          - various operations for the membership APIs, including state dump, check memberships, UUIDs, etc
+dsource(n), transfer::data::source(n) - Data source
+dtrace(1)                - dynamic tracing compiler and tracing utility
+dtruss(1m)               - process syscall details. Uses DTrace
+du(1)                    - display disk usage statistics
+dummynet(4)              - traffic shaper, bandwidth manager and delay emulator
+dump(n)                  - Dump information about Tcl interpreter in TkCon
+dumpemacs(8)             - Utility to dump pre-loaded emacs with compiled ELisp auto-loads
+dyld(1)                  - the dynamic linker
+dynamic_pager(8)         - swap configuration daemon
+eapolcfg_auth(8)         - A launch-on-demand daemon used to configure EAP over LAN (EAPOL)
+echo(1)                  - write arguments to the standard output
+ed(1), red(1)            - text editor
+editrc(5)                - configuration file for editline library
+edquota(8)               - edit user quotas
+eficheck(8)              - check the integrity of the x86 flash chip firmware
+emacs(1)                 - GNU project Emacs
+emacs-undumped(1)        - Basic emacs with no ELisp libraries loaded
+emacsclient(1)           - tells a running Emacs to visit a file
+enc2xs(1)                - -- Perl Encode Module Generator
+encode_keychange(1)      - produce the KeyChange string for SNMPv3
+encoding(ntcl)           - Manipulate encodings
+ensemble(n)              - create or modify a composite command
+entry(ntcl)              - Create and manipulate entry widgets
+env(1)                   - set environment and execute command, or print environment
+environ(7)               - user environment
+eof(ntcl)                - Check for end of file condition on channel
+eospreflightagent(8)     - iBridge software restore
+eqn(1)                   - format equations for troff
+erb(1)                   - Ruby Templating
+errinfo(1m)              - print errno for syscall fails. Uses DTrace
+error(8)                 - Postfix error/retry mail delivery agent
+error(ntcl)              - Generate an error
+etags(1), ctags(1)       - generate tag file for Emacs, vi
+ethcheck(8)              - check the integrity of Broadcom Ethernet devices' firmware
+euc(5)                   - EUC encoding of wide characters
+eval(ntcl)               - Evaluate a Tcl script
+event(ntcl)              - Miscellaneous event facilities: define virtual events and generate events
+evim(1)                  - easy Vim, edit a file with Vim and setup for modeless editing
+exec(ntcl)               - Invoke subprocesses
+execsnoop(1m)            - snoop new process execution. Uses DTrace
+exfat.util(8)            - ExFAT file system utility
+exit(ntcl)               - End the application
+expand(1), unexpand(1)   - expand tabs to spaces, and vice versa
+expander(n), textutil::expander(n) - Procedures to process templates and expand text
+expect(1)                - programmed dialogue with interactive programs, Version 5
+export(n), doctools::toc::export(n) - Exporting tables of contents
+export_docidx(n), doctools::idx::export::docidx(n) - docidx export plugin
+export_doctoc(n), doctools::toc::export::doctoc(n) - doctoc export plugin
+export_html(n), doctools::toc::export::html(n) - HTML export plugin
+export_json(n), doctools::toc::export::json(n) - JSON export plugin
+export_nroff(n), doctools::toc::export::nroff(n) - nroff export plugin
+export_text(n), doctools::toc::export::text(n) - plain text export plugin
+export_wiki(n), doctools::toc::export::wiki(n) - wiki export plugin
+exports(5)               - define remote mount points for NFS mount requests
+expr(1)                  - evaluate expression
+expr(ntcl)               - Evaluate an expression
+extcheck(1)              - jar conflict detection utility
+eyapp(1)                 - A Perl front-end to the Parse::Eyapp module
+fa(n), grammar::fa(n)    - Create and manipulate finite automatons
+false(1)                 - Return false value
+faop(n), grammar::fa::op(n) - Operations on finite automatons
+fblocked(ntcl)           - Test whether the last input operation exhausted all available input
+fcgistarter(8)           - Start a FastCGI program
+fconfigure(ntcl)         - Set and get options on a channel
+fcopy(ntcl)              - Copy data from one channel to another
+fd(4), stdin(4), stdout(4), stderr(4) - file descriptor files
+fddist(1m)               - file descriptor usage distributions. Uses DTrace
+fdesetup(8)              - FileVault configuration tool
+fdisk(8)                 - DOS partition maintenance program
+femail(8)                - accept mail on behalf of a real MTA
+fetch(9), fubyte(9), fuibyte(9), fuiword(9), fulong(9), fuulong(9), fuword(9) - fetch data from user-space
+fibreconfig(8)           - Tool for configuring settings for Fibre Channel controllers and targets
+fifo(n)                  - Create and manipulate u-turn fifo channels
+fifo2(n)                 - Create and manipulate pipe fifo channels
+file(1)                  - determine file type
+file(ntcl)               - Manipulate file names and attributes
+filebyproc.d(1m)         - snoop opens by process name. Uses DTrace
+filecoordinationd(8)     - system-wide file access coordination
+fileevent(ntcl)          - Execute a script when a channel becomes readable or writable
+filename(ntcl)           - File name conventions supported by Tcl commands
+fileproviderd(8)         - Part of File Coordination
+filetypes(n), fileutil::magic::filetype(n) - Procedures implementing file-type recognition
+fileutil(n)              - Procedures implementing some file utilities
+filter(7)                - cups file conversion filter interface
+filtercalltree(1)        - Filter or prune a call tree file generated by sample or malloc_history
+find(1)                  - walk a file hierarchy
+find(n)                  - search for classes and objects
+find2perl(1)             - translate find command lines to Perl code
+findmydevice-user-agent(8) - Find My Mac user agent
+findmydeviced(8)         - Find My Mac daemon
+findrule(1)              - command line wrapper to File::Find::Rule
+finger(1)                - user information lookup program
+finger.conf(5)           - finger(1) alias configuration file
+firmwarepasswd(8)        - tool for setting and removing firmware passwords on a system
+firmwaresyncd(8)         - synchronize files used by the system firmware
+fixproc(1)               - Fixes a process by performing the specified action
+flush(8)                 - Postfix fast flush server
+flush(ntcl)              - Flush buffered output for a channel
+fmfd(8)                  - Find My Friends daemon
+fmt(1)                   - simple text formatter
+focus(ntcl)              - Manage the input focus
+fold(1)                  - fold long lines for finite width output device
+font(ntcl)               - Create and inspect fonts
+fontd(8)                 - Mac OS X system font registration manager
+fontmover(8)             - Mac OS X system font mover
+fontrestore(8)           - Restore the available system fonts to a pristine state, if possible
+fontworker(8)            - Mac OS X system font registration and validation daemon
+footprint(1)             - gathers memory information about one or more processes
+for(ntcl)                - 'For' loop
+foreach(ntcl)            - Iterate over all elements in one or more lists
+format(ntcl)             - Format a string in the style of sprintf
+fourier(n), math::fourier(n) - Discrete and fast fourier transforms
+frame(ntcl)              - Create and manipulate frame widgets
+from(1)                  - print names of those who have sent mail
+fs_usage(1)              - report system calls and page faults related to filesystem activity in real-time
+fsck(8)                  - filesystem consistency check and interactive repair
+fsck_apfs(8)             - APFS consistency check
+fsck_cs(8)               - verify and repair CoreStorage logical volume groups
+fsck_exfat(8)            - Verify and repair ExFAT file systems
+fsck_hfs(8)              - HFS file system consistency check
+fsck_msdos(8)            - DOS/Windows (FAT) file system consistency check
+fsck_udf(8)              - check a UDF filesystem
+fstab(5)                 - static information about the filesystems
+fstyp(8)                 - identify a file system
+fstyp_hfs(8)             - check for an HFS volume
+fstyp_msdos(8)           - check for an MSDOS FAT volume
+fstyp_ntfs(8)            - check for a Windows NT File System (NTFS) volume
+fstyp_udf(8)             - check for a UDF volume
+ftp(n)                   - Client-side tcl implementation of the ftp protocol
+ftp-proxy(8)             - Internet File Transfer Protocol proxy server
+ftp_geturl(n), ftp::geturl(n) - Uri handler for ftp urls
+ftpd(n)                  - Tcl FTP server implementation
+funzip(1)                - filter for extracting from a ZIP archive in a pipe
+fuser(1)                 - list process IDs of all processes that have one or more files open
+fuzzy(n), math::fuzzy(n) - Fuzzy comparison of floating-point numbers
+fwkdp(1)                 - FireWire KDP Tool
+fwkpfv(1)                - FireWire kprintf viewer
+gasm(n), grammar::me::cpu::gasm(n) - ME assembler
+gb18030(5)               - GB 18030 encoding method for Chinese text
+gb2312(5)                - GB2312 encoding method for Chinese text
+gbk(5)                   - Guojia biaozhun kuozhan (GBK) encoding method for Chinese text
+gcore(1)                 - get core images of running processes
+gdiffmk(1)               - mark differences between groff/nroff/troff files
+gem(1)                   - RubyGems program
+gen_bridge_metadata(1)   - Objective-C Bridges Metadata Generator
+gencat(1)                - NLS catalog compiler
+generic(5)               - Postfix generic table format
+geometry(n), math::geometry(n) - Geometrical computations
+getconf(1)               - retrieve standard configuration variables
+getopt(1)                - parse command options
+gets(ntcl)               - Read a line from a channel
+getty(8)                 - set terminal mode
+gettytab(5)              - terminal configuration data base
+gif(4)                   - generic tunnel interface
+glob(ntcl)               - Return names of files that match patterns
+global(ntcl)             - Access global variables
+gpt(8)                   - GUID partition table maintenance utility
+grab(ntcl)               - Confine pointer and keyboard events to a window sub-tree
+graph(n), struct::graph(n) - Create and manipulate directed graph objects
+graph1(n), struct::graph v1(n) - Create and manipulate directed graph objects
+graphicssession(1)       - graphics session initialization utility
+graphops(n), struct::graph::op(n) - Operation for (un)directed graph objects
+grep(1), egrep(1), fgrep(1), zgrep(1), zegrep(1), zfgrep(1) - file pattern searcher
+grid(ntcl)               - Geometry manager that arranges widgets in a grid
+grn(1)                   - groff preprocessor for gremlin files
+grodvi(1)                - convert groff output to TeX dvi format
+groff(1)                 - front-end for the groff document formatting system
+groff(7)                 - a short reference for the GNU roff language
+groff_char(7)            - groff glyph names
+groff_diff(7)            - differences between GNU troff and classical troff
+groff_font(5)            - format of groff device and font description files
+groff_man(7)             - groff `man' macros to support generation of man pages
+groff_mdoc(7)            - reference for groff's mdoc implementation
+groff_me(7)              - troff macros for formatting papers
+groff_mm(7)              - groff mm macros
+groff_mmse(7)            - svenska mm makro för groff
+groff_mom(7)             - groff `mom' macros
+groff_ms(7)              - groff ms macros
+groff_out(5)             - groff intermediate output format
+groff_tmac(5)            - macro files in the roff typesetting system
+groff_trace(7)           - groff macro package trace.tmac
+groff_www(7)             - groff macros for authoring web pages
+groffer(1)               - display groff files and man~pages on X and tty
+grog(1)                  - guess options for groff command
+grohtml(1)               - html driver for groff
+grolbp(1)                - groff driver for Canon CAPSL printers (LBP-4 and LBP-8 series laser printers)
+grolj4(1)                - groff driver for HP Laserjet 4 family
+grops(1)                 - PostScript driver for groff
+grotty(1)                - groff driver for typewriter-like devices
+group(5)                 - format of the group permissions file
+groups(1)                - show group memberships
+gss(5)                   - how to configure gss framework
+gssd(8)                  - Generic Security Services Daemon
+gzexe(1)                 - create auto-decompressing executables
+gzip(1)                  - compression/decompression tool using Lempel-Ziv coding (LZ77)
+h2ph(1)                  - convert .h C header files to .ph Perl header files
+h2xs(1)                  - convert .h C header files to Perl extensions
+halt(8), reboot(8)       - stopping and restarting the system
+haval(n)                 - Message digest "haval"
+hdid(8)                  - historical mechanism for attaching disk images
+hdiejectd(8)             - disk image management daemon
+hdik(8)                  - lightweight tool to attach and mount disk images in-kernel
+hdiutil(1)               - manipulate disk images (attach, verify, create, etc)
+head(1)                  - display first lines of a file
+header_checks(5)         - Postfix built-in content inspection
+heap(1)                  - List all the malloc-allocated buffers in the process's heap
+heimdal_debug(5)         - how to turn on/off debugging for Kerberos tools
+helpd(8)                 - Help Daemon
+hex(n)                   - Encoding "hex"
+hexdump(1)               - ASCII, decimal, hexadecimal, octal dump
+hfs.util(8)              - HFS/HFS+ file system utility
+hidd(8)                  - The HID library userland daemon
+hidutil(1)               - HID event system debug utility
+hier(7)                  - layout of filesystems
+history(ntcl)            - Manipulate the history list
+homed(8)                 - home services daemon
+host(1)                  - DNS lookup utility
+hostname(1)              - set or print name of current host system
+hostname(7)              - host name resolution description
+hosts(5)                 - host name data base
+hosts.equiv(5), .rhosts(5) - trusted remote hosts and host-user pairs
+hotspot.d(1m)            - print disk event by location. Uses DTrace
+hpftodit(1)              - create font description files for use with groff -Tlj4
+hpmdiagnose(1)           - - collects diagnostic information to help troubleshoot USB-C issues
+htcacheclean(8)          - Clean up the disk cache
+htdbm(1)                 - Manipulate DBM password databases
+htdigest(1)              - manage user files for digest authentication
+html(n)                  - Procedures to generate HTML structures
+html_cssdefaults(n), doctools::html::cssdefaults(n) - Default CSS style for HTML export plugins
+htmlparse(n)             - Procedures to parse HTML strings
+htpasswd(1)              - Manage user files for basic authentication
+http(ntcl)               - Client-side implementation of the HTTP/1.1 protocol
+httpd(8)                 - Apache Hypertext Transfer Protocol Server
+httpd-wrapper(8)         - Wrapper script for httpd web server
+httxt2dbm(1)             - Generate dbm files for use with RewriteMap
+httxt2dbm(8)             - Generate dbm files for use with RewriteMap
+huddle(n)                - Create and manipulate huddle object
+iOSScreenCaptureAssistant(8) - CoreMediaIO DAL Assistant Process
+icdd(8)                  - ImageCapture Discovery Daemon
+icmp(4)                  - Internet Control Message Protocol
+icmp6(4)                 - Internet Control Message Protocol for IPv6
+ico(n)                   - Reading and writing windows icons
+iconutil(1)              - Utility to convert between '.iconset' and '.icns' files
+iconv(1)                 - character set conversion
+id(1)                    - return user identity
+idebug(n)                - Interactive debugging environment in TkCon
+ident(n)                 - Ident protocol client
+idlj(1)                  - The IDL-to-Java Compiler (RMI-IIOP version) idlj generates Java bindings from a given IDL file
+if(ntcl)                 - Execute scripts conditionally
+ifconfig(8)              - configure network interface parameters
+ifcstart(8)              - rebuilds international data caches
+ifmib(4)                 - Management Information Base for network interfaces
+image(ntcl)              - Create and manipulate images
+imap4(n)                 - imap client-side tcl implementation of imap protocol
+imenu(n), term::interact::menu(n) - Terminal widget, menu
+import(n), doctools::toc::import(n) - Importing keyword indices
+import_docidx(n), doctools::idx::import::docidx(n) - docidx import plugin
+import_doctoc(n), doctools::toc::import::doctoc(n) - doctoc import plugin
+import_json(n), doctools::toc::import::json(n) - JSON import plugin
+imptrace(1)              - report importance donation events in real time
+incr(ntcl)               - Increment the value of a variable
+indxbib(1)               - make inverted index for bibliographic databases
+inet(4)                  - Internet protocol family
+inet6(4)                 - Internet protocol version 6 family
+info(1)                  - read Info documents
+info(5)                  - readable online documentation
+info(ntcl)               - Return information about the state of the Tcl interpreter
+infocmp(1m)              - compare or print out terminfo descriptions
+infokey(1)               - compile customizations for Info
+infotocap(1m)            - convert a terminfo description into a termcap description
+ini(n), inifile(n)       - Parsing of Windows INI files
+install(1)               - install binaries
+install-info(1)          - update info/dir entries
+installd(8)              - macOS software installation daemon
+installer(8)             - system software and package installer tool
+installer-core(8)        - helper for installer tool
+installerauthagent(8)    - macOS installation
+instmodsh(1)             - A shell to examine installed modules
+interp(ntcl)             - Create and manipulate Tcl interpreters
+interpolate(n), math::interpolate(n) - Interpolation routines
+intro(1)                 - introduction to general commands (tools and utilities)
+intro(5)                 - introduction to file formats
+intro(7)                 - miscellaneous information pages
+intro(8)                 - introduction to system maintenance procedures and commands
+intro(9)                 - introduction to system kernel interfaces
+introduction(n), doctools2toc_introduction(n) - DocTools - Tables of Contents
+ioalloccount(8)          - Summarize IOKit memory usage
+iofile.d(1m)             - I/O wait time by file and process. Uses DTrace
+iofileb.d(1m)            - I/O bytes by file and process. Uses DTrace
+ionodecache(8)           - IOKit node caching daemon
+iopattern(1m)            - print disk I/O pattern. Uses DTrace
+iopending(1m)            - plot number of pending disk events. Uses DTrace
+ioreg(8)                 - show I/O Kit registry
+iosnoop(1m)              - snoop I/O events as they occur. Uses DTrace
+iostat(8)                - report I/O statistics
+iotop(1m)                - display top disk I/O events by process. Uses DTrace
+ioupsd(8)                - daemon to track UPS state
+ip(4)                    - Internet Protocol
+ip2cc(1)                 - lookup country from IP address or hostname
+ip6(4)                   - Internet Protocol version 6 (IPv6) network layer
+ipager(n), term::interact::pager(n) - Terminal widget, paging
+ipconfig(8)              - view and control IP configuration state
+ipcrm(1)                 - remove the specified message queues, semaphore sets, and shared memory segments
+ipcs(1)                  - report System V interprocess communication facilities status
+ipentry(n)               - An IP address entry widget
+ipl(4)                   - IP packet log device
+ippfind(1)               - find internet printing protocol printers
+ipptool(1)               - perform internet printing protocol requests
+ipptoolfile(5)           - ipptool file format
+ippusbd(8)               - ipp to usb bridging daemon
+ipsec(4)                 - IP security protocol
+irb(1)                   - Interactive Ruby Shell
+irc(n)                   - Create IRC connection and interface
+is(n)                    - test argument to see if it is a class or an object
+itcl(n)                  - object-oriented extensions to Tcl
+itclvars(n)              - variables used by [incr Tcl]
+itk(n)                   - framework for building mega-widgets in Tcl/Tk
+itkvars(n)               - variables used by [incr Tk]
+iwidgets_buttonbox(n), iwidgets::buttonbox(n) - Create and manipulate a manager widget for buttons
+iwidgets_calendar(n), iwidgets::calendar(n) - Create and manipulate a monthly calendar
+iwidgets_canvasprintbox(n), iwidgets::canvasprintbox(n) - Create and manipulate a canvas print box widget
+iwidgets_canvasprintdialog(n), iwidgets::canvasprintdialog(n) - Create and manipulate a canvas print dialog widget
+iwidgets_checkbox(n), iwidgets::checkbox(n) - Create and manipulate a checkbox widget
+iwidgets_combobox(n), iwidgets::combobox(n) - Create and manipulate combination box widgets
+iwidgets_dateentry(n), iwidgets::dateentry(n) - Create and manipulate a dateentry widget
+iwidgets_datefield(n), iwidgets::datefield(n) - Create and manipulate a date field widget
+iwidgets_dialog(n), iwidgets::dialog(n) - Create and manipulate a dialog widget
+iwidgets_dialogshell(n), iwidgets::dialogshell(n) - Create and manipulate a dialog shell widget
+iwidgets_disjointlistbox(n), iwidgets::disjointlistbox(n) - Create and manipulate a disjointlistbox widget
+iwidgets_entryfield(n), iwidgets::entryfield(n) - Create and manipulate a entry field widget
+iwidgets_extbutton(n), iwidgets::extbutton(n) - Extends the behavior of the Tk button by allowing a bitmap or image to coexist with text
+iwidgets_extfileselectionbox(n), iwidgets::extfileselectionbox(n) - Create and manipulate a file selection box widget
+iwidgets_extfileselectiondialog(n), iwidgets::extfileselectiondialog(n) - Create and manipulate a file selection dialog widget
+iwidgets_feedback(n), iwidgets::feedback(n) - Create and manipulate a feedback widget to display feedback on the current status of an ongoing operation to the user
+iwidgets_fileselectionbox(n), iwidgets::fileselectionbox(n) - Create and manipulate a file selection box widget
+iwidgets_fileselectiondialog(n), iwidgets::fileselectiondialog(n) - Create and manipulate a file selection dialog widget
+iwidgets_finddialog(n), iwidgets::finddialog(n) - Create and manipulate a find dialog widget
+iwidgets_hierarchy(n), iwidgets::hierarchy(n) - Create and manipulate a hierarchy widget
+iwidgets_hyperhelp(n), iwidgets::hyperhelp(n) - Create and manipulate a hyperhelp widget
+iwidgets_labeledframe(n), iwidgets::labeledframe(n) - Create and manipulate a labeled frame widget
+iwidgets_labeledwidget(n), iwidgets::labeledwidget(n) - Create and manipulate a labeled widget
+iwidgets_mainwindow(n), iwidgets::mainwindow(n) - Create and manipulate a mainwindow widget
+iwidgets_menubar(n), iwidgets::menubar(n) - Create and manipulate menubar menu widgets
+iwidgets_messagebox(n), iwidgets::messagebox(n) - Create and manipulate a messagebox text widget
+iwidgets_messagedialog(n), iwidgets::messagedialog(n) - Create and manipulate a message dialog widget
+iwidgets_notebook(n), iwidgets::notebook(n) - create and manipulate notebook widgets
+iwidgets_optionmenu(n), iwidgets::optionmenu(n) - Create and manipulate a option menu widget
+iwidgets_panedwindow(n), iwidgets::panedwindow(n) - Create and manipulate a paned window widget
+iwidgets_promptdialog(n), iwidgets::promptdialog(n) - Create and manipulate a prompt dialog widget
+iwidgets_pushbutton(n), iwidgets::pushbutton(n) - Create and manipulate a push button widget
+iwidgets_radiobox(n), iwidgets::radiobox(n) - Create and manipulate a radiobox widget
+iwidgets_scopedobject(n), scopedobject(n) - Create and manipulate a scoped [incr Tcl] class object
+iwidgets_scrolledcanvas(n), iwidgets::scrolledcanvas(n) - Create and manipulate scrolled canvas widgets
+iwidgets_scrolledframe(n), iwidgets::scrolledframe(n) - Create and manipulate scrolled frame widgets
+iwidgets_scrolledhtml(n), iwidgets::scrolledhtml(n) - Create and manipulate a scrolled text widget with the capability of displaying HTML formatted documents
+iwidgets_scrolledlistbox(n), iwidgets::scrolledlistbox(n) - Create and manipulate scrolled listbox widgets
+iwidgets_scrolledtext(n), iwidgets::scrolledtext(n) - Create and manipulate a scrolled text widget
+iwidgets_selectionbox(n), iwidgets::selectionbox(n) - Create and manipulate a selection box widget
+iwidgets_selectiondialog(n), iwidgets::selectiondialog(n) - Create and manipulate a selection dialog widget
+iwidgets_shell(n), iwidgets::shell(n) - Create and manipulate a shell widget
+iwidgets_spindate(n), iwidgets::spindate(n) - Create and manipulate time spinner widgets
+iwidgets_spinint(n), iwidgets::spinint(n) - Create and manipulate a integer spinner widget
+iwidgets_spinner(n), iwidgets::spinner(n) - Create and manipulate a spinner widget
+iwidgets_spintime(n), iwidgets::spintime(n) - Create and manipulate time spinner widgets
+iwidgets_tabnotebook(n), iwidgets::tabnotebook(n) - create and manipulate tabnotebook widgets
+iwidgets_tabset(n), iwidgets::tabset(n) - create and manipulate tabs as as set
+iwidgets_timeentry(n), iwidgets::timeentry(n) - Create and manipulate a timeentry widget
+iwidgets_timefield(n), iwidgets::timefield(n) - Create and manipulate a time field widget
+iwidgets_toolbar(n), iwidgets::toolbar(n) - Create and manipulate a tool bar
+iwidgets_watch(n), iwidgets::watch(n) - Create and manipulate time with a watch widgets
+jar(1)                   - Java archive tool
+jarsigner(1)             - JAR signing and verification tool
+java(1)                  - Java application launcher
+java_home(1)             - return a value for $JAVA_HOME
+javac(1)                 - Java compiler
+javadoc(1)               - Java API documentation generator
+javah(1)                 - C header and stub file generator
+javap(1)                 - Java class file disassembler
+javascript(n)            - Procedures to generate HTML and Java Script structures
+javaws(1)                - Java Web Start launcher command
+jconsole(1)              - J2SE Monitoring and Management Console
+jdb(1)                   - Java debugger
+jhat(1)                  - Java Heap Analysis Tool
+jinfo(1)                 - configuration info
+jmap(1)                  - memory map
+join(1)                  - relational database operator
+join(ntcl)               - Create a string by joining together list elements
+jot(1)                   - print sequential or random data
+jpeg(n)                  - JPEG querying and manipulation of meta data
+jps(1)                   - Java Virtual Machine Process Status Tool
+jrunscript(1)            - command line script shell
+jsadebugd(1)             - serviceability agent debug daemon
+json(n)                  - JSON parser
+json_pp(1)               - JSON::PP command utility
+json_write(n), json::write(n) - JSON generation
+jstack(1)                - stack trace
+jstat(1)                 - Java Virtual Machine statistics monitoring tool
+jstatd(1)                - Virtual Machine jstat Daemon
+kadmin(8)                - Kerberos administration utility
+kadmin.local(8)          - compatiblity shim for MIT Kerberos kadmin.local
+kadmind(8)               - server for administrative access to Kerberos database
+kcc(1)                   - Kerberos credential cache tools
+kcproxy(8)               - Keychain Proxy
+kdc(8)                   - Kerberos 5 server
+kdestroy(1)              - remove one credential or destroy the current ticket file
+kdumpd(8)                - Mac OS X remote kernel core dump server
+kerberos(8)              - introduction to the Kerberos system
+kext_logging(8), kext logging(8) - verbose/logging flags for kernel extensions (kexts) in the kernel and command-line utilities
+kextcache(8)             - create kext cache files
+kextd(8)                 - kernel extension server
+kextfind(8)              - find kernel extensions (kexts) based on a variety of criteria and print information
+kextlibs(8)              - find OSBundleLibraries needed by a kext
+kextload(8)              - load kernel extensions (kexts) into the kernel
+kextstat(8)              - display status of loaded kernel extensions (kexts)
+kextunload(8)            - terminate driver I/O Kit driver instances and unload kernel extensions (kexts)
+kextutil(8)              - load, diagnose problems with, and generate symbols for kernel extensions (kexts)
+keysyms(ntcl)            - keysyms recognized by Tk
+keytool(1)               - key and certificate management tool
+kgetcred(1)              - get a ticket for a particular service
+khim(n)                  - Provides key bindings for entering international characters on a keyboard that does not support them
+kill(1)                  - terminate or signal a process
+kill.d(1m)               - snoop process signals as they occur. Uses DTrace
+killall(1)               - kill processes by name
+kinit(1)                 - acquire initial tickets
+klist(1)                 - list Kerberos credentials
+kpasswd(1)               - Kerberos 5 password changing program
+kpasswdd(8)              - Kerberos 5 password changing server
+krb5-config(1)           - give information on how to link code against Heimdal libraries
+krb5.conf(5)             - configuration file for Kerberos 5
+ksh(1), nZ=0(1)          - {
+kswitch(1)               - switch between default credential caches
+ktrace(1)                - configure, record, and print events from kernel trace
+ktutil(8)                - manage Kerberos keytabs
+kuncd(8)                 - The Kernel User Notification Center daemon
+label(ntcl)              - Create and manipulate label widgets
+labelframe(ntcl)         - Create and manipulate labelframe widgets
+lam(1)                   - laminate files
+lappend(ntcl)            - Append list elements onto a variable
+lassign(ntcl)            - Assign list elements to variables
+last(1)                  - indicate last logins of users and ttys
+lastcomm(1)              - show last commands executed in reverse order
+lastwords(1m)            - print syscalls before exit. Uses DTrace
+latency(1)               - monitors scheduling and interrupt latency
+launchctl(1)             - Interfaces with launchd
+launchd(8)               - System wide and per-user daemon/agent manager
+launchd.plist(5)         - System wide and per-user daemon/agent configuration files
+ldap(n)                  - LDAP client
+ldap.conf(5), .ldaprc(5) - LDAP configuration file/environment variables
+ldap_table(5)            - Postfix LDAP client configuration
+ldapcompare(1)           - LDAP compare tool
+ldapdelete(1)            - LDAP delete entry tool
+ldapexop(1)              - issue LDAP extended operations
+ldapmodify(1), ldapadd(1) - LDAP modify entry and LDAP add entry tools
+ldapmodrdn(1)            - LDAP rename entry tool
+ldappasswd(1)            - change the password of an LDAP entry
+ldapsearch(1)            - LDAP search tool
+ldapurl(1)               - LDAP URL formatting tool
+ldapwhoami(1)            - LDAP who am i? tool
+ldapx(n)                 - LDAP extended object interface
+ldif(5)                  - LDAP Data Interchange Format
+leaks(1)                 - Search a process's memory for unreferenced malloc buffers
+leave(1)                 - remind you when you have to leave
+less(1)                  - opposite of more
+lessecho(1)              - expand metacharacters
+libnetcfg(1)             - configure libnet
+linalg(n), math::linearalgebra(n) - Linear Algebra
+lindex(ntcl)             - Retrieve an element from a list
+link(1), ln(1)           - make links
+linsert(ntcl)            - Insert elements into a list
+list(ntcl)               - Create a list
+listbox(ntcl)            - Create and manipulate listbox widgets
+lj4_font(5)              - groff fonts for use with devlj4
+lkbib(1)                 - search bibliographic databases
+llength(ntcl)            - Count the number of elements in a list
+lmdb_table(5)            - Postfix LMDB adapter
+lo(4)                    - software loopback network interface
+load(ntcl)               - Load machine code and initialize new commands
+loadTk(ntcl)             - Load Tk into a safe interpreter
+loads.d(1m)              - print load averages. Uses DTrace
+local(8)                 - Postfix local mail delivery
+local(n)                 - create an object local to a procedure
+locale(1)                - display locale settings
+localedef(1)             - define locale environment
+locate(1)                - find filenames quickly
+locate.code(8), locate.bigram(8) - sorted list compressor
+locate.updatedb(8)       - update locate database
+locationd(8)             - location services daemon
+lockstat(1)              - report kernel lock and profiling statistics
+log(n)                   - Procedures to log messages of libraries and applications
+logger(1)                - make entries in the system log
+logger(n)                - System to control logging of events
+loggerAppender(n), logger::appender(n) - Collection of predefined appenders for logger
+loggerUtils(n), logger::utils(n) - Utilities for logger
+login(1)                 - log into the computer
+loginitemregisterd(8)    - Login Item Registration Daemon
+logkextloadsd(8)         - logs information about the kexts that get loaded
+logname(1)               - display user's login name
+logresolve(1)            - Resolve IP-addresses to hostnames in Apache log files
+look(1)                  - display lines beginning with a given string
+lookbib(1)               - search bibliographic databases
+lower(ntcl)              - Change a window's position in the stacking order
+lp(1)                    - print files
+lpadmin(8)               - configure cups printers and classes
+lpc(8)                   - line printer control program
+lpinfo(8)                - show available devices or drivers
+lpmove(8)                - move a job or all jobs to a new destination
+lpoptions(1)             - display or set printer options and defaults
+lpq(1)                   - show printer queue status
+lpr(1)                   - print files
+lprm(1)                  - cancel print jobs
+lpstat(1)                - print cups status information
+lrange(ntcl)             - Return one or more adjacent elements from a list
+lrepeat(ntcl)            - Build a list by repeating elements
+lreplace(ntcl)           - Replace elements in a list with new elements
+lreverse(ntcl)           - Reverse the order of a list
+ls(1)                    - list directory contents
+lsappinfo(8)             - Control and query CoreApplicationServices about the app state on the system
+lsbom(8)                 - list contents of a bom file
+lsearch(ntcl)            - See if a list contains a particular element
+lset(ntcl)               - Change an element in a list
+lskq(1)                  - display process kqueue state
+lsm(1)                   - Latent Semantic Mapping tool
+lsof(8)                  - list open files
+lsort(ntcl)              - Sort the elements of a list
+lsvfs(1)                 - list known virtual file systems
+lwp-download(1)          - Fetch large files from the web
+lwp-dump(1)              - See what headers and content is returned for a URL
+lwp-mirror(1)            - Simple mirror utility
+lwp-request(1), GET(1), POST(1), HEAD(1) - Simple command line user agent
+mDNSResponder(8)         - Multicast and Unicast DNS daemon " Name Description for whatis database
+mDNSResponderHelper(8)   - mDNS privilege separation helper " Name Description for whatis database
+machine(1)               - print machine type
+machineparameters(n), tclrep/machineparameters(n) - Compute double precision machine parameters
+magic(5)                 - file command's magic pattern file
+mail(1), mailx(1)        - send and receive mail
+mailaddr(7)              - mail addressing description
+mailto.conf(5)           - configuration file for cups email notifier
+makeinfo(1)              - translate Texinfo documents
+makewhatis(8)            - create whatis database
+makewhatis.local(8)      - start makewhatis for local file systems
+malloc_history(1)        - Show the malloc and anonymous VM allocations that the process has performed
+man(1)                   - format and display the on-line manual pages
+man.conf(5)              - configuration data for man
+map_slippy(n), map::slippy(n) - Common code for slippy based map packages
+map_slippy_cache(n), map::slippy::cache(n) - Management of a tile cache in the local filesystem
+map_slippy_fetcher(n), map::slippy::fetcher(n) - Accessing a server providing tiles for slippy-based maps
+mapproj(n)               - Map projection routines
+mapspushd(8)             - Maps application services daemon
+master(5)                - Postfix master process configuration file format
+master(8)                - Postfix master process
+math(n)                  - Tcl Math Library
+mathfunc(ntcl)           - Mathematical functions for Tcl expressions
+mathop(ntcl)             - Mathematical operators as Tcl commands
+matrix(n), struct::matrix(n) - Create and manipulate matrix objects
+matrix1(n), struct::matrix v1(n) - Create and manipulate matrix objects
+mbbackgrounduseragent(8) - helper for the Setup Assistant application
+mbfloagent(8)            - helper for the Setup Assistant application
+mbsystemadministration(8) - helper for the Setup Assistant application
+mbuseragent(8)           - helper for the Setup Assistant application
+mbusertrampoline(8)      - helper for the Setup Assistant application
+mcxalr(1)                - Managed Client application launch restriction tool and agent
+mcxquery(1)              - Managed Client (MCX) compositor query tool
+mcxrefresh(1)            - Managed Client (MCX) preference refresh tool
+md2(n)                   - Message digest "md2"
+md4(n)                   - MD4 Message-Digest Algorithm
+md5(1)                   - calculate a message-digest fingerprint (checksum) for a file
+md5(n)                   - MD5 Message-Digest Algorithm
+md5_otp(n)               - Message digest "md5_otp"
+md5crypt(n)              - MD5-based password encryption
+mddiagnose(8)            - gather information to aid in diagnosing Spotlight issues
+mdfind(1)                - finds files matching a given query
+mdimport(1), mdimport32(1) - import file hierarchies into the metadata datastore
+mdls(1)                  - lists the metadata attributes for the specified file
+mdmclient(1)             - MDM (Mobile Device Management) client
+mds(8)                   - metadata server
+mdutil(1)                - manage the metadata stores used by Spotlight
+mdworker(8)              - metadata server worker
+me_ast(n), grammar::me_ast(n) - Various representations of ASTs
+me_cpu(n), grammar::me::cpu(n) - Virtual machine implementation II for parsing token streams
+me_cpucore(n), grammar::me::cpu::core(n) - ME virtual machine state manipulation
+me_intro(n), grammar::me_intro(n) - Introduction to virtual machines for parsing token streams
+me_tcl(n), grammar::me::tcl(n) - Virtual machine implementation I for parsing token streams
+me_util(n), grammar::me::util(n) - AST utilities
+me_vm(n), grammar::me_vm(n) - Virtual machine for parsing token streams
+memcache_table(5)        - Postfix memcache client configuration
+memchan(n)               - C API for creating memory channels
+memchan(n)               - Create and manipulate memory channels
+memory(ntcl)             - Control Tcl memory debugging capabilities
+memory_pressure(1)       - Tool to apply real or simulate memory pressure on the system
+menu(ntcl), tk_menuSetFocus(ntcl) - Create and manipulate menu widgets
+menubar(n)               - Creates an instance of the menubar Class
+menubutton(ntcl)         - Create and manipulate menubutton widgets
+mesg(1)                  - display (do not display) messages from other users
+message(ntcl)            - Create and manipulate message widgets
+mib2c(1)                 - -- generate template code for extending the agent
+mib2c-update(1)          - script to merge custom code into updated mib2c code
+mib2c.conf(5)            - -- How to write mib2c.conf files to do ANYTHING based on MIB input
+migrateLocalKDC(1)       - migrates a LocalKDC
+mime(n)                  - Manipulation of MIME body parts
+mime.convs(5)            - mime type conversion file for cups
+mime.types(5)            - mime type description file for cups
+mimetypes(n), fileutil::magic::mimetype(n) - Procedures implementing mime-type recognition
+mkbom(8)                 - create a bill-of-materials file
+mkdir(1)                 - make directories
+mkextunpack(8)           - extract or list the contents of a multikext (mkext) archive
+mkfifo(1)                - make fifos
+mkfile(8)                - create a file
+mklocale(1)              - make LC_CTYPE locale files
+mknod(8)                 - make device special file
+mkpassdb(8)              - Mac OS X Server Password Server database creation tool
+mktemp(1)                - make temporary file name (unique)
+mmroff(1)                - reference preprocessor
+mnthome(1)               - mount an AFP (AppleShare) home directory with the correct privileges
+moduli(5)                - Diffie-Hellman moduli
+montecarlo(n), simulation::montecarlo(n) - Monte Carlo simulations
+motd(5)                  - file containing message(s) of the day
+mount(8)                 - mount file systems
+mount_9p(8)              - mount a 9P volume
+mount_afp(8)             - mount an afp (AppleShare) filesystem
+mount_apfs(8)            - mount an APFS volume
+mount_cd9660(8)          - mount an ISO-9660 filesystem
+mount_cddafs(8)          - mount an Audio CD
+mount_exfat(8)           - mount an ExFAT file system
+mount_fdesc(8)           - mount the file-descriptor file system
+mount_ftp(8)             - mount a FTP filesystem
+mount_hfs(8)             - mount an HFS/HFS+ file system
+mount_msdos(8)           - mount an MS-DOS file system
+mount_nfs(8)             - mount NFS file systems
+mount_ntfs(8)            - mount an NTFS file system
+mount_smbfs(8)           - mount a shared resource from an SMB file server
+mount_udf(8)             - mount a UDF filesystem
+mount_url(8)             - mount a remote file system given a URL
+mount_webdav(8)          - mount a WebDAV filesystem
+mountd(8)                - service remote NFS mount requests
+mp2bug(1)                - mod_perl bug report generator
+mpexpand(n)              - Markup processor
+mptcp_client(1)          - Tool to exercise MPTCP
+msdos.util(8)            - DOS/Windows (FAT) file system utility
+msgcat(ntcl)             - Tcl message catalog
+msgcat_c(n), doctools::msgcat::toc::c(n) - Message catalog for the doctoc parser (C)
+msgcat_de(n), doctools::msgcat::toc::de(n) - Message catalog for the doctoc parser (DE)
+msgcat_en(n), doctools::msgcat::toc::en(n) - Message catalog for the doctoc parser (EN)
+msgcat_fr(n), doctools::msgcat::toc::fr(n) - Message catalog for the doctoc parser (FR)
+msgs(1)                  - system messages and junk mail program
+mskanji(5)               - Shift-JIS (MS Kanji) encoding for Japanese text
+mtree(8)                 - map a directory hierarchy
+multi(n), fileutil::multi(n) - Multi-file operation, scatter/gather, standard object
+multiop(n), fileutil::multi::op(n) - Multi-file operation, scatter/gather
+multiplexer(n)           - One-to-many communication with sockets
+mv(1)                    - move files
+mysql_table(5)           - Postfix MySQL client configuration
+namespace(ntcl)          - create and manipulate contexts for commands and variables
+namespacex(n)            - Namespace utility commands
+nano(1)                  - Nano's ANOther editor, an enhanced free Pico clone
+nanorc(5)                - GNU nano's rcfile
+native2ascii(1)          - native to ASCII converter
+navd(8)                  - Time to Leave Daemon
+nbdst(8)                 - NetBoot deferred shadow tool
+nc(1)                    - arbitrary TCP and UDP connections and listens
+ncctl(1)                 - Control NFS kernel credentials
+ncgi(n)                  - Procedures to manipulate CGI values
+ncurses5.4-config(1)     - report configuration and linking information for ncurses
+ndp(8)                   - control/diagnose IPv6 neighbor discovery protocol
+neagent(8)               - Host process for Network Extension plugins
+nehelper(8)              - Helper daemon for the Network Extension framework
+neqn(1)                  - format equations for ascii output
+nesessionmanager(8)      - Daemon responsible for running and managing Network Extension sessions
+net-server(1)            - Base Net::Server starting module
+net-snmp-config(1)       - returns information about installed net-snmp libraries and binaries
+net-snmp-create-v3-user(1) - create a SNMPv3 user in net-snmp configuration file
+netbiosd(8)              - NetBIOS protocol daemon
+netbootdisk(8)           - find local drive to use with NetBoot
+netgroup(5)              - defines network groups
+netlog(1)                - Log summary of every UDP and TCP socket when the socket is closed
+netstat(1)               - show network status
+nettop(1)                - Display updated information about the network
+netusage(1)              - Display traffic usage statistics about the network
+networking(4)            - introduction to networking facilities
+networks(5)              - network name data base
+networkserviceproxy(8)   - Transparent network proxy for Apple system services
+networksetup(8)          - configuration tool for network settings in System Preferences
+newfs_apfs(8)            - construct a new APFS volume
+newfs_exfat(8)           - construct a new ExFAT file system
+newfs_hfs(8)             - construct a new HFS Plus file system
+newfs_msdos(8)           - construct a new MS-DOS (FAT) file system
+newfs_udf(8)             - construct a new UDF file system
+newgrp(1)                - change to a new group
+newproc.d(1m)            - snoop new processes. Uses DTrace
+newsyslog(8)             - maintain system log files to manageable sizes
+newsyslog.conf(5)        - newsyslog(8) configuration file
+nfcd(8)                  - NearField daemon
+nfrestore_service(8)     - NearField restore daemon
+nfs.conf(5)              - The configuration file for NFS
+nfs4mapid(8)             - shows NFSv4 mappings from uids or gids to over the wire string names and string names to uids or gids
+nfsd(8)                  - NFS server daemon
+nfsiod(8)                - local NFS asynchronous I/O
+nfsstat(1)               - display NFS statistics
+nice(1)                  - execute a utility with an altered scheduling priority
+nisplus_table(5)         - Postfix NIS+ client
+nl(1)                    - line numbering filter
+nlcd(8)                  - Network Link Conditioner daemon
+nlcontrol(8)             - NETLOGON secure channel utility
+nmea(n)                  - Process NMEA data
+nns_auto(n), nameserv::auto(n) - Name service facility, Client Extension
+nns_client(n), nameserv(n) - Name service facility, Client
+nns_common(n), nameserv::common(n) - Name service facility, shared definitions
+nns_intro(n)             - Name service facility, introduction
+nns_protocol(n), nameserv::protocol(n) - Name service facility, client/server protocol
+nns_server(n), nameserv::server(n) - Name service facility, Server
+nntp(n)                  - Tcl client for the NNTP protocol
+nocr(1)                  - runs a command with crash reporter disabled
+nohup(1)                 - invoke a utility immune to hangups
+nologin(5)               - disallow logins
+nologin(8)               - politely refuse a login
+notifier(7)              - cups notification interface
+notifyd(8)               - notification server
+notifyutil(1)            - notification command line utility
+nroff(1)                 - emulate nroff command with groff
+nroff_manmacros(n), doctools::nroff::man_macros(n) - Default CSS style for NROFF export plugins
+nslookup(1)              - query Internet name servers interactively
+nsmb.conf(5)             - configuration file for SMB requests
+nsupdate(1)              - Dynamic DNS update utility
+nsurlsessiond(8)         - The background NSURLSession daemon
+nsurlstoraged(8)         - The HTTP network storage daemon
+ntalkd(8), talkd(8)      - remote user communication server
+ntext(n)                 - Alternative Bindings for the Text Widget
+ntextBindings(n)         - Alternative Bindings for the Text Widget
+ntextIndent(n)           - ntext Indentation for the Text Widget
+ntextWordBreak(n)        - ntext Word Boundary Detection for the Text Widget
+ntfs.util(8)             - NTFS file system utility
+ntp_time(n)              - Tcl Time Service Client
+null(4)                  - the null device
+null(n)                  - Create and manipulate null channels
+nvram(8)                 - manipulate firmware NVRAM variables
+observe(n)               - Runtime debugging output in TkCon
+oct(n)                   - Encoding "oct"
+od(1)                    - octal, decimal, hex, ASCII dump
+od_user_homes(8)         - executable map program for auto_home records synthesized from user records
+odproxyd(8)              - OpenDirectory proxy daemon
+odutil(1)                - allows caller to examine or change state of opendirectoryd(8)
+open(1)                  - open files and directories
+open(ntcl)               - Open a file-based or command pipeline channel
+opendirectoryd(8)        - is a launchd(8) job for client access to local or remote directory systems
+opensnoop(1m)            - snoop file opens as they occur. Uses DTrace
+openssl(1)               - OpenSSL command line tool
+operator(7)              - C operator precedence and order of evaluation
+optimize(n), math::optimize(n) - Optimisation routines
+option(ntcl)             - Add/retrieve window options to/from the option database
+options(ntcl)            - Standard options supported by widgets
+oqmgr(8)                 - old Postfix queue manager
+orbd(1)                  - The Object Request Broker Daemon orbd is used to enable clients to transparently locate and invoke persistent objects on servers in the CORBA environment
+osaapplet(8)             - Open Scripting Architecture OSA applet interpreter
+osacompile(1)            - compile AppleScripts and other OSA language scripts
+osadecompile(1)          - display compiled AppleScripts or other OSA language scripts
+osalang(1)               - information about installed OSA languages
+osanalyticshelper(8)     - Writes JetsamEvent reports
+osascript(1)             - execute OSA scripts AppleScript, JavaScript, etc
+otherbsd(8)              - Other Bootstrapper Daemon
+otp(n)                   - One-Time Passwords
+otp_words(n)             - Encoding "otp_words"
+pack(ntcl)               - Geometry manager that packs around edges of cavity
+pack-old(ntcl)           - Obsolete syntax for packer geometry manager
+pack200(1)               - JAR Packing tool
+package(ntcl)            - Facilities for package loading and version control
+page_intro(n)            - page introduction
+page_pluginmgr(n)        - page plugin manager
+page_util_flow(n)        - page dataflow/treewalker utility
+page_util_norm_lemon(n)  - page AST normalization, LEMON
+page_util_norm_peg(n)    - page AST normalization, PEG
+page_util_peg(n)         - page PEG transformation utilities
+page_util_quote(n)       - page character quoting utilities
+pagesize(1)              - print system page size
+pam.conf(5)              - PAM policy file format
+pam_env(8)               - The Environment PAM module
+pam_group(8)             - Group PAM module
+pam_krb5(8)              - Kerberos 5 PAM module
+pam_launchd(8)           - launchd PAM module
+pam_mount(8)             - Home Folder Mounting PAM module
+pam_nologin(8)           - No Login PAM module
+pam_ntlm(8)              - NTLM PAM module
+pam_opendirectory(8)     - OpenDirectory PAM module
+pam_rootok(8)            - Root OK PAM module
+pam_sacl(8)              - Service Access Control List PAM module
+pam_self(8)              - Self PAM module
+pam_smartcard(8)         - Smartcard PAM module
+pam_uwtmp(8)             - User Accounting PAM module
+panedwindow(ntcl)        - Create and manipulate panedwindow widgets
+par.pl(1)                - Make and run Perl Archives
+parentalcontrolsd(8)     - Parental Controls helper process
+parl(1)                  - Binary PAR Loader
+parse(n), doctools::toc::parse(n) - Parsing text in doctoc format
+parsec-fbf(8)            - Support daemon for Siri Search analytics
+parsecd(8)               - Support daemon for Siri Suggestions
+passd(8)                 - Apple Pay & Wallet daemon
+passwd(1)                - modify a user's password
+passwd(5), master.passwd(5) - format of the password file
+paste(1)                 - merge corresponding or subsequent lines of files
+patch(1)                 - apply a diff file to an original
+path_helper(8)           - helper for constructing PATH environment variable
+pathchk(1)               - check pathnames
+pathopens.d(1m)          - full pathnames opened ok count. Uses DTrace
+pax(1)                   - read and write file archives and copy directory hierarchies
+pbcopy(1), pbpaste(1)    - provide copying and pasting to the pasteboard (the Clipboard) from command line
+pboard(8)                - pasteboard server
+pbs(8)                   - general helper tool
+pcap-config(1)           - write libpcap compiler and linker flags to standard output
+pcap-filter(7)           - packet filter syntax
+pcap-linktype(7)         - link-layer header types supported by libpcap
+pcap-savefile(5)         - libpcap savefile format
+pcap-tstamp(7)           - packet time stamps in libpcap
+pcre_table(5)            - format of Postfix PCRE tables
+pcsstatus(1)             - print current status of PCS credentials
+pdisk(8)                 - Apple partition table editor
+peg(n), grammar::peg(n)  - Create and manipulate parsing expression grammars
+peg_interp(n), grammar::peg::interp(n) - Interpreter for parsing expression grammars
+periodic(8)              - run periodic system functions
+periodic-wrapper(8)      - manage periodic activity
+periodic.conf(5)         - periodic job configuration information
+perl(1)                  - The Perl 5 language interpreter
+perl(1), a2p(1)          - Practical Extraction and Report Language
+perl5004delta(1)         - what's new for perl5.004
+perl5005delta(1)         - what's new for perl5.005
+perl5100delta(1)         - what is new for perl 5.10.0
+perl5101delta(1)         - what is new for perl v5.10.1
+perl5120delta(1)         - what is new for perl v5.12.0
+perl5121delta(1)         - what is new for perl v5.12.1
+perl5122delta(1)         - what is new for perl v5.12.2
+perl5123delta(1)         - what is new for perl v5.12.3
+perl5124delta(1)         - what is new for perl v5.12.4
+perl5125delta(1)         - what is new for perl v5.12.5
+perl5140delta(1)         - what is new for perl v5.14.0
+perl5141delta(1)         - what is new for perl v5.14.1
+perl5142delta(1)         - what is new for perl v5.14.2
+perl5143delta(1)         - what is new for perl v5.14.3
+perl5144delta(1)         - what is new for perl v5.14.4
+perl5160delta(1)         - what is new for perl v5.16.0
+perl5161delta(1)         - what is new for perl v5.16.1
+perl5162delta(1)         - what is new for perl v5.16.2
+perl5163delta(1)         - what is new for perl v5.16.3
+perl5180delta(1)         - what is new for perl v5.18.0
+perl5181delta(1)         - what is new for perl v5.18.1
+perl561delta(1)          - what's new for perl v5.6.1
+perl56delta(1)           - what's new for perl v5.6.0
+perl581delta(1)          - what is new for perl v5.8.1
+perl582delta(1)          - what is new for perl v5.8.2
+perl583delta(1)          - what is new for perl v5.8.3
+perl584delta(1)          - what is new for perl v5.8.4
+perl585delta(1)          - what is new for perl v5.8.5
+perl586delta(1)          - what is new for perl v5.8.6
+perl587delta(1)          - what is new for perl v5.8.7
+perl588delta(1)          - what is new for perl v5.8.8
+perl589delta(1)          - what is new for perl v5.8.9
+perl58delta(1)           - what is new for perl v5.8.0
+perlaix(1)               - Perl version 5 on IBM AIX (UNIX) systems
+perlamiga(1)             - Perl under Amiga OS
+perlapi(1)               - autogenerated documentation for the perl public API
+perlapio(1)              - perl's IO abstraction interface
+perlartistic(1)          - the Perl Artistic License
+perlbook(1)              - Books about and related to Perl
+perlboot(1)              - This document has been deleted
+perlbot(1)               - This document has been deleted
+perlbs2000(1)            - building and installing Perl for BS2000
+perlbug(1)               - how to submit bug reports on Perl
+perlcall(1)              - Perl calling conventions from C
+perlce(1)                - Perl for WinCE
+perlcheat(1)             - Perl 5 Cheat Sheet
+perlclib(1)              - Internal replacements for standard C library functions
+perlcn(1)                - XXXX Perl XX
+perlcommunity(1)         - a brief overview of the Perl community
+perlcygwin(1)            - Perl for Cygwin
+perldata(1)              - Perl data types
+perldbmfilter(1)         - Perl DBM Filters
+perldebguts(1)           - Guts of Perl debugging
+perldebtut(1)            - Perl debugging tutorial
+perldebug(1)             - Perl debugging Xref "debug debugger"
+perldelta(1)             - what is new for perl v5.18.2
+perldgux(1)              - Perl under DG/UX
+perldiag(1)              - various Perl diagnostics
+perldoc(1)               - Look up Perl documentation in Pod format
+perldos(1)               - Perl under DOS, W31, W95
+perldsc(1)               - Perl Data Structures Cookbook Xref "data structure complex data structure struct"
+perldtrace(1)            - Perl's support for DTrace
+perlebcdic(1)            - Considerations for running Perl on EBCDIC platforms
+perlembed(1)             - how to embed perl in your C program
+perlexperiment(1)        - A listing of experimental features in Perl
+perlfaq(1)               - frequently asked questions about Perl
+perlfaq1(1)              - General Questions About Perl
+perlfaq2(1)              - Obtaining and Learning about Perl
+perlfaq3(1)              - Programming Tools
+perlfaq4(1)              - Data Manipulation
+perlfaq5(1)              - Files and Formats
+perlfaq6(1)              - Regular Expressions
+perlfaq7(1)              - General Perl Language Issues
+perlfaq8(1)              - System Interaction
+perlfaq9(1)              - Web, Email and Networking
+perlfilter(1)            - Source Filters
+perlfork(1)              - Perl's fork() emulation
+perlform(1)              - Perl formats Xref "format report chart"
+perlfreebsd(1)           - Perl version 5 on FreeBSD systems
+perlfunc(1)              - Perl builtin functions Xref "function"
+perlgit(1)               - Detailed information about git and the Perl repository
+perlglossary(1)          - Perl Glossary
+perlgpl(1)               - the GNU General Public License, version 1
+perlguts(1)              - Introduction to the Perl API
+perlhack(1)              - How to hack on Perl
+perlhacktips(1)          - Tips for Perl core C code hacking
+perlhacktut(1)           - Walk through the creation of a simple C code patch
+perlhaiku(1)             - Perl version 5.10+ on Haiku
+perlhist(1)              - the Perl history records
+perlhpux(1)              - Perl version 5 on Hewlett-Packard Unix (HP-UX) systems
+perlhurd(1)              - Perl version 5 on Hurd
+perlintern(1)            - autogenerated documentation of purely internal Perl functions
+perlinterp(1)            - An overview of the Perl interpreter
+perlintro(1)             - -- a brief introduction and overview of Perl
+perliol(1)               - C API for Perl's implementation of IO in Layers
+perlipc(1)               - Perl interprocess communication (signals, fifos, pipes, safe subprocesses, sockets, and semaphores)
+perlirix(1)              - Perl version 5 on Irix systems
+perlivp(1)               - Perl Installation Verification Procedure
+perljp(1)                - XXX Perl XXX
+perlko(1)                - PerlX XXX XXX
+perllexwarn(1)           - Perl Lexical Warnings Xref "warning, lexical warnings warning"
+perllinux(1)             - Perl version 5 on Linux systems
+perllocale(1)            - Perl locale handling (internationalization and localization)
+perllol(1)               - Manipulating Arrays of Arrays in Perl
+perlmacos(1)             - Perl under Mac OS (Classic)
+perlmacosx(1)            - Perl under Mac OS X
+perlmod(1)               - Perl modules (packages and symbol tables)
+perlmodinstall(1)        - Installing CPAN Modules
+perlmodlib(1)            - constructing new Perl modules and finding existing ones
+perlmodstyle(1)          - Perl module style guide
+perlmroapi(1)            - Perl method resolution plugin interface
+perlnetware(1)           - Perl for NetWare
+perlnewmod(1)            - preparing a new module for distribution
+perlnumber(1)            - semantics of numbers and numeric operations in Perl
+perlobj(1)               - Perl object reference Xref "object OOP"
+perlootut(1)             - Object-Oriented Programming in Perl Tutorial
+perlop(1)                - Perl operators and precedence Xref "operator"
+perlopenbsd(1)           - Perl version 5 on OpenBSD systems
+perlopentut(1)           - tutorial on opening things in Perl
+perlos2(1)               - Perl under OS/2, DOS, Win0.3*, Win0.95 and WinNT
+perlos390(1)             - building and installing Perl for OS/390 and z/OS
+perlos400(1)             - Perl version 5 on OS/400
+perlpacktut(1)           - tutorial on "pack" and "unpack"
+perlperf(1)              - Perl Performance and Optimization Techniques
+perlplan9(1)             - Plan 9-specific documentation for Perl
+perlpod(1)               - the Plain Old Documentation format Xref "POD plain old documentation"
+perlpodspec(1)           - Plain Old Documentation: format specification and notes
+perlpodstyle(1)          - Perl POD style guide
+perlpolicy(1)            - Various and sundry policies and commitments related to the Perl core
+perlport(1)              - Writing portable Perl
+perlpragma(1)            - how to write a user pragma
+perlqnx(1)               - Perl version 5 on QNX
+perlre(1)                - Perl regular expressions Xref "regular expression regex regexp"
+perlreapi(1)             - Perl regular expression plugin interface
+perlrebackslash(1)       - Perl Regular Expression Backslash Sequences and Escapes
+perlrecharclass(1)       - Perl Regular Expression Character Classes Xref "character class"
+perlref(1)               - Perl references and nested data structures Xref "reference pointer data structure structure struct"
+perlreftut(1)            - Mark's very short tutorial about references
+perlreguts(1)            - Description of the Perl regular expression engine
+perlrepository(1)        - Links to current information on the Perl source repository
+perlrequick(1)           - Perl regular expressions quick start
+perlreref(1)             - Perl Regular Expressions Reference
+perlretut(1)             - Perl regular expressions tutorial
+perlriscos(1)            - Perl version 5 for RISC OS
+perlrun(1)               - how to execute the Perl interpreter
+perlsec(1)               - Perl security
+perlsolaris(1)           - Perl version 5 on Solaris systems
+perlsource(1)            - A guide to the Perl source tree
+perlstyle(1)             - Perl style guide
+perlsub(1)               - Perl subroutines Xref "subroutine function"
+perlsymbian(1)           - Perl version 5 on Symbian OS
+perlsyn(1)               - Perl syntax Xref "syntax"
+perlthrtut(1)            - Tutorial on threads in Perl
+perltie(1)               - how to hide an object class in a simple variable Xref "tie"
+perltoc(1)               - perl documentation table of contents
+perltodo(1)              - Perl TO-DO List
+perltooc(1)              - This document has been deleted
+perltoot(1)              - This document has been deleted
+perltrap(1)              - Perl traps for the unwary
+perltru64(1)             - Perl version 5 on Tru64 (formerly known as Digital UNIX formerly known as DEC OSF/1) systems
+perltw(1)                - XXXX Perl XX
+perlunicode(1)           - Unicode support in Perl
+perlunifaq(1)            - Perl Unicode FAQ
+perluniintro(1)          - Perl Unicode introduction
+perluniprops(1)          - Index of Unicode Version 6.2.0 character properties in Perl
+perlunitut(1)            - Perl Unicode Tutorial
+perlutil(1)              - utilities packaged with the Perl distribution
+perlvar(1)               - Perl predefined variables
+perlvms(1)               - VMS-specific documentation for Perl
+perlvos(1)               - Perl for Stratus OpenVOS
+perlwin32(1)             - Perl under Windows
+perlxs(1)                - XS language reference manual
+perlxstut(1)             - Tutorial for writing XSUBs
+perlxstypemap(1)         - Perl XS C/Perl type mapping
+personad(8)              - The system daemon backing profile photo storage
+pf.conf(5)               - packet filter configuration file
+pf.os(5)                 - format of the operating system fingerprints file
+pfbtops(1)               - translate a PostScript font in .pfb format to ASCII
+pfctl(8)                 - control the packet filter (PF) and network address translation (NAT) device
+pfd(8)                   - daemon for network firewall and Internet sharing configuration
+pflog(4)                 - packet filter logging interface
+pgrep(1), pkill(1)       - find or signal processes by name
+pgsql_table(5)           - Postfix PostgreSQL client configuration
+phar(1), phar.phar(1)    - PHAR (PHP archive) command line tool
+photo(ntcl)              - Full-color images
+photoanalysisd(8)        - The macOS photo library analysis agent
+photolibraryd(8)         - The macOS photo library agent
+php(1)                   - PHP Command Line Interface 'CLI' php-cgi - PHP Common Gateway Interface 'CGI' command
+php-config(1)            - get information about PHP configuration and compile options
+php-fpm(8)               - PHP FastCGI Process Manager 'PHP-FPM'
+phpize(1)                - prepare a PHP extension for compiling
+pic(1)                   - compile pictures for troff or TeX
+pickup(8)                - Postfix local mail pickup
+picoirc(n)               - Small and simple embeddable IRC client
+piconv(1)                - -- iconv(1), reinvented in perl
+pictd(8)                 - general helper tool
+pid(ntcl)                - Retrieve process identifiers
+pidpersec.d(1m)          - print new PIDs per sec. Uses DTrace
+pie(n)                   - 2D or 3D pie chart object in a canvas
+pieBoxLabeler(n)         - tkpiechart pie box style labeler class
+piePeripheralLabeler(n)  - tkpiechart pie peripheral style labeler class
+ping(8)                  - send ICMP ECHO_REQUEST packets to network hosts
+ping6(8)                 - send ICMPv6 ECHO_REQUEST packets to network hosts
+pipe(8)                  - Postfix delivery to external command
+pkg::create(ntcl)        - Construct an appropriate 'package ifneeded' command for a given package specification
+pkg_mkIndex(ntcl)        - Build an index for automatic loading of packages
+pkgbuild(1)              - Build an OS X Installer component package from on-disk files
+pkgutil(1)               - Query and manipulate Mac OS X Installer packages and receipts
+pl(1)                    - ASCII property list utility
+pl2pm(1)                 - Rough tool to translate Perl4 .pl files to Perl5 .pm modules
+place(ntcl)              - Geometry manager for fixed or rubber-sheet placement
+platform(ntcl)           - System identification support code and utilities
+platform::shell(ntcl)    - System identification support code and utilities
+plist(5)                 - property list format
+plockstat(1)             - front-end to DTrace to print statistics about POSIX mutexes and read/write locks
+pluginmgr(n)             - Manage a plugin
+plutil(1)                - property list utility
+pmset(1)                 - manipulate power management settings
+png(n)                   - PNG querying and manipulation of meta data
+pod2html(1)              - convert .pod files to .html files
+pod2latex(1)             - convert pod documentation to latex format
+pod2man(1)               - Convert POD data to formatted *roff input
+pod2readme(1)            - script to convert POD to README file
+pod2text(1)              - Convert POD data to formatted ASCII text
+pod2usage(1)             - print usage messages from embedded pod docs in files
+podchecker(1)            - check the syntax of POD format documentation files
+podselect(1)             - print selected sections of pod documentation on standard output
+policytool(1)            - policy file creation and management tool
+polynomials(n), math::polynomials(n) - Polynomial functions
+pool(n), struct::pool(n) - Create and manipulate pool objects (of discrete items)
+pop3(n)                  - Tcl client for POP3 email protocol
+pop3d(n)                 - Tcl POP3 server implementation
+pop3d_dbox(n), pop3d::dbox(n) - Simple mailbox database for pop3d
+pop3d_udb(n), pop3d::udb(n) - Simple user database for pop3d
+postalias(1)             - Postfix alias database maintenance
+postcat(1)               - show Postfix queue file contents
+postconf(1)              - Postfix configuration utility
+postconf(5)              - Postfix configuration parameters
+postdrop(1)              - Postfix mail posting utility
+postfix(1)               - Postfix control program
+postfix-tls(1)           - Postfix TLS management
+postfix-wrapper(5)       - Postfix multi-instance API
+postkick(1)              - kick a Postfix service
+postlock(1)              - lock mail folder and execute command
+postlog(1)               - Postfix-compatible logging utility
+postmap(1)               - Postfix lookup table management
+postmulti(1)             - Postfix multi-instance manager
+postqueue(1)             - Postfix queue control
+postscreen(8)            - Postfix zombie blocker
+postsuper(1)             - Postfix superintendent
+powerd(1)                - Daemon that manages Energy Preferences
+pp(1)                    - PAR Packager
+ppdc(1)                  - cups ppd compiler (deprecated)
+ppdcfile(5)              - cups ppd compiler source file format
+ppdhtml(1)               - cups html summary generator (deprecated)
+ppdi(1)                  - import ppd files (deprecated)
+ppdmerge(1)              - merge ppd files (deprecated)
+ppdpo(1)                 - ppd message catalog generator (deprecated)
+pppd(8)                  - Point-to-Point Protocol Daemon
+pr(1)                    - print files
+praudit(1)               - print the contents of audit trail files
+priclass.d(1m)           - priority distribution by scheduling class. Uses DTrace
+pridist.d(1m)            - process priority distribution. Uses DTrace
+printenv(1)              - print out the environment
+printers.conf(5)         - printer configuration file for cups
+printf(1)                - formatted output
+printtool(8)             - a tool to perform privileged operations on the printing system
+prioqueue(n), struct::prioqueue(n) - Create and manipulate prioqueue objects
+proc(ntcl)               - Create a Tcl procedure
+procsystime(1m)          - analyse system call times. Uses DTrace
+productbuild(1)          - Build a product archive for the OS X Installer or the Mac App Store
+productsign(1)           - Sign an OS X Installer product archive
+productutil(8)           - product archive utility
+profiler(n)              - Tcl source code profiler
+profiles(1)              - Profiles Tool
+profiles(1)              - Profiles Tool for macOS
+protocols(5)             - protocol name data base
+prove(1)                 - Run tests through a TAP harness
+proxymap(8)              - Postfix lookup table proxy server
+ps(1)                    - process status
+psed(1)                  - a stream editor
+pt(n)                    - Parser Tools Application
+pt_astree(n), pt::ast(n) - Abstract Syntax Tree Serialization
+pt_cparam_config_critcl(n), pt::cparam::configuration::critcl(n) - C/PARAM, Canned configuration, Critcl
+pt_from_api(n), pt_import_api(n) - Parser Tools Import API
+pt_introduction(n)       - Introduction to Parser Tools
+pt_json_language(n), pt::json_language(n) - The JSON Grammar Exchange Format
+pt_param(n), pt::param(n) - PackRat Machine Specification
+pt_parser_api(n)         - Parser API
+pt_peg_container(n), pt::peg::container(n) - PEG Storage
+pt_peg_container_peg(n), pt::peg::container::peg(n) - PEG Storage. Canned PEG grammar specification
+pt_peg_export(n), pt::peg::export(n) - PEG Export
+pt_peg_export_container(n), pt::peg::export::container(n) - PEG Export Plugin. Write CONTAINER format
+pt_peg_export_json(n), pt::peg::export::json(n) - PEG Export Plugin. Write JSON format
+pt_peg_export_peg(n), pt::peg::export::peg(n) - PEG Export Plugin. Write PEG format
+pt_peg_from_container(n), pt::peg::from::container(n) - PEG Conversion. From CONTAINER format
+pt_peg_from_json(n), pt::peg::from::json(n) - PEG Conversion. Read JSON format
+pt_peg_from_peg(n), pt::peg::from::peg(n) - PEG Conversion. Read PEG format
+pt_peg_import(n), pt::peg::import(n) - PEG Import
+pt_peg_import_container(n), pt::peg::import::container(n) - PEG Import Plugin. From CONTAINER format
+pt_peg_import_json(n), pt::peg::import::json(n) - PEG Import Plugin. Read JSON format
+pt_peg_import_peg(n), pt::peg::import::peg(n) - PEG Import Plugin. Read PEG format
+pt_peg_interp(n), pt::peg::interp(n) - Interpreter for parsing expression grammars
+pt_peg_introduction(n), pt::pegrammar(n) - Introduction to Parsing Expression Grammars
+pt_peg_language(n), pt::peg_language(n) - PEG Language Tutorial
+pt_peg_to_container(n), pt::peg::to::container(n) - PEG Conversion. Write CONTAINER format
+pt_peg_to_cparam(n), pt::peg::to::cparam(n) - PEG Conversion. Write CPARAM format
+pt_peg_to_json(n), pt::peg::to::json(n) - PEG Conversion. Write JSON format
+pt_peg_to_param(n), pt::peg::to::param(n) - PEG Conversion. Write PARAM format
+pt_peg_to_peg(n), pt::peg::to::peg(n) - PEG Conversion. Write PEG format
+pt_peg_to_tclparam(n), pt::peg::to::tclparam(n) - PEG Conversion. Write TCLPARAM format
+pt_pegrammar(n), pt::peg(n) - Parsing Expression Grammar Serialization
+pt_pexpr_op(n), pt::pe::op(n) - Parsing Expression Utilities
+pt_pexpression(n), pt::pe(n) - Parsing Expression Serialization
+pt_pgen(n), pt::pgen(n)  - Parser Generator
+pt_rdengine(n), pt::rde(n) - Parsing Runtime Support, PARAM based
+pt_tclparam_config_snit(n), pt::tclparam::configuration::snit(n) - Tcl/PARAM, Canned configuration, Snit
+pt_tclparam_config_tcloo(n), pt::tclparam::configuration::tcloo(n) - Tcl/PARAM, Canned configuration, Tcloo
+pt_to_api(n), pt_export_api(n) - Parser Tools Export API
+ptar(1),     ptar(1)     - a tar-like program written in perl
+ptar5.18(1),     ptar(1) - a tar-like program written in perl
+ptardiff(1)              - program that diffs an extracted archive against an unextracted one
+ptargrep(1)              - Apply pattern matching to the contents of files in a tar archive
+pty(4)                   - pseudo terminal driver
+pubsub(1)                - Utility for managing RSS/Atom subscriptions via the PubSub framework
+purge(8)                 - force disk cache to be purged (flushed and emptied)
+puts(ntcl)               - Write to a channel
+pwd(1)                   - return working directory name
+pwd(ntcl)                - Return the absolute path of the current working directory
+pwd_mkdb(8)              - generate the password databases
+pwhich(1)                - Perl-only `which'
+pwpolicy(8)              - gets and sets password policies
+pydoc(1)                 - the Python documentation tool
+python(1)                - an interpreted, interactive, object-oriented programming language
+pythonw(1)               - run python script allowing GUI
+qc2movie(1)              - Quartz Composer export tool
+qcomplex(n), math::complexnumbers(n) - Straightforward complex number package
+qlmanage(1)              - Quick Look Server debug and management tool
+qmgr(8)                  - Postfix queue manager
+qmqpd(8)                 - Postfix QMQP server
+qtmodernizer(1)          - Tool to convert legacy movies to modern format with minimal changes
+queue(n), struct::queue(n) - Create and manipulate queue objects
+quota(1)                 - display disk usage and limits
+quotacheck(8)            - filesystem quota consistency checker
+quotaon(8), quotaoff(8)  - turn filesystem quotas on and off
+quoted-printable(n)      - Encoding "quoted-printable"
+racoon(8)                - IKE (ISAKMP/Oakley) key management daemon
+racoon.conf(5)           - configuration file for racoon
+radiobutton(ntcl)        - Create and manipulate radiobutton widgets
+raise(ntcl)              - Change a window's position in the stacking order
+random(4)                - , urandom random data source devices
+random(n)                - Create and manipulate randomizer channels
+rapportd(8)              - Rapport Daemon
+rarpd(8)                 - Reverse ARP Daemon
+rational_funcs(n), math::rationalfunctions(n) - Polynomial functions
+rc4(n)                   - Implementation of the RC4 stream cipher
+rcs(n)                   - RCS low level utilities
+re_format(7)             - POSIX 1003.2 regular expressions
+re_syntax(ntcl)          - Syntax of Tcl regular expressions
+read(ntcl)               - Read from a channel
+readlink(1), stat(1)     - display file status
+receive(n), term::receive(n) - General input from terminals
+receiver(n), transfer::receiver(n) - Data source
+recentsd(8)              - recentsd daemon
+record(n), struct::record(n) - Define and create records (similar to 'C' structures)
+refchan(ntcl)            - Command handler API of reflected channels, version 1
+refer(1)                 - preprocess bibliographic references for groff
+regexp(ntcl)             - Match a regular expression against a string
+regexp_table(5)          - format of Postfix regular expression tables
+registry(ntcl)           - Manipulate the Windows registry
+regsub(ntcl)             - Perform substitutions based on regular expression pattern matching
+relocated(5)             - Postfix relocated table format
+remotemanagementd(1)     - MDM Version 2 protocol daemon
+rename(ntcl)             - Rename or delete a command
+renice(8)                - alter priority of running processes
+repeat(n), textutil::repeat(n) - Procedures to repeat strings
+report(n)                - Create and manipulate report objects
+repquota(8)              - summarize quotas for a file system
+resolver(5)              - resolver configuration file format
+rest(n)                  - define REST web APIs and call them inline or asychronously
+return(ntcl)             - Return from a procedure, or set return code of a script
+rev(1)                   - reverse lines of a file
+reversetemplated(8)      - daemon that processes user content in order to detect events
+revisiond(8)             - storage manager for document revisions
+ri(1)                    - Ruby API reference front end
+ripemd128(n)             - RIPEMD-128 Message-Digest Algorithm
+ripemd160(n)             - RIPEMD-160 Message-Digest Algorithm
+rm(1), unlink(1)         - remove directory entries
+rmdir(1)                 - remove directories
+rmic(1)                  - Java RMI stub compiler
+rmid(1)                  - RMI activation system daemon
+rmiregistry(1)           - Java remote object registry
+roff(7)                  - concepts and history of roff typesetting
+roman(n), math::roman(n) - Tools for creating and manipulating roman numerals
+romberg(n), math::calculus::romberg(n) - Romberg integration
+rotatelogs(8)            - Piped logging program to rotate Apache logs
+route(4)                 - kernel packet forwarding database
+route(8)                 - manually manipulate the routing tables
+routined(8)              - A daemon that learns the historical location patterns of a user
+rpc(5)                   - rpc program number data base
+rpc.lockd(8)             - NFS file locking daemon
+rpc.rquotad(8), rquotad(8) - remote quota server
+rpc.statd(8)             - host status monitoring daemon
+rpcinfo(8)               - report RPC information
+rpcsvchost(8)            - hosting environment for DCE/RPC services
+rs(1)                    - reshape a data array
+rs_ecc(n)                - Reed-Solomon error correcting code
+rsync(1)                 - faster, flexible replacement for rcp
+rsyncd.conf(5)           - configuration file for rsync in daemon mode
+rtadvd(8)                - router advertisement daemon
+rtadvd.conf(5)           - config file for router advertisement daemon
+rtcore(n), fileutil::magic::rt(n) - Runtime core for file type recognition engines written in pure Tcl
+rtsold(8)                - router solicitation daemon
+ruby(1)                  - Interpreted object-oriented scripting language
+rwbypid.d(1m)            - read/write calls by PID. Uses DTrace
+rwbytype.d(1m)           - read/write bytes by vnode type. Uses DTrace
+rwsnoop(1m)              - snoop read/write events. Uses DTrace
+sa(8)                    - print system accounting statistics
+sample(1)                - Profile a process during a time interval
+sampleproc(1m)           - sample processes on the CPUs. Uses DTrace
+sandbox(7)               - overview of the sandbox facility
+sandbox-exec(1)          - execute within a sandbox (DEPRECATED)
+sandboxd(8)              - sandbox daemon
+say(1)                   - Convert text to audible speech
+sc_usage(1)              - show system call usage statistics
+scache(8)                - Postfix shared connection cache server
+scale(ntcl)              - Create and manipulate scale widgets
+scan(ntcl)               - Parse string using conversion specifiers in the style of sscanf
+scandeps.pl(1)           - Scan file prerequisites
+schemagen(1)             - Java(TM) Architecture for XML Binding Schema Generator Specification Version: 2.0 Reference Implementation (RI) Version: 2.0 ea3 l
+scope(n)                 - capture the namespace context for a variable
+scp(1)                   - secure copy (remote file copy program)
+screen(1)                - screen manager with VT100/ANSI terminal emulation
+screencapture(1)         - capture images from the screen and save them to a file or the clipboard
+screencaptureui(8)       - screencapture daemon
+screensharingd(8)        - listens for VNC connections from clients
+script(1)                - make typescript of terminal session
+scrollbar(ntcl)          - Create and manipulate scrollbar widgets
+scselect(8)              - Select system configuration location
+scsid(8)                 - SCSI subsystem daemon
+scutil(8)                - Manage system configuration parameters
+sdiff(1)                 - side-by-side merge of file differences
+sdx(1)                   - Starkit Developer eXtension
+secd(8)                  - centralised keychain agent
+secinitd(8)              - The security policy initialization daemon
+security-checksystem(8)  - validate system keychain
+security-sysdiagnose(1)  - Command line interface do dump keychain related information in sysdiagnose
+securityd_service(8)     - helper process to securityd to unlock keybag
+securityuploadd(8)       - Keychain Metrics Uploader
+sed(1)                   - stream editor
+seek(ntcl)               - Change the access position for an open channel
+seeksize.d(1m)           - print disk event seek report. Uses DTrace
+seld(8)                  - Secure element manager daemon
+selection(ntcl)          - Manipulate the X selection
+send(ntcl)               - Execute a command in a different application
+sendmail(1)              - Postfix to Sendmail compatibility interface
+seq(1)                   - print sequences of numbers
+serialver(1)             - serial version command
+servertool(1)            - The Java(TM) IDL Server Tool servertool provides an ease-of-use interface for application programmers to register, unregister, startup and shutdown a server
+services(5)              - service name data base
+set(ntcl)                - Read and write variables
+setkey(8)                - manually manipulate the IPsec SA/SP database
+setquota(1)              - Sets home directory quotas on the local computer
+setuids.d(1m)            - snoop setuid calls as they occur. Uses DTrace
+sftp(1)                  - secure file transfer program
+sftp-server(8)           - SFTP server subsystem
+sha(n)                   - Message digest "sha"
+sha1(n)                  - SHA1 Message-Digest Algorithm
+sha1_otp(n)              - Message digest "sha1_otp"
+sha256(n)                - SHA256 Message-Digest Algorithm
+shar(1)                  - create a shell archive of files
+shasum(1)                - Print or Check SHA Checksums
+shells(5)                - shell database
+shlock(1)                - create or verify a lock file for shell scripts
+showmount(8)             - show remote NFS mounts on host
+showq(8)                 - list the Postfix mail queue
+shutdown(8)              - close down the system at a given time
+sigdist.d(1m)            - signal distribution by process. Uses DTrace
+signpost_reporter(8)     - Report telemetry on intervals instrumented with os_signpost to Apple
+silhouette(8)            - Generate local search topics on the device
+simulation_random(n), simulation::random(n) - Pseudo-random number generators
+sips(1)                  - scriptable image processing system
+skiplist(n), struct::skiplist(n) - Create and manipulate skiplists
+skywalkctl(8)            - Interact with Skywalk subsystem
+slapacl(8)               - Check access to a list of attributes
+slapadd(8)               - Add entries to a SLAPD database
+slapauth(8)              - Check a list of string-represented IDs for LDAP authc/authz
+slapcat(8)               - SLAPD database to LDIF utility
+slapd(8)                 - Stand-alone LDAP Daemon
+slapd-bdb(5), slapd-hdb(5) - Berkeley DB backends to slapd
+slapd-config(5)          - configuration backend to slapd
+slapd-dnssrv(5)          - DNS SRV referral backend to slapd
+slapd-ldap(5)            - LDAP backend to slapd
+slapd-ldbm(5)            - Discontinued LDBM backend to slapd
+slapd-ldif(5)            - LDIF backend to slapd
+slapd-mdb(5)             - Memory-Mapped DB backend to slapd
+slapd-meta(5)            - metadirectory backend to slapd
+slapd-monitor(5)         - Monitor backend to slapd
+slapd-ndb(5)             - MySQL NDB backend to slapd
+slapd-null(5)            - Null backend to slapd
+slapd-passwd(5)          - /etc/passwd backend to slapd
+slapd-perl(5)            - Perl backend to slapd
+slapd-relay(5)           - relay backend to slapd
+slapd-shell(5)           - Shell backend to slapd
+slapd-sock(5)            - Socket backend/overlay to slapd
+slapd-sql(5)             - SQL backend to slapd
+slapd.access(5)          - access configuration for slapd, the stand-alone LDAP daemon
+slapd.backends(5)        - backends for slapd, the stand-alone LDAP daemon
+slapd.conf(5)            - configuration file for slapd, the stand-alone LDAP daemon
+slapd.overlays(5)        - overlays for slapd, the stand-alone LDAP daemon
+slapd.plugin(5)          - plugin configuration for slapd, the stand-alone LDAP daemon
+slapdn(8)                - Check a list of string-represented LDAP DNs based on schema syntax
+slapindex(8)             - Reindex entries in a SLAPD database
+slapo-accesslog(5)       - Access Logging overlay to slapd
+slapo-auditlog(5)        - Audit Logging overlay to slapd
+slapo-chain(5)           - chain overlay to slapd
+slapo-collect(5)         - Collective attributes overlay to slapd
+slapo-constraint(5)      - Attribute Constraint Overlay to slapd
+slapo-dds(5)             - Dynamic Directory Services overlay to slapd
+slapo-dyngroup(5)        - Dynamic Group overlay to slapd
+slapo-dynlist(5)         - Dynamic List overlay to slapd
+slapo-memberof(5)        - Reverse Group Membership overlay to slapd
+slapo-pbind(5)           - proxy bind overlay to slapd
+slapo-pcache(5)          - proxy cache overlay to slapd
+slapo-ppolicy(5)         - Password Policy overlay to slapd
+slapo-refint(5)          - Referential Integrity overlay to slapd
+slapo-retcode(5)         - return code overlay to slapd
+slapo-rwm(5)             - rewrite/remap overlay to slapd
+slapo-sssvlv(5)          - Server Side Sorting and Virtual List View overlay to slapd
+slapo-syncprov(5)        - Sync Provider overlay to slapd
+slapo-translucent(5)     - Translucent Proxy overlay to slapd
+slapo-unique(5)          - Attribute Uniqueness overlay to slapd
+slapo-valsort(5)         - Value Sorting overlay to slapd
+slappasswd(8)            - OpenLDAP password utility
+slapschema(8)            - SLAPD in-database schema checking utility
+slaptest(8)              - Check the suitability of the OpenLDAP slapd configuration
+sleep(1)                 - suspend execution for an interval of time
+smb-sync-preferences(8)  - synchronize SMB server preferences
+smbd(8)                  - SMB server daemon
+smbdiagnose(8)           - gather information to aid in diagnosing SMB file sharing issues
+smbutil(1)               - interface to the SMB requester
+smd(8)                   - ServiceManagement framework daemon
+smtp(8)                  - Postfix SMTP+LMTP client
+smtp(n)                  - Client-side tcl implementation of the smtp protocol
+smtpd(8)                 - Postfix SMTP server
+smtpd(n)                 - Tcl SMTP server implementation
+snit(n)                  - Snit's Not Incr Tcl
+snitfaq(n)               - Snit Frequently Asked Questions
+snmp-bridge-mib(1)       - provide Linux bridge information via SNMP
+snmp.conf(5)             - configuration files for the Net-SNMP applications
+snmp.conf(5)             - snmp configuration file for cups
+snmp_config(5)           - handling of Net-SNMP configuration files
+snmpbulkget(1)           - communicates with a network entity using SNMP GETBULK requests
+snmpbulkwalk(1)          - retrieve a subtree of management values using SNMP GETBULK requests
+snmpcmd(1)               - options and behaviour common to most of the Net-SNMP command-line tools
+snmpconf(1)              - creates and modifies SNMP configuration files
+snmpd(8)                 - daemon to respond to SNMP request packets
+snmpd.conf(5)            - configuration file for the Net-SNMP SNMP agent
+snmpd.examples(5)        - example configuration for the Net-SNMP agent
+snmpd.internal(5)        - internal configuration of the Net-SNMP agent
+snmpdelta(1)             - Monitor delta differences in SNMP Counter values
+snmpdf(1)                - display disk space usage on a network entity via SNMP
+snmpget(1)               - communicates with a network entity using SNMP GET requests
+snmpgetnext(1)           - communicates with a network entity using SNMP GETNEXT requests
+snmpnetstat(1)           - display networking status and configuration information from a network entity via SNMP
+snmpset(1)               - communicates with a network entity using SNMP SET requests
+snmpstatus(1)            - retrieves a fixed set of management information from a network entity
+snmptable(1)             - retrieve an SNMP table and display it in tabular form
+snmptest(1)              - communicates with a network entity using SNMP requests
+snmptranslate(1)         - translate MIB OID names between numeric and textual forms
+snmptrap(1), snmpinform(1) - sends an SNMP notification to a manager
+snmptrapd(8)             - Receive and log SNMP trap messages
+snmptrapd.conf(5)        - configuration file for the Net-SNMP notification receiver
+snmpusm(1)               - creates and maintains SNMPv3 users on a network entity
+snmpvacm(1)              - creates and maintains SNMPv3 View-based Access Control entries on a network entity
+snmpwalk(1)              - retrieve a subtree of management values using SNMP GETNEXT requests
+sntp(1)                  - standard Simple Network Time Protocol client program
+socket(ntcl)             - Open a TCP network connection
+socketfilterfw(8)        - Application Firewall daemon
+socketmap_table(5)       - Postfix socketmap table lookup client
+soelim(1)                - interpret .so requests in groff input
+softwareupdate(8)        - system software update tool
+sort(1)                  - sort or merge records (lines) of text and binary files
+soundex(n)               - Soundex
+source(ntcl)             - Evaluate a file or resource as a Tcl script
+spawn(8)                 - Postfix external command spawner
+spctl(8)                 - SecAssessment system policy security
+special(n), math::special(n) - Special mathematical functions
+spfd(1)                  - simple forking daemon to provide SPF query services
+spfquery(1)              - (Mail::SPF) - Checks if a given set of e-mail parameters matches a domain's SPF policy
+spinbox(ntcl)            - Create and manipulate spinbox widgets
+spindump(8)              - Profile entire system during a time interval
+spindump_agent(8)        - helper agent for spindump(8)
+split(1)                 - split a file into pieces
+split(ntcl)              - Split a string into a proper Tcl list
+spray(8)                 - send many packets to host
+sqlite3(1)               - A command line interface for SQLite version 3
+sqlite_table(5)          - Postfix SQLite configuration
+ssh(1)                   - OpenSSH SSH client (remote login program)
+ssh-add(1)               - adds private key identities to the authentication agent
+ssh-agent(1)             - authentication agent
+ssh-copy-id(1)           - use locally available keys to authorise logins on a remote machine
+ssh-keychain(8), ssh-keychain.dylib(8) - smartcard/keychain support library
+ssh-keygen(1)            - authentication key generation, management and conversion
+ssh-keyscan(1)           - gather SSH public keys
+ssh-keysign(8)           - ssh helper program for host-based authentication
+ssh-pkcs11-helper(8)     - ssh-agent helper program for PKCS#11 support
+ssh_config(5)            - OpenSSH SSH client configuration files
+sshd(8)                  - OpenSSH SSH daemon
+sshd_config(5)           - OpenSSH SSH daemon configuration file
+stack(n), struct::stack(n) - Create and manipulate stack objects
+startupdiskhelper(8)     - helper for the Startup Disk preference pane
+statistics(n), math::statistics(n) - Basic statistical functions and procedures
+stf(4)                   - 6to4 tunnel interface
+sticky(7)                - sticky text and append-only directories
+stooop(n)                - Object oriented extension
+storagekitd(8)           - helper for the StorageKit framework
+store(9), subyte(9), suibyte(9), suiword(9), sulong(9), suulong(9), suword(9) - store data to user-space
+string(ntcl)             - Manipulate strings
+stringdups(1)            - Identify duplicate strings or other objects in malloc blocks of a target process
+stringprep(n)            - Implementation of stringprep
+stringprep_data(n), stringprep::data(n) - stringprep data tables, generated, internal
+struct_list(n), struct::list(n) - Procedures for manipulating lists
+struct_set(n), struct::set(n) - Procedures for manipulating sets
+struct_tree(n), struct::tree(n) - Create and manipulate tree objects
+struct_tree1(n), struct::tree v1(n) - Create and manipulate tree objects
+structure(n), doctools::toc::structure(n) - Doctoc serialization utilities
+stty(1)                  - set the options for a terminal device interface
+style(9)                 - kernel source file style guide
+su(1)                    - substitute user identity
+subscriptions.conf(5)    - subscription configuration file for cups
+subst(ntcl)              - Perform backslash, command, and variable substitutions
+sudo(8), sudoedit(8)     - execute a command as another user
+sudoers(5)               - default sudo security policy plugin
+suexec(8)                - Switch user before executing external programs
+suggestd(8)              - daemon that processes user content in order to detect contacts, events, named entities, etc
+suhelperd(8)             - Helper daemon for softwareupdate - no user initiated interface
+sum(n)                   - Calculate a sum(1) compatible checksum
+sw_vers(1)               - print Mac OS X operating system version information
+swaplist(n)              - A dialog which allows a user to move options between two lists
+swcd(8)                  - Shared Web Credentials Daemon
+swd(1)                   - Tool used to debug Sleep Wake failures
+switch(ntcl)             - Evaluate one of several scripts, depending on a given value
+symlink(7)               - symbolic link handling
+symptomsd(8)             - Symptom framework service daemon
+sync(8)                  - force completion of pending disk writes (flush cache)
+syncdefaultsd(8)         - NSUbiquitousKeyValueStore
+syscallbypid.d(1m)       - syscalls by process ID. Uses DTrace
+syscallbyproc.d(1m)      - syscalls by process name. Uses DTrace
+syscallbysysc.d(1m)      - syscalls by syscall. Uses DTrace
+sysctl(8)                - get or set kernel state
+sysctl.conf(5)           - kernel state defaults
+sysdiagnose_agent(8)     - performs UI related operations for sysdiagnose
+sysdiagnose_helper(8)    - performs critical operations for sysdiagnose
+syslog(1)                - Apple System Log utility
+syslog.conf(5)           - syslogd(8) configuration file
+syslogd(8)               - Apple System Log server
+sysmond(8)               - system monitor daemon
+system_installd(8)       - macOS software installation daemon
+system_profiler(8)       - reports system hardware and software configuration
+systemkeychain(8)        - creates system keychains and allows keychains to unlock keychains
+systemsetup(8)           - configuration tool for certain machine settings in System Preferences
+systemstats(8)           - summarize system stats
+systemstats_boot(8)      - initialize system stats
+tab2space(1)             - Utility to expand tabs and ensure consistent line endings
+tabify(n), textutil::tabify(n) - Procedures to (un)tabify strings
+tabs(1)                  - set terminal tabs
+tail(1)                  - display the last part of a file
+tailspin(1)              - configure, save and print tailspin output
+tailspind(8)             - helper daemon for tailspin(1)
+talagent(8)              - helper agent for the Transparent App Lifecycle feature
+talk(1)                  - talk to another user
+tar(1)                   - manipulate tape archives
+tar(n)                   - Tar file creation, extraction & manipulation
+taskgated-helper(8)      - taskgated helper process
+taskinfo(1)              - display policy information from kernel
+taskpolicy(8)            - execute a program with an altered I/O or scheduling policy or change settings of already running process
+tbl(1)                   - format tables for troff
+tbtdiagnose(1)           - - collects diagnostic information to help troubleshoot Thunderbolt issues
+tccutil(1)               - manage the privacy database
+tcl_parse(n), doctools::tcl::parse(n) - Processing text in 'subst -novariables' format
+tcldom(n), ::dom::DOMImplementation(n) - Tcl language binding for the W3C Document Object Model
+tcllib_dns(n), dns(n)    - Tcl Domain Name Service Client
+tcllib_interp(n), interp(n) - Interp creation and aliasing
+tcllib_ip(n)             - IPv4 and IPv6 address manipulation
+tcllib_msgcat(n), doctools::msgcat(n) - Message catalog management for the various document parsers
+tclsh(1tcl)              - Simple shell containing Tcl interpreter
+tcltest(ntcl)            - Test harness support code and utilities
+tclvars(ntcl)            - Variables used by Tcl
+tclxml(n), ::xml::parser(n) - XML parser support for Tcl
+tcp(4)                   - Internet Transmission Control Protocol
+tcp_table(5)             - Postfix client/server table lookup protocol
+tcpdump(1)               - dump traffic on a network
+tcsh(1)                  - C shell with file name completion and command line editing
+tee(1)                   - pipe fitting
+tell(ntcl)               - Return current access position for an open channel
+tepam_argument_dialogbox(n), tepam::argument_dialogbox(n) - TEPAM argument_dialogbox, reference manual
+tepam_introduction(n), tepam(n) - An introduction into TEPAM, Tcl's Enhanced Procedure and Argument Manager
+tepam_procedure(n), tepam::procedure(n) - TEPAM procedure, reference manual
+term(5)                  - format of compiled term file
+term(7)                  - conventions for naming terminal types
+term(n)                  - General terminal control
+term_bind(n), term::receive::bind(n) - Keyboard dispatch from terminals
+term_send(n), term::send(n) - General output to terminals
+terminfo(5)              - terminal capability data base
+termios(4)               - general terminal line discipline
+test(1), [(1)            - condition evaluation utility
+texi2dvi(1)              - print Texinfo documents
+texindex(1)              - sort Texinfo index files
+texinfo(5)               - software documentation system
+text(ntcl), tk_textCopy(ntcl), tk_textCut(ntcl), tk_textPaste(ntcl) - Create and manipulate text widgets
+textutil(1)              - text utility
+textutil(n)              - Procedures to manipulate texts and strings
+textutil_split(n), textutil::split(n) - Procedures to split texts
+textutil_string(n), textutil::string(n) - Procedures to manipulate texts and strings
+tfmtodit(1)              - create font files for use with groff -Tdvi
+tftp(1)                  - trivial file transfer program
+tftpd(8)                 - DARPA Internet Trivial File Transfer Protocol server
+thread(n)                - Extension for script access to Tcl threading
+tic(1m)                  - the terminfo entry-description compiler
+tidy(1)                  - validate, correct, and pretty-print HTML files
+tie(n)                   - Array persistence
+tie(n)                   - Array persistence, standard data sources
+tiff(n)                  - TIFF reading, writing, and querying and manipulation of meta data
+tiff2icns(1)             - converts TIFF to icns format
+tiffutil(1), - tiffutil(1) - manipulates tiff files
+time(1)                  - time command execution
+time(ntcl)               - Time the execution of a script
+timed(8)                 - time synchronization daemon
+timerfires(1)            - analyze timers as they fire
+tk(ntcl)                 - Manipulate Tk internal state
+tkTable(n), table(n)     - Create and manipulate tables
+tk_chooseColor(ntcl)     - pops up a dialog box for the user to select a color
+tk_chooseDirectory(ntcl) - pops up a dialog box for the user to select a directory
+tk_dialog(ntcl)          - Create modal dialog and wait for response
+tk_focusNext(ntcl), tk_focusPrev(ntcl), tk_focusFollowsMouse(ntcl) - Utility procedures for managing the input focus
+tk_getOpenFile(ntcl), tk_getSaveFile(ntcl) - pop up a dialog box for the user to select a file to open or save
+tk_getString(n), getstring(n) - A string dialog
+tk_menuBar(ntcl), tk_bindForTraversal(ntcl) - Obsolete support for menu bars
+tk_messageBox(ntcl)      - pops up a message window and waits for user response
+tk_optionMenu(ntcl)      - Create an option menubutton and its menu
+tk_popup(ntcl)           - Post a popup menu
+tk_setPalette(ntcl), tk_bisque(ntcl) - Modify the Tk color palette
+tkcon(1)                 - Tk console replacement
+tkcon(n)                 - Controlling TkCon console
+tkconrc(5)               - TkCon resource file
+tkerror(ntcl)            - Command invoked to process background errors
+tklib_history(n), history(n) - Provides a history for Entry widgets
+tkmib(1)                 - an interactive graphical MIB browser for SNMP
+tkpp(1)                  - frontend to pp written in Perl/Tk
+tkvars(ntcl)             - Variables used or set by Tk
+tkwait(ntcl)             - Wait for variable to change or window to be destroyed
+tlsmgr(8)                - Postfix TLS session cache and PRNG manager
+tlsproxy(8)              - Postfix TLS proxy
+tm(ntcl)                 - Facilities for locating and loading of Tcl Modules
+tmdiagnose(8)            - gather information to aid in diagnosing Time Machine issues
+tmutil(8)                - Time Machine utility
+tnameserv(1)             - Java IDL name server starter script
+toe(1m)                  - table of (terminfo) entries
+tooltip(n)               - Tooltip management
+top(1)                   - display and update sorted information about processes
+toplevel(ntcl)           - Create and manipulate toplevel widgets
+tops(1)                  - perform in-place substitutions on code
+topsyscall(1m)           - top syscalls by syscall name. Uses DTrace
+topsysproc(1m)           - top syscalls by process name. Uses DTrace
+torque(1)                - ./" ./" Launches one or more child processes, each of which performs a series of bandwidth intensive operations, and after completion reports the bandwidth actually achieved by each operation during a period when all operation streams were executing simultaneously. ./" ./"
+touch(1)                 - change file access and modification times
+touristd(8)              - Tourist Daemon
+tpool(n)                 - Part of the Tcl threading extension implementing pools of worker threads
+tput(1), reset(1)        - initialize a terminal or query terminfo database
+tqueue(n), transfer::copy::queue(n) - Queued transfers
+tr(1)                    - translate characters
+trace(1)                 - configure, record, and display kernel trace events
+trace(ntcl)              - Monitor variable accesses, command usages and command executions
+traceroute(8)            - print the route packets take to network host
+traceroute6(8)           - print the route IPv6 packets will take to a network node
+transform(n)             - Tcl level transformations
+transmitter(n), transfer::transmitter(n) - Data source
+transport(5)             - Postfix transport table format
+traptoemail(1)           - snmptrapd handler script to convert snmp traps into emails
+traverse(n), fileutil_traverse(n) - Iterative directory traversal
+treeql(n)                - Query tree objects
+treereg(1)               - Compiler for Tree Regular Expressions
+trf(n), trf-intro(n)     - Introduction to Trf
+trim(n), textutil::trim(n) - Procedures to trim strings
+trimforce(8)             - enable TRIM commands on third-party drives
+trivial-rewrite(8)       - Postfix address rewriting and resolving daemon
+troff(1)                 - the troff processor of the groff text formatting system
+true(1)                  - Return true value
+tset(1), reset(1)        - terminal initialization
+tsort(1)                 - topological sort of a directed graph
+tsv(n)                   - Part of the Tcl threading extension allowing script level manipulation of data shared between threads
+ttk::button(ntcl)        - Widget that issues a command when pressed
+ttk::checkbutton(ntcl)   - On/off widget
+ttk::combobox(ntcl)      - text field with popdown selection list
+ttk::entry(ntcl)         - Editable text field widget
+ttk::frame(ntcl)         - Simple container widget
+ttk::intro(ntcl)         - Introduction to the Tk theme engine
+ttk::label(ntcl)         - Display a text string and/or image
+ttk::labelframe(ntcl)    - Container widget with optional label
+ttk::menubutton(ntcl)    - Widget that pops down a menu when pressed
+ttk::notebook(ntcl)      - Multi-paned container widget
+ttk::panedwindow(ntcl)   - Multi-pane container window
+ttk::progressbar(ntcl)   - Provide progress feedback
+ttk::radiobutton(ntcl)   - Mutually exclusive option widget
+ttk::scale(ntcl)         - Create and manipulate a scale widget
+ttk::scrollbar(ntcl)     - Control the viewport of a scrollable widget
+ttk::separator(ntcl)     - Separator bar
+ttk::sizegrip(ntcl)      - Bottom-right corner resize widget
+ttk::spinbox(ntcl)       - Selecting text field widget
+ttk::style(ntcl)         - Manipulate style database
+ttk::treeview(ntcl)      - hierarchical multicolumn data display widget
+ttk::widget(ntcl)        - Standard options and commands supported by Tk themed widgets
+ttk_image(ntcl)          - Define an element based on an image
+ttk_vsapi(ntcl)          - Define a Microsoft Visual Styles element
+ttrace(n)                - Trace-based interpreter initialization
+tty(1)                   - return user's terminal name
+tty(4)                   - general terminal interface
+ttys(5)                  - terminal initialization information
+types(5)                 - system data types
+tzfile(5)                - timezone information
+uasysdiagnose(8), uasysdiagone(8) - Produce system diagnostics for UserActivity.framework
+udp(4)                   - Internet User Datagram Protocol
+uevent(n)                - User events
+uevent_onidle(n), uevent::onidle(n) - Request merging and deferal to idle time
+ul(1)                    - do underlining
+umount(8)                - unmount filesystems
+uname(1)                 - Print operating system name
+unbound(8)               - Unbound DNS validating resolver 1.5.1
+unbound.conf(5)          - Unbound configuration file
+unicode(n)               - Implementation of Unicode normalization
+unicode_data(n), unicode::data(n) - unicode data tables, generated, internal
+uniq(1)                  - report or filter out repeated lines in a file
+units(1)                 - conversion program
+units(n)                 - unit conversion
+universalaccessd(8)      - universal access server
+unix(4)                  - UNIX-domain protocol family
+unknown(ntcl)            - Handle attempts to use non-existent commands
+unload(ntcl)             - Unload machine code
+unpack200(1)             - JAR Unpacking tool
+unset(ntcl)              - Delete variables
+unstack(n)               - Unstacking channels
+unvis(1)                 - revert a visual representation of data back to original form
+unzip(1)                 - list, test and extract compressed files in a ZIP archive
+unzipsfx(1)              - self-extracting stub for prepending to ZIP archives
+update(ntcl)             - Process pending events and idle callbacks
+update_dyld_shared_cache(1) - Updates dyld's shared cache
+uplevel(ntcl)            - Execute a script in a different stack frame
+upsshutdown(8)           - UPS emergency low power shutdown script
+uptime(1)                - show how long system has been running
+upvar(ntcl)              - Create link to variable in a different stack frame
+uri(n)                   - URI utilities
+urn-scheme(n), uri_urn(n) - URI utilities, URN scheme
+usbcupdater(8)           - update the USB-C subsystem components
+usbd(8)                  - daemon for USB devices
+usbkdp(1)                - USB KDP Tool
+usernoted(8)             - Notification Center daemon
+users(1)                 - list current users
+usual(n)                 - access default option-handling commands for a mega-widget component
+utf2(5)                  - Universal character set Transformation Format encoding of runes
+utf8(5)                  - UTF-8, a transformation format of ISO 10646
+utmp(5), wtmp(5), lastlog(5) - login records (DEPRECATED)
+utmpx(5)                 - user accounting database
+uuchk(8)                 - display information read from the UUCP configuration files
+uucico(8)                - UUCP file transfer daemon
+uuconv(1)                - convert UUCP configuration files
+uucp(1)                  - Unix to Unix copy
+uudecode(1), uuencode(1) - encode/decode a binary file
+uuencode(5)              - file format uuencode description of the uuencode file format
+uuencode(n)              - UU-encode/decode binary data
+uuid(n)                  - UUID generation and comparison
+uuidgen(1)               - generates new UUID strings
+uulog(1)                 - display entries in the UUCP log file
+uuname(1)                - list remote UUCP sites
+uupick(1)                - retrieve files transferred by uuto
+uusched(8)               - schedule the uucp file transport program
+uustat(1)                - UUCP status inquiry and control
+uuto(1)                  - send files to a particular user on a remote system
+uux(1)                   - Remote command execution over UUCP
+uuxqt(8)                 - UUCP execution daemon
+variable(ntcl)           - create and initialize a namespace variable
+variables(5)             - Format of specifying variable names to SNMP tools
+verify(8)                - Postfix address verification server
+vfs(n)                   - Filesystem management in Tcl
+vfs-filesystems(n)       - Filesystems provided by tclvfs
+vfs-fsapi(n)             - API for the implementation of a filesystem in Tcl
+vifs(8)                  - safely edit fstab
+vim(1)                   - Vi IMproved, a programmer's text editor
+vimdiff(1)               - edit two, three or four versions of a file with Vim and show differences
+vimtutor(1)              - the Vim tutor
+vipw(8)                  - edit the password file
+virtual(5)               - Postfix virtual alias table format
+virtual(8)               - Postfix virtual domain mail delivery agent
+vis(1)                   - display non-printable characters in a visual format
+visudo(8)                - edit the sudoers file
+vm_stat(1)               - show Mach virtual memory statistics
+vmmap(1)                 - Display the virtual memory regions allocated in a process
+vpnd(5)                  - Mac OS X VPN Remote Access Server File
+vpnd(8)                  - Mac OS X VPN service daemon
+vsdbutil(8)              - manipulates the volume status DB
+vwait(ntcl)              - Process events until a variable is written
+w(1)                     - display who is logged in and what they are doing
+wait4path(1)             - wait for given path to show up in the namespace
+wall(1)                  - write a message to users
+warmd_agent(8)           - general helper tool
+watchdogd(8)             - watchdog daemon
+wc(1)                    - word, line, character, and byte count
+wdutil(8)                - Wireless Diagnostics command line utility
+weakpass_edit(8)         - Mac OS X Server Password Server weak password dictionary insertion tool
+wfsctl(8)                - WebDAV File Sharing control utility
+what(1)                  - show what versions of object modules were used to construct a file
+whatis(1)                - search the whatis database for complete words
+whereis(1)               - locate programs
+which(1)                 - locate a program file in the user's path
+while(ntcl)              - Execute script repeatedly as long as a condition is met
+who(1)                   - display who is logged in
+whoami(1)                - display effective user id
+whois(1)                 - Internet domain name and network number directory service
+widget(n)                - Megawidget package
+widget_calendar(n)       - widget::calendar Megawidget
+widget_toolbar(n)        - widget::toolbar Megawidget
+wifiFirmwareLoader(8)    - load wifi firmware to chip
+wifid(8)                 - wifid daemon
+wifivelocityd(8)         - launchd daemon for the WiFiVelocity framework
+winfo(ntcl)              - Return window-related information
+wip(n)                   - Word Interpreter
+wish(1tcl)               - Simple windowing shell
+wm(ntcl)                 - Communicate with window manager
+wps(8)                   - Wireless Protected Setup daemon
+write(1)                 - send a message to another user
+wsgen(1)                 - JAX-WS 2.0
+wsimport(1)              - JAX-WS 2.0
+xar(1)                   - eXtensible ARchiver
+xargs(1)                 - construct argument list(s) and execute utility
+xattr(1)                 - display and manipulate extended attributes
+xcode-select(1)          - Manages the active developer directory for Xcode and BSD tools. rst2man-indent-level 0 1 rstReportMargin \$1 \n[an-margin] level \n[rst2man-indent-level] level margin: \n[rst2man-indent\n[rst2man-indent-level]] - \n[rst2man-indent0] \n[rst2man-indent1] \n[rst2man-indent2] . 1 INDENT RS \$1 nr rst2man-indent\n[rst2man-indent-level] \n[an-margin] nr rst2man-indent-level +1 . UNINDENT RE rst2man-indent-level -1 \n[rst2man-indent\n[rst2man-indent-level]]u
+xgettext.pl(1)           - Extract translatable strings from source
+xip(1)                   - Create or expand a secure archive for secure distribution
+xjc(1)                   - Java XML Binding Compiler
+xml2-config(1)           - script to get information about the installed version of GNOME-XML
+xmlcatalog(1)            - Command line tool to parse and manipulate XML or SGML catalog files
+xmllint(1)               - command line XML tool
+xpchelper(8)             - XPC helper agent
+xpcproxy(8)              - configures the execution environment for XPC services
+xpcservice.plist(5)      - XPC Service configuration keys and values
+xprintf(5)               - extensible printf
+xscertd-helper(8)        - xscertd helper process
+xsltproc(1)              - command line XSLT processor
+xsubpp(1)                - compiler to convert Perl XS code into C code
+xsxp(n)                  - eXtremely Simple Xml Parser
+xxd(1)                   - make a hexdump or do the reverse
+yaa(1)                   - Manipulate YAA archives
+yaml(n)                  - YAML Format Encoder/Decoder
+yencode(n)               - Y-encode/decode binary data
+yes(1)                   - be repetitively affirmative
+yp(8)                    - description of the YP/NIS system
+zcmp(1), zdiff(1)        - compare compressed files
+zdump(8)                 - timezone dumper
+zero(n)                  - Create and manipulate zero channels
+zforce(1)                - force gzip files to have a.gz suffix
+zic(8)                   - timezone compiler
+zip(1)                   - package and compress (archive) files
+zip(n)                   - Data compression "zip"
+zipcloak(1)              - encrypt entries in a zipfile
+zipdetails(1)            - display the internal structure of zip files
+zipgrep(1)               - search files in a ZIP archive for lines matching a pattern
+zipinfo(1)               - list detailed information about a ZIP archive
+zipnote(1)               - write the comments in zipfile to stdout, edit comments and rename files in zipfile
+zipsplit(1)              - split a zipfile into smaller zipfiles
+zmore(1), zless(1)       - view compressed files
+znew(1)                  - convert compressed files to gzipped files
+zprint(1)                - show information about kernel zones
+zsh(1)                   - the Z shell
+zshall(1)                - the Z shell meta-man page
+zshbuiltins(1)           - zsh built-in commands
+zshcompctl(1)            - zsh programmable completion
+zshcompsys(1)            - zsh completion system
+zshcompwid(1)            - zsh completion widgets
+zshcontrib(1)            - user contributions to zsh
+zshexpn(1)               - zsh expansion and substitution
+zshmisc(1)               - everything and then some
+zshmodules(1)            - zsh loadable modules
+zshoptions(1)            - zsh options
+zshparam(1)              - zsh parameters
+zshroadmap(1)            - informal introduction to the zsh manual The Zsh Manual, like the shell itself, is large and often complicated. This section of the manual provides some pointers to areas of the shell that are likely to be of particular interest to new users, and indicates where in the rest of the manual the documentation is to be found
+zshtcpsys(1)             - zsh tcp system
+zshzftpsys(1)            - zftp function front-end
+zshzle(1)                - zsh command line editor
